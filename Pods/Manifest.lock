@@ -1,7 +1,7 @@
 PODS:
-  - FLAnimatedImage (1.0.10)
-  - LTMorphingLabel (0.1.0)
-  - MBProgressHUD (0.9.1)
+  - FLAnimatedImage (1.0.12)
+  - LTMorphingLabel (0.2.0)
+  - MBProgressHUD (0.9.2)
 
 DEPENDENCIES:
   - FLAnimatedImage
@@ -9,8 +9,8 @@ DEPENDENCIES:
   - MBProgressHUD
 
 SPEC CHECKSUMS:
-  FLAnimatedImage: e16a1e1cef08e4c509b47e4acbe3923f65c16135
-  LTMorphingLabel: 36fd7fddcc5cd50d7a464b4ce80d3010a4357234
-  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  LTMorphingLabel: 490aa8e079f9247c7f3130f7d4b1be1d66677377
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
 
 COCOAPODS: 0.39.0

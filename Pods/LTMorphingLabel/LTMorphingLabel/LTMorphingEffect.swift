@@ -3,7 +3,7 @@
 //  https://github.com/lexrus/LTMorphingLabel
 //
 //  The MIT License (MIT)
-//  Copyright (c) 2015 Lex Tang, http://lexrus.com
+//  Copyright (c) 2016 Lex Tang, http://lexrus.com
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files
@@ -28,7 +28,7 @@
 import UIKit
 
 
-@objc public enum LTMorphingEffect : Int, CustomStringConvertible {
+@objc public enum LTMorphingEffect: Int, CustomStringConvertible {
 
     case Scale = 0
     case Evaporate
@@ -60,4 +60,5 @@ import UIKit
             return "Scale"
         }
     }
+
 }

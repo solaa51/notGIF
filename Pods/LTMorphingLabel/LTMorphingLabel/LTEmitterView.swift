@@ -3,7 +3,7 @@
 //  https://github.com/lexrus/LTMorphingLabel
 //
 //  The MIT License (MIT)
-//  Copyright (c) 2015 Lex Tang, http://lexrus.com
+//  Copyright (c) 2016 Lex Tang, http://lexrus.com
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files
@@ -32,8 +32,8 @@ public struct LTEmitter {
     
     let layer: CAEmitterLayer = {
         let layer = CAEmitterLayer()
-        layer.emitterPosition = CGPointMake(10, 10)
-        layer.emitterSize = CGSizeMake(10, 1)
+        layer.emitterPosition = CGPoint(x: 10, y: 10)
+        layer.emitterSize = CGSize(width: 10, height: 1)
         layer.renderMode = kCAEmitterLayerOutline
         layer.emitterShape = kCAEmitterLayerLine
         return layer
@@ -68,8 +68,10 @@ public struct LTEmitter {
 
         image = UIImage(named: particleName)
 
+        if image != nil {
+            return
+        }
         // Load from Framework
-        if image != nil { return }
         image = UIImage(
             named: particleName,
             inBundle: NSBundle(forClass: LTMorphingLabel.self),

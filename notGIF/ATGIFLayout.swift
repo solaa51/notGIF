@@ -8,15 +8,16 @@
 
 import UIKit
 
-protocol ATGIFLayoutDelegate {
-    // Method to ask the delegate for the height of the image
+// MARK: - ATGIFLayoutDelegate
+protocol ATGIFLayoutDelegate: class {   //  'class' shows the protocol will be used only on classes and no other stuff like enums or structs.
     func collectionView(collectionView:UICollectionView, sizeForPhotoAtIndexPath indexPath: NSIndexPath) -> CGSize
     func collectionView(collectionView:UICollectionView, sizesForPhotosAtSameRow indexPath: NSIndexPath) -> [CGSize]
 }
 
+// MARK: - ATGIFLayout
 class ATGIFLayout: UICollectionViewLayout {
     
-    var delegate: ATGIFLayoutDelegate!
+    weak var delegate: ATGIFLayoutDelegate!
     
     // Configurable properties
     let numberOfColumns = 2
@@ -69,7 +70,7 @@ class ATGIFLayout: UICollectionViewLayout {
             contentHeight = max(contentHeight, CGRectGetMaxY(frame))
             yOffset[column] = yOffset[column] + height
             
-            column = column >= (numberOfColumns - 1) ? 0 : ++column
+            column = column >= (numberOfColumns - 1) ? 0 : column + 1
         }
     }
     

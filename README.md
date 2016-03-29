@@ -1,6 +1,9 @@
-# notGIF
-Show GIFs in Photos
+## notGIF
+Show GIFs in Photos 
 
 Demo:
 
-![demo](https://github.com/atuooo/notGIF/blob/master/notGIF/demo.gif)
+![demo](https://github.com/atuooo/notGIF/blob/master/demo.gif)
+
+	It pronounced "JIF", not "GIF".
+						--- Steve Wilhite 

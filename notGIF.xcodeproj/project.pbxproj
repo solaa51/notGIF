@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		5D4DE53B4EB2748F6210A0B1 /* Pods_notGIF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6F37F193D5014C19FD4EC0 /* Pods_notGIF.framework */; };
 		C97E96FF1C28157D004D74E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E96FE1C28157D004D74E8 /* AppDelegate.swift */; };
-		C97E97141C28157D004D74E8 /* notGIFTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E97131C28157D004D74E8 /* notGIFTests.swift */; };
-		C97E971F1C28157D004D74E8 /* notGIFUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E971E1C28157D004D74E8 /* notGIFUITests.swift */; };
 		C97E973B1C28248A004D74E8 /* ATGIFLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E97331C28248A004D74E8 /* ATGIFLayout.swift */; };
 		C97E973C1C28248A004D74E8 /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E97341C28248A004D74E8 /* GuideView.swift */; };
 		C97E973D1C28248A004D74E8 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E97351C28248A004D74E8 /* PhotoCell.swift */; };
@@ -18,14 +16,13 @@
 		C97E973F1C28248A004D74E8 /* PullToRefreshLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E97371C28248A004D74E8 /* PullToRefreshLabelView.swift */; };
 		C97E97451C2824A9004D74E8 /* ATGIFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E97421C2824A9004D74E8 /* ATGIFViewController.swift */; };
 		C97E974B1C2824B7004D74E8 /* GIFLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E97481C2824B7004D74E8 /* GIFLibrary.swift */; };
-		C97E974C1C2824B7004D74E8 /* PhotosProposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E97491C2824B7004D74E8 /* PhotosProposer.swift */; };
 		C97E97531C2824CF004D74E8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97E974F1C2824CF004D74E8 /* Launch Screen.storyboard */; };
 		C97E97541C2824CF004D74E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97E97501C2824CF004D74E8 /* Main.storyboard */; };
 		C97E97601C2826AD004D74E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C97E975F1C2826AD004D74E8 /* Assets.xcassets */; };
 		C97E976E1C282975004D74E8 /* Kenia-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C97E976C1C282975004D74E8 /* Kenia-Regular.ttf */; };
 		C97E976F1C282975004D74E8 /* Shojumaru-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C97E976D1C282975004D74E8 /* Shojumaru-Regular.ttf */; };
-		C98CA2621C35326F00543671 /* UIImage+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98CA2611C35326F00543671 /* UIImage+Crop.swift */; };
 		C98CA2641C35329A00543671 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98CA2631C35329A00543671 /* UIColor+Hex.swift */; };
+		C9CB9B5F1CAA652100C12D20 /* demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = C9CB9B5E1CAA652100C12D20 /* demo.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,11 +48,7 @@
 		C97E96FB1C28157D004D74E8 /* notGIF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = notGIF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97E96FE1C28157D004D74E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = notGIF/AppDelegate.swift; sourceTree = "<group>"; };
 		C97E970F1C28157D004D74E8 /* notGIFTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = notGIFTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C97E97131C28157D004D74E8 /* notGIFTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notGIFTests.swift; sourceTree = "<group>"; };
-		C97E97151C28157D004D74E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C97E971A1C28157D004D74E8 /* notGIFUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = notGIFUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C97E971E1C28157D004D74E8 /* notGIFUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notGIFUITests.swift; sourceTree = "<group>"; };
-		C97E97201C28157D004D74E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C97E97331C28248A004D74E8 /* ATGIFLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ATGIFLayout.swift; path = notGIF/ATGIFLayout.swift; sourceTree = "<group>"; };
 		C97E97341C28248A004D74E8 /* GuideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GuideView.swift; path = notGIF/GuideView.swift; sourceTree = "<group>"; };
 		C97E97351C28248A004D74E8 /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoCell.swift; path = notGIF/PhotoCell.swift; sourceTree = "<group>"; };
@@ -63,7 +56,6 @@
 		C97E97371C28248A004D74E8 /* PullToRefreshLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PullToRefreshLabelView.swift; path = notGIF/PullToRefreshLabelView.swift; sourceTree = "<group>"; };
 		C97E97421C2824A9004D74E8 /* ATGIFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ATGIFViewController.swift; path = notGIF/ATGIFViewController.swift; sourceTree = "<group>"; };
 		C97E97481C2824B7004D74E8 /* GIFLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GIFLibrary.swift; path = notGIF/GIFLibrary.swift; sourceTree = "<group>"; };
-		C97E97491C2824B7004D74E8 /* PhotosProposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotosProposer.swift; path = notGIF/PhotosProposer.swift; sourceTree = "<group>"; };
 		C97E974E1C2824CF004D74E8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = notGIF/Info.plist; sourceTree = "<group>"; };
 		C97E974F1C2824CF004D74E8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "notGIF/Launch Screen.storyboard"; sourceTree = "<group>"; };
 		C97E97501C2824CF004D74E8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = notGIF/Main.storyboard; sourceTree = "<group>"; };
@@ -76,8 +68,8 @@
 		C97E97691C2827CB004D74E8 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		C97E976C1C282975004D74E8 /* Kenia-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kenia-Regular.ttf"; sourceTree = "<group>"; };
 		C97E976D1C282975004D74E8 /* Shojumaru-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Shojumaru-Regular.ttf"; sourceTree = "<group>"; };
-		C98CA2611C35326F00543671 /* UIImage+Crop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Crop.swift"; path = "notGIF/UIImage+Crop.swift"; sourceTree = "<group>"; };
 		C98CA2631C35329A00543671 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Hex.swift"; path = "notGIF/UIColor+Hex.swift"; sourceTree = "<group>"; };
+		C9CB9B5E1CAA652100C12D20 /* demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo.gif; sourceTree = "<group>"; };
 		DC6F37F193D5014C19FD4EC0 /* Pods_notGIF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_notGIF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -133,12 +125,12 @@
 		C97E96F21C28157D004D74E8 = {
 			isa = PBXGroup;
 			children = (
+				C9CB9B5E1CAA652100C12D20 /* demo.gif */,
 				C97E972F1C28242B004D74E8 /* Controllers */,
 				C97E97301C282434004D74E8 /* Views */,
-				C97E97311C282444004D74E8 /* Models */,
+				C97E97311C282444004D74E8 /* Helpers */,
 				C97E972E1C282377004D74E8 /* Supporting files */,
 				C97E96FC1C28157D004D74E8 /* Products */,
-				C97E972C1C28162D004D74E8 /* Tests */,
 				C10E30E611CE5F5D572812FB /* Pods */,
 			);
 			sourceTree = "<group>";
@@ -151,33 +143,6 @@
 				C97E971A1C28157D004D74E8 /* notGIFUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		C97E97121C28157D004D74E8 /* notGIFTests */ = {
-			isa = PBXGroup;
-			children = (
-				C97E97131C28157D004D74E8 /* notGIFTests.swift */,
-				C97E97151C28157D004D74E8 /* Info.plist */,
-			);
-			path = notGIFTests;
-			sourceTree = "<group>";
-		};
-		C97E971D1C28157D004D74E8 /* notGIFUITests */ = {
-			isa = PBXGroup;
-			children = (
-				C97E971E1C28157D004D74E8 /* notGIFUITests.swift */,
-				C97E97201C28157D004D74E8 /* Info.plist */,
-			);
-			path = notGIFUITests;
-			sourceTree = "<group>";
-		};
-		C97E972C1C28162D004D74E8 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				C97E971D1C28157D004D74E8 /* notGIFUITests */,
-				C97E97121C28157D004D74E8 /* notGIFTests */,
-			);
-			name = Tests;
 			sourceTree = "<group>";
 		};
 		C97E972E1C282377004D74E8 /* Supporting files */ = {
@@ -205,24 +170,21 @@
 		C97E97301C282434004D74E8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C97E97331C28248A004D74E8 /* ATGIFLayout.swift */,
+				C9CB9B5D1CAA558B00C12D20 /* Layout */,
 				C97E97341C28248A004D74E8 /* GuideView.swift */,
-				C97E97351C28248A004D74E8 /* PhotoCell.swift */,
 				C97E97361C28248A004D74E8 /* PopDetailView.swift */,
 				C97E97371C28248A004D74E8 /* PullToRefreshLabelView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
 		};
-		C97E97311C282444004D74E8 /* Models */ = {
+		C97E97311C282444004D74E8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				C97E97481C2824B7004D74E8 /* GIFLibrary.swift */,
-				C97E97491C2824B7004D74E8 /* PhotosProposer.swift */,
-				C98CA2611C35326F00543671 /* UIImage+Crop.swift */,
 				C98CA2631C35329A00543671 /* UIColor+Hex.swift */,
 			);
-			name = Models;
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		C97E976B1C282975004D74E8 /* Fonts */ = {
@@ -232,6 +194,15 @@
 				C97E976D1C282975004D74E8 /* Shojumaru-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		C9CB9B5D1CAA558B00C12D20 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				C97E97351C28248A004D74E8 /* PhotoCell.swift */,
+				C97E97331C28248A004D74E8 /* ATGIFLayout.swift */,
+			);
+			name = Layout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,7 +271,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = HBGHZ85ABK;
 				TargetAttributes = {
 					C97E96FA1C28157D004D74E8 = {
@@ -342,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C97E97541C2824CF004D74E8 /* Main.storyboard in Resources */,
+				C9CB9B5F1CAA652100C12D20 /* demo.gif in Resources */,
 				C97E97531C2824CF004D74E8 /* Launch Screen.storyboard in Resources */,
 				C97E97601C2826AD004D74E8 /* Assets.xcassets in Resources */,
 				C97E976E1C282975004D74E8 /* Kenia-Regular.ttf in Resources */,
@@ -418,14 +390,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C97E974C1C2824B7004D74E8 /* PhotosProposer.swift in Sources */,
 				C97E96FF1C28157D004D74E8 /* AppDelegate.swift in Sources */,
 				C97E97451C2824A9004D74E8 /* ATGIFViewController.swift in Sources */,
 				C97E973F1C28248A004D74E8 /* PullToRefreshLabelView.swift in Sources */,
 				C97E973E1C28248A004D74E8 /* PopDetailView.swift in Sources */,
 				C97E973D1C28248A004D74E8 /* PhotoCell.swift in Sources */,
 				C98CA2641C35329A00543671 /* UIColor+Hex.swift in Sources */,
-				C98CA2621C35326F00543671 /* UIImage+Crop.swift in Sources */,
 				C97E973B1C28248A004D74E8 /* ATGIFLayout.swift in Sources */,
 				C97E974B1C2824B7004D74E8 /* GIFLibrary.swift in Sources */,
 				C97E973C1C28248A004D74E8 /* GuideView.swift in Sources */,
@@ -436,7 +406,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C97E97141C28157D004D74E8 /* notGIFTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,7 +413,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C97E971F1C28157D004D74E8 /* notGIFUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,8 +449,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: JinWei Shi (HBGHZ85ABK)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: JinWei Shi (HBGHZ85ABK)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -504,7 +472,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "fe170567-c499-4cea-b9e7-63f258fdc73f";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -527,8 +495,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: JinWei Shi (HBGHZ85ABK)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: JinWei Shi (HBGHZ85ABK)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -543,7 +511,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "fe170567-c499-4cea-b9e7-63f258fdc73f";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -555,7 +523,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = ATicon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: JinWei Shi (HBGHZ85ABK)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = (
@@ -573,7 +541,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = atuo.notGIF;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fe170567-c499-4cea-b9e7-63f258fdc73f";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = notGIF/notGIF_Bridging_Header.h;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -583,10 +551,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 216B71CC51308F1F83D2D4C1 /* Pods-notGIF.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = ATicon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: JinWei Shi (HBGHZ85ABK)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEPLOYMENT_POSTPROCESSING = YES;
 				ENABLE_BITCODE = NO;
 				GCC_OPTIMIZATION_LEVEL = s;
@@ -605,7 +572,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = atuo.notGIF;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fe170567-c499-4cea-b9e7-63f258fdc73f";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = notGIF/notGIF_Bridging_Header.h;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7s";

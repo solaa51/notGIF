@@ -11,7 +11,7 @@ import LTMorphingLabel
 
 public let labelFont = "Shojumaru-Regular"
 
-protocol PullToRefreshLabelViewDelegate {
+protocol PullToRefreshLabelViewDelegate: class {
     func refreshLabelViewDidComplete()
 }
 
@@ -23,7 +23,8 @@ class PullToRefreshLabelView: UIView, LTMorphingLabelDelegate {
     var refreshLabels = [LTMorphingLabel]()
     var attributedStrings = [NSAttributedString]()
     var labelFrames = [CGRect]()
-    var delegate : PullToRefreshLabelViewDelegate!
+    
+    weak var delegate : PullToRefreshLabelViewDelegate!
     
     override init(frame: CGRect) {
         super.init(frame: frame)

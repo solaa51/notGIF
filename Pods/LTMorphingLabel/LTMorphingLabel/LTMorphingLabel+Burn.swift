@@ -3,7 +3,7 @@
 //  https://github.com/lexrus/LTMorphingLabel
 //
 //  The MIT License (MIT)
-//  Copyright (c) 2015 Lex Tang, http://lexrus.com
+//  Copyright (c) 2016 Lex Tang, http://lexrus.com
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files
@@ -35,35 +35,44 @@ extension LTMorphingLabel {
         withProgress progress: CGFloat
         ) -> (UIImage, CGRect) {
             let maskedHeight = charLimbo.rect.size.height * max(0.01, progress)
-            let maskedSize = CGSizeMake( charLimbo.rect.size.width, maskedHeight)
+            let maskedSize = CGSize(
+                width: charLimbo.rect.size.width,
+                height: maskedHeight
+            )
             UIGraphicsBeginImageContextWithOptions(
                 maskedSize,
                 false,
                 UIScreen.mainScreen().scale
             )
-            let rect = CGRectMake(0, 0, charLimbo.rect.size.width, maskedHeight)
+            let rect = CGRect(
+                x: 0,
+                y: 0,
+                width: charLimbo.rect.size.width,
+                height: maskedHeight
+            )
             String(charLimbo.char).drawInRect(rect, withAttributes: [
                 NSFontAttributeName: self.font,
                 NSForegroundColorAttributeName: self.textColor
                 ])
             let newImage = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
-            let newRect = CGRectMake(
-                charLimbo.rect.origin.x,
-                charLimbo.rect.origin.y,
-                charLimbo.rect.size.width,
-                maskedHeight)
+            let newRect = CGRect(
+                x: charLimbo.rect.origin.x,
+                y: charLimbo.rect.origin.y,
+                width: charLimbo.rect.size.width,
+                height: maskedHeight
+            )
         return (newImage, newRect)
     }
     
     func BurnLoad() {
         
-        startClosures["Burn\(phaseStart)"] = {
+        startClosures["Burn\(LTMorphingPhases.Start)"] = {
             self.emitterView.removeAllEmitters()
         }
         
-        progressClosures["Burn\(phaseProgress)"] = {
-            (index: Int, progress: Float, isNewChar: Bool) in
+        progressClosures["Burn\(LTMorphingPhases.Progress)"] = {
+            index, progress, isNewChar in
             
             if !isNewChar {
                 return min(1.0, max(0.0, progress))
@@ -74,8 +83,8 @@ extension LTMorphingLabel {
             
         }
         
-        effectClosures["Burn\(phaseDisappear)"] = {
-            (char:Character, index: Int, progress: Float) in
+        effectClosures["Burn\(LTMorphingPhases.Disappear)"] = {
+            char, index, progress in
             
             return LTCharacterLimbo(
                 char: char,
@@ -86,21 +95,25 @@ extension LTMorphingLabel {
             )
         }
         
-        effectClosures["Burn\(phaseAppear)"] = {
-            (char:Character, index: Int, progress: Float) in
+        effectClosures["Burn\(LTMorphingPhases.Appear)"] = {
+            char, index, progress in
             
             if char != " " {
                 let rect = self.newRects[index]
-                let emitterPosition = CGPointMake(
-                    rect.origin.x + rect.size.width / 2.0,
-                    CGFloat(progress) * rect.size.height / 1.2 + rect.origin.y)
+                let emitterPosition = CGPoint(
+                    x: rect.origin.x + rect.size.width / 2.0,
+                    y: CGFloat(progress) * rect.size.height / 1.2 + rect.origin.y
+                )
                 
                 self.emitterView.createEmitter(
                     "c\(index)",
                     particleName: "Fire",
                     duration: self.morphingDuration
                     ) { (layer, cell) in
-                        layer.emitterSize = CGSizeMake(rect.size.width, 1)
+                        layer.emitterSize = CGSize(
+                            width: rect.size.width,
+                            height: 1
+                        )
                         layer.renderMode = kCAEmitterLayerAdditive
                         layer.emitterMode = kCAEmitterLayerOutline
                         cell.emissionLongitude = CGFloat(M_PI / 2.0)
@@ -126,7 +139,10 @@ extension LTMorphingLabel {
                     particleName: "Smoke",
                     duration: self.morphingDuration
                     ) { (layer, cell) in
-                        layer.emitterSize = CGSizeMake(rect.size.width, 10)
+                        layer.emitterSize = CGSize(
+                            width: rect.size.width,
+                            height: 10
+                        )
                         layer.renderMode = kCAEmitterLayerAdditive
                         layer.emitterMode = kCAEmitterLayerVolume
                         cell.emissionLongitude = CGFloat(M_PI / 2.0)
@@ -159,7 +175,7 @@ extension LTMorphingLabel {
             )
         }
         
-        drawingClosures["Burn\(phaseDraw)"] = {
+        drawingClosures["Burn\(LTMorphingPhases.Draw)"] = {
             (charLimbo: LTCharacterLimbo) in
             
             if charLimbo.drawingProgress > 0.0 {
@@ -176,7 +192,7 @@ extension LTMorphingLabel {
             return false
         }
         
-        skipFramesClosures["Burn\(phaseSkipFrames)"] = {
+        skipFramesClosures["Burn\(LTMorphingPhases.SkipFrames)"] = {
             return 1
         }
     }

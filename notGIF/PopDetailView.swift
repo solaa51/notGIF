@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol DetailViewDelegate {
+protocol DetailViewDelegate: class {
     // 当在显示 detailView 时 updateUI，UI会混乱
     func didDismissDetailView()
 }
 
 class PopDetailView: UIView {
     
-    var delegate : DetailViewDelegate!
+    weak var delegate : DetailViewDelegate!
    
     private var cellFrame = CGRect()
     private var finalFrame = CGRect()
@@ -41,7 +41,7 @@ class PopDetailView: UIView {
         
         super.init(frame: inView.frame)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: "goBack")
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(PopDetailView.goBack))
         self.addGestureRecognizer(tapGesture)
     }
     

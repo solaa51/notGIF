@@ -3,7 +3,7 @@
 //  https://github.com/lexrus/LTMorphingLabel
 //
 //  The MIT License (MIT)
-//  Copyright (c) 2015 Lex Tang, http://lexrus.com
+//  Copyright (c) 2016 Lex Tang, http://lexrus.com
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files
@@ -32,7 +32,7 @@ extension LTMorphingLabel {
     
     func AnvilLoad() {
         
-        startClosures["Anvil\(phaseStart)"] = {
+        startClosures["Anvil\(LTMorphingPhases.Start)"] = {
             self.emitterView.removeAllEmitters()
             
             guard self.newRects.count > 0 else { return }
@@ -44,10 +44,10 @@ extension LTMorphingLabel {
                 particleName: "Smoke",
                 duration: 0.6
                 ) { (layer, cell) in
-                    layer.emitterSize = CGSizeMake(1, 1)
-                    layer.emitterPosition = CGPointMake(
-                        centerRect.origin.x,
-                        centerRect.origin.y + centerRect.size.height / 1.3)
+                    layer.emitterSize = CGSize(width: 1, height: 1)
+                    layer.emitterPosition = CGPoint(
+                        x: centerRect.origin.x,
+                        y: centerRect.origin.y + centerRect.size.height / 1.3)
                     layer.renderMode = kCAEmitterLayerSurface
                     cell.emissionLongitude = CGFloat(M_PI / 2.0)
                     cell.scale = self.font.pointSize / 90.0
@@ -69,10 +69,10 @@ extension LTMorphingLabel {
                 particleName: "Smoke",
                 duration: 0.6
                 ) { (layer, cell) in
-                    layer.emitterSize = CGSizeMake(1, 1)
-                    layer.emitterPosition = CGPointMake(
-                        centerRect.origin.x,
-                        centerRect.origin.y + centerRect.size.height / 1.3)
+                    layer.emitterSize = CGSize(width: 1, height: 1)
+                    layer.emitterPosition = CGPoint(
+                        x: centerRect.origin.x,
+                        y: centerRect.origin.y + centerRect.size.height / 1.3)
                     layer.renderMode = kCAEmitterLayerSurface
                     cell.emissionLongitude = CGFloat(M_PI / 2.0)
                     cell.scale = self.font.pointSize / 90.0
@@ -94,10 +94,14 @@ extension LTMorphingLabel {
                 particleName: "Fragment",
                 duration: 0.6
                 ) { (layer, cell) in
-                    layer.emitterSize = CGSizeMake(self.font.pointSize, 1)
-                    layer.emitterPosition = CGPointMake(
-                        centerRect.origin.x,
-                        centerRect.origin.y + centerRect.size.height / 1.3)
+                    layer.emitterSize = CGSize(
+                        width: self.font.pointSize,
+                        height: 1
+                    )
+                    layer.emitterPosition = CGPoint(
+                        x: centerRect.origin.x,
+                        y: centerRect.origin.y + centerRect.size.height / 1.3
+                    )
                     cell.scale = self.font.pointSize / 90.0
                     cell.scaleSpeed = self.font.pointSize / 40.0
                     cell.color = self.textColor.CGColor
@@ -116,10 +120,13 @@ extension LTMorphingLabel {
                 particleName: "Fragment",
                 duration: 0.6
                 ) { (layer, cell) in
-                    layer.emitterSize = CGSizeMake(self.font.pointSize, 1)
-                    layer.emitterPosition = CGPointMake(
-                        centerRect.origin.x,
-                        centerRect.origin.y + centerRect.size.height / 1.3)
+                    layer.emitterSize = CGSize(
+                        width: self.font.pointSize,
+                        height: 1
+                    )
+                    layer.emitterPosition = CGPoint(
+                        x: centerRect.origin.x,
+                        y: centerRect.origin.y + centerRect.size.height / 1.3)
                     cell.scale = self.font.pointSize / 90.0
                     cell.scaleSpeed = self.font.pointSize / 40.0
                     cell.color = self.textColor.CGColor
@@ -138,10 +145,13 @@ extension LTMorphingLabel {
                 particleName: "Fragment",
                 duration: 0.6
                 ) { (layer, cell) in
-                    layer.emitterSize = CGSizeMake(self.font.pointSize, 1)
-                    layer.emitterPosition = CGPointMake(
-                        centerRect.origin.x,
-                        centerRect.origin.y + centerRect.size.height / 1.3)
+                    layer.emitterSize = CGSize(
+                        width: self.font.pointSize,
+                        height: 1
+                    )
+                    layer.emitterPosition = CGPoint(
+                        x: centerRect.origin.x,
+                        y: centerRect.origin.y + centerRect.size.height / 1.3)
                     cell.scale = self.font.pointSize / 90.0
                     cell.scaleSpeed = self.font.pointSize / 40.0
                     cell.color = self.textColor.CGColor
@@ -156,7 +166,7 @@ extension LTMorphingLabel {
             }
         }
         
-        progressClosures["Anvil\(phaseProgress)"] = {
+        progressClosures["Anvil\(LTMorphingPhases.Progress)"] = {
             (index: Int, progress: Float, isNewChar: Bool) in
             
             if !isNewChar {
@@ -168,8 +178,8 @@ extension LTMorphingLabel {
             
         }
         
-        effectClosures["Anvil\(phaseDisappear)"] = {
-            (char:Character, index: Int, progress: Float) in
+        effectClosures["Anvil\(LTMorphingPhases.Disappear)"] = {
+            char, index, progress in
             
             return LTCharacterLimbo(
                 char: char,
@@ -179,13 +189,13 @@ extension LTMorphingLabel {
                 drawingProgress: 0.0)
         }
         
-        effectClosures["Anvil\(phaseAppear)"] = {
-            (char:Character, index: Int, progress: Float) in
+        effectClosures["Anvil\(LTMorphingPhases.Appear)"] = {
+            char, index, progress in
             
             var rect = self.newRects[index]
             
             if progress < 1.0 {
-                let easingValue: Float = LTEasing.easeOutBounce(progress, 0.0, 1.0)
+                let easingValue = LTEasing.easeOutBounce(progress, 0.0, 1.0)
                 rect.origin.y = CGFloat(Float(rect.origin.y) * easingValue)
             }
             

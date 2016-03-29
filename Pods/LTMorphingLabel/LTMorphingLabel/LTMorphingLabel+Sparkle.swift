@@ -3,7 +3,7 @@
 //  https://github.com/lexrus/LTMorphingLabel
 //
 //  The MIT License (MIT)
-//  Copyright (c) 2015 Lex Tang, http://lexrus.com
+//  Copyright (c) 2016 Lex Tang, http://lexrus.com
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files 
@@ -35,34 +35,43 @@ extension LTMorphingLabel {
         withProgress progress: CGFloat
         ) -> (UIImage, CGRect) {
             let maskedHeight = charLimbo.rect.size.height * max(0.01, progress)
-            let maskedSize = CGSizeMake(charLimbo.rect.size.width, maskedHeight)
+            let maskedSize = CGSize(
+                width: charLimbo.rect.size.width,
+                height: maskedHeight
+            )
             UIGraphicsBeginImageContextWithOptions(
                 maskedSize,
                 false,
                 UIScreen.mainScreen().scale
             )
-            let rect = CGRectMake(0, 0, charLimbo.rect.size.width, maskedHeight)
+            let rect = CGRect(
+                x: 0,
+                y: 0,
+                width: charLimbo.rect.size.width,
+                height: maskedHeight
+            )
             String(charLimbo.char).drawInRect(rect, withAttributes: [
                 NSFontAttributeName: self.font,
                 NSForegroundColorAttributeName: self.textColor
                 ])
             let newImage = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
-            let newRect = CGRectMake(
-                charLimbo.rect.origin.x,
-                charLimbo.rect.origin.y,
-                charLimbo.rect.size.width,
-                maskedHeight)
+            let newRect = CGRect(
+                x: charLimbo.rect.origin.x,
+                y: charLimbo.rect.origin.y,
+                width: charLimbo.rect.size.width,
+                height: maskedHeight
+            )
             return (newImage, newRect)
     }
     
     func SparkleLoad() {
         
-        startClosures["Sparkle\(phaseStart)"] = {
+        startClosures["Sparkle\(LTMorphingPhases.Start)"] = {
             self.emitterView.removeAllEmitters()
         }
         
-        progressClosures["Sparkle\(phaseProgress)"] = {
+        progressClosures["Sparkle\(LTMorphingPhases.Progress)"] = {
             (index: Int, progress: Float, isNewChar: Bool) in
             
             if !isNewChar {
@@ -80,8 +89,8 @@ extension LTMorphingLabel {
             
         }
         
-        effectClosures["Sparkle\(phaseDisappear)"] = {
-            (char:Character, index: Int, progress: Float) in
+        effectClosures["Sparkle\(LTMorphingPhases.Disappear)"] = {
+            char, index, progress in
             
             return LTCharacterLimbo(
                 char: char,
@@ -91,21 +100,25 @@ extension LTMorphingLabel {
                 drawingProgress: 0.0)
         }
         
-        effectClosures["Sparkle\(phaseAppear)"] = {
-            (char:Character, index: Int, progress: Float) in
+        effectClosures["Sparkle\(LTMorphingPhases.Appear)"] = {
+            char, index, progress in
             
             if char != " " {
                 let rect = self.newRects[index]
-                let emitterPosition = CGPointMake(
-                    rect.origin.x + rect.size.width / 2.0,
-                    CGFloat(progress) * rect.size.height * 0.9 + rect.origin.y)
+                let emitterPosition = CGPoint(
+                    x: rect.origin.x + rect.size.width / 2.0,
+                    y: CGFloat(progress) * rect.size.height * 0.9 + rect.origin.y
+                )
 
                 self.emitterView.createEmitter(
                     "c\(index)",
                     particleName: "Sparkle",
                     duration: self.morphingDuration
                     ) { (layer, cell) in
-                        layer.emitterSize = CGSizeMake(rect.size.width, 1)
+                        layer.emitterSize = CGSize(
+                            width: rect.size.width,
+                            height: 1
+                        )
                         layer.renderMode = kCAEmitterLayerOutline
                         cell.emissionLongitude = CGFloat(M_PI / 2.0)
                         cell.scale = self.font.pointSize / 300.0
@@ -129,7 +142,7 @@ extension LTMorphingLabel {
             )
         }
         
-        drawingClosures["Sparkle\(phaseDraw)"] = {
+        drawingClosures["Sparkle\(LTMorphingPhases.Draw)"] = {
             (charLimbo: LTCharacterLimbo) in
             
             if charLimbo.drawingProgress > 0.0 {
@@ -146,7 +159,7 @@ extension LTMorphingLabel {
             return false
         }
         
-        skipFramesClosures["Sparkle\(phaseSkipFrames)"] = {
+        skipFramesClosures["Sparkle\(LTMorphingPhases.SkipFrames)"] = {
             return 1
         }
     }

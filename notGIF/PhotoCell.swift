@@ -8,14 +8,9 @@
 
 import UIKit
 
-class PhotoCell: UICollectionViewCell, NSCopying {
+class PhotoCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: FLAnimatedImageView!
     var shouldPlay = true
     var data = NSData()
-
-    func copyWithZone(zone: NSZone) -> AnyObject {
-        let copy = PhotoCell()
-        return copy
-    }
 }

@@ -42,24 +42,23 @@ class ATGIFViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setNavigation()
         collectionView?.backgroundColor = themeColor
         collectionView?.alwaysBounceVertical = true // set to show refreshControl when having little images
-        
-        // get gifs and set the UI
-        gifLibrary.registerChangeObserver(self)
-        updateUI()
-        
-        // add refreshControl
-        
-        refreshControl.tintColor = UIColor.clearColor()
-        self.collectionView?.addSubview(refreshControl)
-        
+        collectionView!.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    
         // set layout
         if let layout = collectionView?.collectionViewLayout as? ATGIFLayout {
             layout.delegate = self
         }
-        collectionView!.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        
+        setNavigation()
+        
+        refreshControl.tintColor = UIColor.clearColor()
+        self.collectionView?.addSubview(refreshControl)
+        
+        // observer GIFs and update the UI
+        gifLibrary.registerChangeObserver(self)
+        updateUI()
     }
     
     deinit {
@@ -100,8 +99,10 @@ extension ATGIFViewController {
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! PhotoCell
         let frame = self.collectionView!.convertRect(cell.frame, toView: self.view)
+        
         let popView = PopDetailView.init(frame: frame, inView: self.view, ofView: self.collectionView!, theCell: cell)
         self.view.addSubview(popView)
+        
         popView.showAnimation()
         isShowing = true
         popView.delegate = self
@@ -128,7 +129,7 @@ extension ATGIFViewController: ATGIFLayoutDelegate {
 
 // MARK: - PopDetailView Delegate
 extension ATGIFViewController: DetailViewDelegate {
-    func didDismissDetailView() { // 当在显示 detailView 时 updateUI，UI会混乱
+    func didDismissDetailView() { // 防止当在显示 detailView 时 updateUI，UI会混乱
         if didChange {
             updateUI()
             didChange = false
@@ -136,6 +137,35 @@ extension ATGIFViewController: DetailViewDelegate {
         }
     }
 }
+
+// MARK: - Pull To Refresh Delegate
+
+extension ATGIFViewController: PullToRefreshLabelViewDelegate {
+    
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        if refreshControl.refreshing {
+            if !didRefresh {     // To sure only show refresh view once
+                let refreshView = PullToRefreshLabelView(frame: CGRectMake(0, 0, self.view.frame.width, refreshControl.frame.height))
+                refreshView.delegate = self
+                refreshControl.addSubview(refreshView)
+                didRefresh = true
+                collectionView?.scrollEnabled = false
+            }
+        } else {
+            collectionView?.scrollEnabled = true
+            if didRefresh {
+                didRefresh = false
+            }
+        }
+    }
+    
+    // PullToRefreshLabelView Delegate
+    
+    func refreshLabelViewDidComplete() {
+        refreshControl.endRefreshing()
+    }
+}
+
 
 // MARK: - GIF Library Change Observer
 
@@ -164,19 +194,20 @@ extension ATGIFViewController: GIFLibraryChangeObserver {
                     self.view.addSubview(hud)
                     hud.dimBackground = true
                     
-                    hud.showAnimated(true, whileExecutingBlock: {
+                    hud.showAnimated(true, whileExecutingBlock: { [unowned self] in
                         self.imagesData = self.gifLibrary.fetchGIFData()
                         self.showIfNoGIF()
                         self.collectionView?.reloadData()
                         self.collectionView?.collectionViewLayout.invalidateLayout()
-                        }, onQueue: dispatch_get_main_queue(), completionBlock: {
+                    }, onQueue: dispatch_get_main_queue(), completionBlock: { [unowned self] in
                             // check if show GIF first time and show guide
-                            if !NSUserDefaults.standardUserDefaults().boolForKey(keyOfDidGuide) && !self.imagesData.isEmpty {
-                                self.showGuideView()
-                            }
+                        if !NSUserDefaults.standardUserDefaults().boolForKey(keyOfDidGuide) && !self.imagesData.isEmpty {
+                            self.showGuideView()
+                        }
                             
-                            hud.removeFromSuperview()
+                        hud.removeFromSuperview()
                     })
+                    
                 } else if status == .Denied || status == .Restricted {
                     self.showIfNotAuthorized()
                 }
@@ -238,7 +269,7 @@ extension ATGIFViewController: GIFLibraryChangeObserver {
     }
 }
 
-// MARK: - Set Guide
+// MARK: - Set GuideView
 extension ATGIFViewController {
     func showGuideView() {
         for view in (navigationController?.navigationBar.subviews)! {
@@ -259,7 +290,7 @@ extension ATGIFViewController {
 extension ATGIFViewController {
 
     func setAutoPlayButton() {
-        let autoPlayButton = UIBarButtonItem(barButtonSystemItem: .Pause, target: self, action: "diaTapAutoPlayButton")
+        let autoPlayButton = UIBarButtonItem(barButtonSystemItem: .Pause, target: self, action: #selector(ATGIFViewController.diaTapAutoPlayButton))
         self.navigationItem.setRightBarButtonItem(autoPlayButton, animated: true)
         self.navigationItem.rightBarButtonItem?.tintColor = buttonColor
     }
@@ -267,7 +298,7 @@ extension ATGIFViewController {
     func diaTapAutoPlayButton() {
         autoPlay = !autoPlay
         if autoPlay {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Pause, target: self, action: "diaTapAutoPlayButton")
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Pause, target: self, action: #selector(ATGIFViewController.diaTapAutoPlayButton))
         } else {
             if !NSUserDefaults.standardUserDefaults().boolForKey(keyOfDidGuide) {
                 for view in navigationController!.navigationBar.subviews {
@@ -283,7 +314,7 @@ extension ATGIFViewController {
                 }
             }
             
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Play, target: self, action: "diaTapAutoPlayButton")
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Play, target: self, action: #selector(ATGIFViewController.diaTapAutoPlayButton))
         }
         self.navigationItem.rightBarButtonItem?.tintColor = buttonColor
     }
@@ -300,34 +331,6 @@ extension ATGIFViewController {
     }
 }
 
-// MARK: - Pull To Refresh
-
-extension ATGIFViewController: PullToRefreshLabelViewDelegate {
-    
-    override func scrollViewDidScroll(scrollView: UIScrollView) {
-//        super.scrollViewDidScroll(scrollView)  // 为什么会报错
-        if refreshControl.refreshing {
-            if !didRefresh {     // To sure only show refresh view once
-                let refreshView = PullToRefreshLabelView(frame: CGRectMake(0, 0, self.view.frame.width, refreshControl.frame.height))
-                refreshView.delegate = self
-                refreshControl.addSubview(refreshView)
-                didRefresh = true
-                collectionView?.scrollEnabled = false 
-            }
-        } else {
-            collectionView?.scrollEnabled = true
-            if didRefresh {
-                didRefresh = false
-            }
-        }
-    }
-    
-    // PullToRefreshLabelView Delegate
-    
-    func refreshLabelViewDidComplete() {
-        refreshControl.endRefreshing()
-    }
-}
 
 
 

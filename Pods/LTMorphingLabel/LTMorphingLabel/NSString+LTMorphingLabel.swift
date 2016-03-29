@@ -3,7 +3,7 @@
 //  https://github.com/lexrus/LTMorphingLabel
 //
 //  The MIT License (MIT)
-//  Copyright (c) 2015 Lex Tang, http://lexrus.com
+//  Copyright (c) 2016 Lex Tang, http://lexrus.com
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files
@@ -28,7 +28,7 @@
 import Foundation
 
 
-public enum LTCharacterDiffType : Int, CustomDebugStringConvertible {
+public enum LTCharacterDiffType: Int, CustomDebugStringConvertible {
     
     case Same = 0
     case Add = 1
@@ -57,7 +57,7 @@ public enum LTCharacterDiffType : Int, CustomDebugStringConvertible {
 }
 
 
-public struct LTCharacterDiffResult : CustomDebugStringConvertible {
+public struct LTCharacterDiffResult: CustomDebugStringConvertible {
     
     public var diffType: LTCharacterDiffType = .Add
     public var moveOffset: Int = 0
@@ -83,7 +83,7 @@ public struct LTCharacterDiffResult : CustomDebugStringConvertible {
 }
 
 
-public func >>(lhs: String, rhs: String) -> [LTCharacterDiffResult] {
+public func >> (lhs: String, rhs: String) -> [LTCharacterDiffResult] {
     
     let newChars = rhs.characters.enumerate()
     let lhsLength = lhs.characters.count
@@ -155,7 +155,7 @@ public func >>(lhs: String, rhs: String) -> [LTCharacterDiffResult] {
         default:
             ()
         }
-        i++
+        i += 1
     }
     
     return diffResults

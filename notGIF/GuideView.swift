@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GuideView: UIView {
+class GuideView: UIView {   // PaintCode
 
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
