@@ -28,7 +28,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sm5-HS-6YE" customClass="FLAnimatedImageView">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sm5-HS-6YE" customClass="YLImageView">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </imageView>
@@ -42,7 +42,7 @@
                                     <constraint firstItem="Sm5-HS-6YE" firstAttribute="leading" secondItem="pku-0V-3AV" secondAttribute="leading" id="gOW-Ig-dLh"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="imageView" destination="Sm5-HS-6YE" id="jr9-PT-ala"/>
+                                    <outlet property="imageView" destination="Sm5-HS-6YE" id="G3U-CN-h7J"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

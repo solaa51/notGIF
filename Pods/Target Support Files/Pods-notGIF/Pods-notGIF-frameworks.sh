@@ -84,12 +84,12 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-notGIF/FLAnimatedImage.framework"
   install_framework "Pods-notGIF/LTMorphingLabel.framework"
   install_framework "Pods-notGIF/MBProgressHUD.framework"
+  install_framework "Pods-notGIF/YLGIFImage.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-notGIF/FLAnimatedImage.framework"
   install_framework "Pods-notGIF/LTMorphingLabel.framework"
   install_framework "Pods-notGIF/MBProgressHUD.framework"
+  install_framework "Pods-notGIF/YLGIFImage.framework"
 fi

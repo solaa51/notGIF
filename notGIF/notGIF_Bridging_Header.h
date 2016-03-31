@@ -9,8 +9,8 @@
 #ifndef ATGIF_Bridging_Header_h
 #define ATGIF_Bridging_Header_h
 
-#import "FLAnimatedImage.h"
-#import "FLAnimatedImageView.h"
+#import "YLGIFImage.h"
+#import "YLImageView.h"
 
 #import "MBProgressHUD.h"
 

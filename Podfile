@@ -3,9 +3,9 @@ use_frameworks!
 inhibit_all_warnings!
 
 target 'notGIF' do
-pod 'FLAnimatedImage'
 pod 'MBProgressHUD'
 pod 'LTMorphingLabel'
+pod 'YLGIFImage'
 end
 
 target 'notGIFTests' do

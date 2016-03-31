@@ -171,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				C9CB9B5D1CAA558B00C12D20 /* Layout */,
+				C97E97351C28248A004D74E8 /* PhotoCell.swift */,
 				C97E97341C28248A004D74E8 /* GuideView.swift */,
 				C97E97361C28248A004D74E8 /* PopDetailView.swift */,
 				C97E97371C28248A004D74E8 /* PullToRefreshLabelView.swift */,
@@ -199,7 +200,6 @@
 		C9CB9B5D1CAA558B00C12D20 /* Layout */ = {
 			isa = PBXGroup;
 			children = (
-				C97E97351C28248A004D74E8 /* PhotoCell.swift */,
 				C97E97331C28248A004D74E8 /* ATGIFLayout.swift */,
 			);
 			name = Layout;
@@ -529,7 +529,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Private/MBProgressHUD\"",
-					"\"${PODS_ROOT}/Headers/Private/FLAnimatedImage\"",
+					"\"${PODS_ROOT}/Headers/Private/YLGIFImage\"",
 				);
 				INFOPLIST_FILE = notGIF/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -539,7 +539,7 @@
 					"$(PROJECT_DIR)/SDKExport",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = atuo.notGIF;
+				PRODUCT_BUNDLE_IDENTIFIER = atuo.notGG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = notGIF/notGIF_Bridging_Header.h;
@@ -560,7 +560,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Private/MBProgressHUD\"",
-					"\"${PODS_ROOT}/Headers/Private/FLAnimatedImage\"",
+					"\"${PODS_ROOT}/Headers/Private/YLGIFImage\"",
 				);
 				INFOPLIST_FILE = notGIF/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -570,7 +570,7 @@
 					"$(PROJECT_DIR)/SDKExport",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = atuo.notGIF;
+				PRODUCT_BUNDLE_IDENTIFIER = atuo.notGG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = notGIF/notGIF_Bridging_Header.h;

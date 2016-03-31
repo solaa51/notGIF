@@ -9,6 +9,7 @@ import UIKit
 import ImageIO
 import Photos
 import LTMorphingLabel
+import Gifu
 
 private let reuseIdentifier = "Cell"
 private let keyOfDidGuide = "didGuide" // NSUserDefault: Check If show Guide
@@ -77,14 +78,13 @@ extension ATGIFViewController {
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PhotoCell
-        
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), { () -> Void in
-            let imageData = FLAnimatedImage.init(animatedGIFData: self.imagesData[indexPath.item])
-            cell.data = self.imagesData[indexPath.item]
+            let image = YLGIFImage(data: self.imagesData[indexPath.item])
+            cell.shouldPlay = self.autoPlay ? true : false
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                cell.imageView.animatedImage = imageData
+                cell.imageView.image = image
+                cell.imageView.highlighted = true
                 self.autoPlay ? cell.imageView.startAnimating() : cell.imageView.stopAnimating()
-                cell.shouldPlay = self.autoPlay ? true : false
             })
         })
         
@@ -113,15 +113,16 @@ extension ATGIFViewController {
 
 extension ATGIFViewController: ATGIFLayoutDelegate {
     func collectionView(collectionView:UICollectionView, sizeForPhotoAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return FLAnimatedImage.init(animatedGIFData: imagesData[indexPath.item]).size
+        return YLGIFImage(data: imagesData[indexPath.item])!.size
+//        return FLAnimatedImage.init(animatedGIFData: imagesData[indexPath.item]).size
     }
     
     func collectionView(collectionView: UICollectionView, sizesForPhotosAtSameRow indexPath: NSIndexPath) -> [CGSize] {
         if indexPath.item == imagesData.count - 1 {
-            return [FLAnimatedImage.init(animatedGIFData: imagesData[indexPath.item]).size]
+            return [YLGIFImage(data: imagesData[indexPath.item])!.size]
         } else {
-            let image0 = FLAnimatedImage.init(animatedGIFData: imagesData[indexPath.item]).size
-            let image1 = FLAnimatedImage.init(animatedGIFData: imagesData[indexPath.item + 1]).size
+            let image0 = YLGIFImage(data: imagesData[indexPath.item])!.size
+            let image1 = YLGIFImage(data: imagesData[indexPath.item+1])!.size
             return [image0, image1]
         }
     }

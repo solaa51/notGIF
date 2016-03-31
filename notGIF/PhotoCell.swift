@@ -7,10 +7,10 @@
 //
 
 import UIKit
+import Gifu
 
 class PhotoCell: UICollectionViewCell {
+    @IBOutlet weak var imageView: YLImageView!
     
-    @IBOutlet weak var imageView: FLAnimatedImageView!
     var shouldPlay = true
-    var data = NSData()
 }
