@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Gifu
 
 class PhotoCell: UICollectionViewCell {
     @IBOutlet weak var imageView: YLImageView!
