@@ -9,18 +9,16 @@ import UIKit
 import ImageIO
 import Photos
 import LTMorphingLabel
-import Gifu
 
 private let reuseIdentifier = "Cell"
-private let keyOfDidGuide = "didGuide" // NSUserDefault: Check If show Guide
-private let themeColor = UIColor.color(withHex: 0x444444, alpha: 0.5)
-private let fontColor = UIColor.color(withHex: 0xFBFBFB, alpha: 0.95)
+private let themeColor  = UIColor.color(withHex: 0x444444, alpha: 0.5)
+private let fontColor   = UIColor.color(withHex: 0xFBFBFB, alpha: 0.95)
 private let buttonColor = UIColor.grayColor()
 
 class ATGIFViewController: UICollectionViewController {
     
-    var imagesData = [NSData]()
-    var gifLibrary = GIFLibrary()
+    var precachedGIFs = [YLGIFImage]()
+    var gifLibrary    = GIFLibrary()
     
     var refreshControl = UIRefreshControl()
     
@@ -38,7 +36,7 @@ class ATGIFViewController: UICollectionViewController {
         }
     }
     
-    // MARK: -
+    // MARK: - life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,16 +71,15 @@ class ATGIFViewController: UICollectionViewController {
 extension ATGIFViewController {
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imagesData.count
+        return precachedGIFs.count
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PhotoCell
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), { () -> Void in
-            let image = YLGIFImage(data: self.imagesData[indexPath.item])
             cell.shouldPlay = self.autoPlay ? true : false
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                cell.imageView.image = image
+                cell.imageView.image = self.precachedGIFs[indexPath.item]
                 cell.imageView.highlighted = true
                 self.autoPlay ? cell.imageView.startAnimating() : cell.imageView.stopAnimating()
             })
@@ -113,16 +110,15 @@ extension ATGIFViewController {
 
 extension ATGIFViewController: ATGIFLayoutDelegate {
     func collectionView(collectionView:UICollectionView, sizeForPhotoAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return YLGIFImage(data: imagesData[indexPath.item])!.size
-//        return FLAnimatedImage.init(animatedGIFData: imagesData[indexPath.item]).size
+        return precachedGIFs[indexPath.item].size
     }
     
     func collectionView(collectionView: UICollectionView, sizesForPhotosAtSameRow indexPath: NSIndexPath) -> [CGSize] {
-        if indexPath.item == imagesData.count - 1 {
-            return [YLGIFImage(data: imagesData[indexPath.item])!.size]
+        if indexPath.item == precachedGIFs.count - 1 {
+            return [precachedGIFs[indexPath.item].size]
         } else {
-            let image0 = YLGIFImage(data: imagesData[indexPath.item])!.size
-            let image1 = YLGIFImage(data: imagesData[indexPath.item+1])!.size
+            let image0 = precachedGIFs[indexPath.item].size
+            let image1 = precachedGIFs[indexPath.item+1].size
             return [image0, image1]
         }
     }
@@ -181,107 +177,29 @@ extension ATGIFViewController: GIFLibraryChangeObserver {
     }
     
     func updateUI() {
-//        let status = PHPhotoLibrary.authorizationStatus()
         PHPhotoLibrary.requestAuthorization { (status) -> Void in
             dispatch_async(dispatch_get_main_queue(), {
                 if status == .Authorized {
-                    
-                    if (self.view.viewWithTag(55) != nil) {
-                        self.view.viewWithTag(55)!.removeFromSuperview()
-                        self.view.viewWithTag(5)!.removeFromSuperview()
-                    }
-                    
                     let hud = MBProgressHUD(view: self.view)
                     self.view.addSubview(hud)
                     hud.dimBackground = true
                     
                     hud.showAnimated(true, whileExecutingBlock: { [unowned self] in
-                        self.imagesData = self.gifLibrary.fetchGIFData()
-                        self.showIfNoGIF()
+                        self.preCacheGIFs(self.gifLibrary.fetchGIFData())
                         self.collectionView?.reloadData()
                         self.collectionView?.collectionViewLayout.invalidateLayout()
-                    }, onQueue: dispatch_get_main_queue(), completionBlock: { [unowned self] in
-                            // check if show GIF first time and show guide
-                        if !NSUserDefaults.standardUserDefaults().boolForKey(keyOfDidGuide) && !self.imagesData.isEmpty {
-                            self.showGuideView()
-                        }
-                            
+                    }, onQueue: dispatch_get_main_queue(), completionBlock: {
                         hud.removeFromSuperview()
                     })
-                    
-                } else if status == .Denied || status == .Restricted {
-                    self.showIfNotAuthorized()
                 }
             })
         }
     }
     
-    func showIfNoGIF() {
-        if imagesData.isEmpty && !didShowNoGIF {
-            let imageView = UIImageView(frame: CGRectMake(0, 0, 60, 60))
-            let image = UIImage(named: "sad")
-            imageView.image = image?.imageWithRenderingMode(.AlwaysTemplate)
-            imageView.tintColor = UIColor.grayColor()
-            imageView.center = CGPointMake(self.view.center.x, 145)
-            imageView.tag = 33  // 方便 remove
-            self.view.addSubview(imageView)
-            
-            let label = UILabel(frame: .zero)
-            label.text = "No GIFs Found"
-            label.font = UIFont(name: "Shojumaru-Regular", size: 20)
-            label.textColor = UIColor.grayColor()
-            label.textAlignment = .Center
-            label.tag = 3
-            
-            label.sizeToFit()
-            label.backgroundColor = UIColor.clearColor()
-            label.center = CGPointMake(self.view.center.x, 200)
-            view.addSubview(label)
-            didShowNoGIF = true
-        } else {
-            if didShowNoGIF && !imagesData.isEmpty {
-                self.view.viewWithTag(3)?.removeFromSuperview()
-                self.view.viewWithTag(33)?.removeFromSuperview()
-                didShowNoGIF = false
-            }
-        }
-    }
-    
-    func showIfNotAuthorized() {
-        let imageView = UIImageView(frame: CGRectMake(0, 0, 60, 60))
-        let image = UIImage(named: "sad")
-        imageView.image = image?.imageWithRenderingMode(.AlwaysTemplate)
-        imageView.tintColor = UIColor.grayColor()
-        imageView.center = CGPointMake(self.view.center.x, 145)
-        imageView.tag = 55  // 方便 remove
-        self.view.addSubview(imageView)
-        
-        let label = UILabel(frame: .zero)
-        label.text = "Can't Access To Photo"
-        label.font = UIFont(name: "Shojumaru-Regular", size: 17)
-        label.textColor = UIColor.grayColor()
-        label.textAlignment = .Center
-        label.tag = 5
-        
-        label.sizeToFit()
-        label.backgroundColor = UIColor.clearColor()
-        label.center = CGPointMake(self.view.center.x, 200)
-        view.addSubview(label)
-    }
-}
-
-// MARK: - Set GuideView
-extension ATGIFViewController {
-    func showGuideView() {
-        for view in (navigationController?.navigationBar.subviews)! {
-            if view.frame.origin.x > 150 {
-                let guideView = GuideView(pointTo: CGPointMake(view.center.x, view.center.y + view.frame.height / 2))
-                UIView.animateWithDuration(0.6, animations: {
-                    self.navigationController?.navigationBar.addSubview(guideView)
-                    self.collectionView?.alpha = 0.5
-                })
-                break
-            }
+    func preCacheGIFs(gifDatas: [NSData]) {
+        for data in gifDatas {
+            let gif = YLGIFImage(data: data)
+            precachedGIFs.append(gif!)
         }
     }
 }
@@ -301,20 +219,6 @@ extension ATGIFViewController {
         if autoPlay {
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Pause, target: self, action: #selector(ATGIFViewController.diaTapAutoPlayButton))
         } else {
-            if !NSUserDefaults.standardUserDefaults().boolForKey(keyOfDidGuide) {
-                for view in navigationController!.navigationBar.subviews {
-                    if view.isKindOfClass(GuideView) {
-                        dispatch_async(dispatch_get_main_queue(), {
-                            view.removeFromSuperview()
-                            self.collectionView?.alpha = 1.0
-                            
-                            NSUserDefaults.standardUserDefaults().setBool(true, forKey: keyOfDidGuide)
-                            NSUserDefaults.standardUserDefaults().synchronize()
-                        })
-                    }
-                }
-            }
-            
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Play, target: self, action: #selector(ATGIFViewController.diaTapAutoPlayButton))
         }
         self.navigationItem.rightBarButtonItem?.tintColor = buttonColor
