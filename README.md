@@ -5,3 +5,5 @@ Show GIFs in Photos
 
 	It pronounced "JIF", not "GIF".
 						--- Steve Wilhite 
+
+You can download on AppStore: [👉](https://itunes.apple.com/cn/app/id1069688631)
