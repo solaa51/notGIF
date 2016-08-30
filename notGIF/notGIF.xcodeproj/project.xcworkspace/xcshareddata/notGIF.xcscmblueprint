@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "07475700D3EE2B5CD2B8B23091D7A9E1DC4366CA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "07475700D3EE2B5CD2B8B23091D7A9E1DC4366CA" : 9223372036854775807,
+    "44EC3EE3BD179BFBC1C3BC4A7542E19B141B1FD3" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "DE0AD220-3580-4E86-BE10-616E94FCA754",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "07475700D3EE2B5CD2B8B23091D7A9E1DC4366CA" : "notGIF\/",
+    "44EC3EE3BD179BFBC1C3BC4A7542E19B141B1FD3" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "notGIF",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "notGIF\/notGIF.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/atuooo\/notGIF.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "07475700D3EE2B5CD2B8B23091D7A9E1DC4366CA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/git.coding.net\/oOatuo\/ATsDemo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "44EC3EE3BD179BFBC1C3BC4A7542E19B141B1FD3"
+    }
+  ]
+}
