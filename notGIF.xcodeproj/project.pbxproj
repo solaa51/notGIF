@@ -24,10 +24,12 @@
 		C9567E431DAB2CD600EDA099 /* ATUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9567E421DAB2CD600EDA099 /* ATUtility.swift */; };
 		C9AEAEAC1DABAB4100857DD6 /* GIFShareBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AEAEAB1DABAB4100857DD6 /* GIFShareBar.swift */; };
 		C9AEAEAF1DAC820A00857DD6 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9AEAEAE1DAC820A00857DD6 /* FontAwesome.otf */; };
-		C9AEAEB11DAC8B8100857DD6 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AEAEB01DAC8B8100857DD6 /* UIColor+Hex.swift */; };
 		C9AEAEB41DAC8E7400857DD6 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AEAEB31DAC8E7400857DD6 /* FontAwesome.swift */; };
 		C9AEAEB81DADDD4C00857DD6 /* DebugLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AEAEB71DADDD4C00857DD6 /* DebugLog.swift */; };
 		C9AEAEBA1DADFB7C00857DD6 /* GIFInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AEAEB91DADFB7C00857DD6 /* GIFInfoLabel.swift */; };
+		C9AEAEBF1DAE9D1800857DD6 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AEAEBE1DAE9D1800857DD6 /* ComposeViewController.swift */; };
+		C9AEAEC11DAF297900857DD6 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AEAEC01DAF297900857DD6 /* AccountTableViewController.swift */; };
+		C9AEAEC31DAF6CD400857DD6 /* ATAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AEAEC21DAF6CD400857DD6 /* ATAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,10 +52,12 @@
 		C9567E421DAB2CD600EDA099 /* ATUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATUtility.swift; sourceTree = "<group>"; };
 		C9AEAEAB1DABAB4100857DD6 /* GIFShareBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFShareBar.swift; sourceTree = "<group>"; };
 		C9AEAEAE1DAC820A00857DD6 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
-		C9AEAEB01DAC8B8100857DD6 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		C9AEAEB31DAC8E7400857DD6 /* FontAwesome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesome.swift; sourceTree = "<group>"; };
 		C9AEAEB71DADDD4C00857DD6 /* DebugLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugLog.swift; sourceTree = "<group>"; };
 		C9AEAEB91DADFB7C00857DD6 /* GIFInfoLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFInfoLabel.swift; sourceTree = "<group>"; };
+		C9AEAEBE1DAE9D1800857DD6 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		C9AEAEC01DAF297900857DD6 /* AccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
+		C9AEAEC21DAF6CD400857DD6 /* ATAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,7 @@
 			children = (
 				C947E0B01DAA2ABA00625B72 /* GIFListViewController.swift */,
 				C9567E321DAA480400EDA099 /* GIFDetailViewController.swift */,
+				C9AEAEBC1DAE9C6A00857DD6 /* Compose */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -150,8 +155,8 @@
 		C9AEAE861DAB8C7600857DD6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C9AEAEC21DAF6CD400857DD6 /* ATAlert.swift */,
 				C9567E421DAB2CD600EDA099 /* ATUtility.swift */,
-				C9AEAEB01DAC8B8100857DD6 /* UIColor+Hex.swift */,
 				C9AEAEB71DADDD4C00857DD6 /* DebugLog.swift */,
 			);
 			name = Common;
@@ -207,6 +212,15 @@
 				C947E0B71DAA2F1500625B72 /* NotGIFLibrary.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		C9AEAEBC1DAE9C6A00857DD6 /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				C9AEAEBE1DAE9D1800857DD6 /* ComposeViewController.swift */,
+				C9AEAEC01DAF297900857DD6 /* AccountTableViewController.swift */,
+			);
+			name = Compose;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,12 +303,14 @@
 				C9AEAEAC1DABAB4100857DD6 /* GIFShareBar.swift in Sources */,
 				C947E0901DAA279900625B72 /* AppDelegate.swift in Sources */,
 				C947E0AE1DAA2AA200625B72 /* NotGIFImageView.swift in Sources */,
+				C9AEAEC31DAF6CD400857DD6 /* ATAlert.swift in Sources */,
 				C9AEAEB81DADDD4C00857DD6 /* DebugLog.swift in Sources */,
 				C9567E311DAA3EC700EDA099 /* FPSLabel.swift in Sources */,
-				C9AEAEB11DAC8B8100857DD6 /* UIColor+Hex.swift in Sources */,
+				C9AEAEC11DAF297900857DD6 /* AccountTableViewController.swift in Sources */,
 				C947E0B11DAA2ABA00625B72 /* GIFListViewController.swift in Sources */,
 				C9567E2F1DAA3E7700EDA099 /* GIFLisViewCell.swift in Sources */,
 				C947E0B41DAA2B1400625B72 /* GIFListLayout.swift in Sources */,
+				C9AEAEBF1DAE9D1800857DD6 /* ComposeViewController.swift in Sources */,
 				C947E0B81DAA2F1500625B72 /* NotGIFLibrary.swift in Sources */,
 				C947E0AD1DAA2AA200625B72 /* NotGIFImage.swift in Sources */,
 				C9AEAEB41DAC8E7400857DD6 /* FontAwesome.swift in Sources */,

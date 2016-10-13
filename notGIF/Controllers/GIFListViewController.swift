@@ -97,7 +97,7 @@ extension GIFListViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailVC = GIFDetailViewController()
-        detailVC.currentIndex = indexPath
+        detailVC.currentIndex = indexPath.item
         shouldPlay = false
         navigationController?.pushViewController(detailVC, animated: true)
     }

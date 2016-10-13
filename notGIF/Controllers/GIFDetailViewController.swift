@@ -11,7 +11,7 @@ import UIKit
 private let cellID = "GIFDetailViewCell"
 
 class GIFDetailViewController: UIViewController {
-    var currentIndex: IndexPath!
+    var currentIndex: Int!
 
     fileprivate var collectionView: UICollectionView!
     fileprivate var gifs = [NotGIFImage]()
@@ -27,10 +27,13 @@ class GIFDetailViewController: UIViewController {
     
     fileprivate lazy var shareBar: GIFShareBar = {
         let bar = GIFShareBar()
-        
+        bar.shareHandler = { [weak self] shareType in
+            self?.shareGIF(to: shareType)
+        }
         return bar
     }()
     
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,16 +41,24 @@ class GIFDetailViewController: UIViewController {
         makeUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        view.addSubview(shareBar)
+    }
+    
     private func makeUI() {
         
         automaticallyAdjustsScrollViewInsets = false
         
-        infoLabel = GIFInfoLabel(info: gifs[currentIndex.item].gifInfo)
+        infoLabel = GIFInfoLabel(info: gifs[currentIndex].gifInfo)
         navigationItem.titleView = infoLabel
-//        navigationItem.backBarButtonItem?.title = ""
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: nil, style: .plain, target: nil, action: nil)
-//        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-
+        
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = view.bounds.size
         layout.scrollDirection = .horizontal
@@ -60,28 +71,19 @@ class GIFDetailViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         view.addSubview(collectionView)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationItem.backBarButtonItem?.setTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: -60), for: .default)
-
-        collectionView.scrollToItem(at: currentIndex, at: .left, animated: false)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
-        view.addSubview(shareBar)
+        collectionView.scrollToItem(at: IndexPath(item: currentIndex, section: 0), at: .left, animated: false)
     }
     
     deinit {
-        println(" deinit GIFDetailViewController ")
+        println(" deinit GIFDetailViewController ") 
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // MARK: - Share GIF
+    private func shareGIF(to type: ShareType) {
+        let composeVC = ComposeViewController(shareType: type, imgIndex: currentIndex)
+        composeVC.modalPresentationStyle = .overCurrentContext
+        present(composeVC, animated: true, completion: nil)
     }
 }
 
@@ -116,7 +118,7 @@ extension GIFDetailViewController: UIScrollViewDelegate {
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let index = Int(scrollView.contentOffset.x / kScreenWidth)
-        infoLabel.info = gifs[index].gifInfo
+        currentIndex = Int(scrollView.contentOffset.x / kScreenWidth)
+        infoLabel.info = gifs[currentIndex].gifInfo
     }
 }

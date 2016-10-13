@@ -26,8 +26,10 @@ public enum ShareType: Int {
     }
 }
 
+private let itemSize = CGFloat(58)
+
 class GIFShareBar: UIView {
-    private let itemSize = CGFloat(58)
+    var shareHandler: ((ShareType) -> Void)?
     
     private let shareTypes: [ShareType] = [.more, .twitter, .weibo, .wechat, .message]
     private var shareButtons = [UIButton]()
@@ -36,7 +38,7 @@ class GIFShareBar: UIView {
     override var isHidden: Bool {
         didSet {
             UIView.animate(withDuration: 0.3, animations: {
-                self.frame.origin.y = self.isHidden ? kScreenHeight : kScreenHeight - self.itemSize
+                self.frame.origin.y = self.isHidden ? kScreenHeight : kScreenHeight - itemSize
             })
         }
     }
@@ -66,14 +68,15 @@ class GIFShareBar: UIView {
         }
     }
     
+    func shareButtonClicked(sender: UIButton) {
+        guard let shareType = ShareType(rawValue: sender.tag) else { return }
+        shareHandler?(shareType)
+    }
+    
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         
         showButtons()
-    }
-    
-    func shareButtonClicked(sender: UIButton) {
-        print(sender.tag)
     }
     
     private func showButtons() {

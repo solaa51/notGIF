@@ -27,7 +27,6 @@ class NotGIFLibrary {
         requestOptions.isSynchronous = true
         requestOptions.version = .unadjusted
         
-//        var gifs = [NotGIFImage]()
         allPhotos.enumerateObjects({ [weak self] asset, index, shouldStop in
             PHImageManager.default().requestImageData(for: asset, options: requestOptions, resultHandler: { (data, UTI, orientation, info) in
                 if UTTypeConformsTo(UTI as! CFString , kUTTypeGIF) {
@@ -42,6 +41,17 @@ class NotGIFLibrary {
         })
         
         return gifs
+    }
+    
+    func requestGIFData(at index: Int, doneHandler: @escaping ((Data) -> Void)) {
+        let requestOptions = PHImageRequestOptions()
+        requestOptions.version = .unadjusted
+        
+        PHImageManager.default().requestImageData(for: gifAssets[index], options: requestOptions) { (data, UTI, orientation, info) in
+            if let gifData = data {
+                doneHandler(gifData)
+            }
+        }
     }
     
     private init() {  }

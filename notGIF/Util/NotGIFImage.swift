@@ -14,10 +14,10 @@ private let kGIFFrameDelayThreshold = 0.02
 private let prefetchNum = 5
 
 class NotGIFImage: UIImage {
-    
-    var totalDelay = 0.0
-    var imgSource: CGImageSource!
     var gifInfo: String = ""
+
+    fileprivate var totalDelay = 0.0
+    fileprivate var imgSource: CGImageSource!
     
     lazy var frames = [CGImage?]()
     lazy var frameDurations = [TimeInterval]()
@@ -140,6 +140,10 @@ class NotGIFImage: UIImage {
         } else {
             return 0.618
         }
+    }
+    
+    var thumbnail: UIImage {
+        return UIImage(cgImage: frames[0]!)
     }
     
     required convenience init(imageLiteralResourceName name: String) {
