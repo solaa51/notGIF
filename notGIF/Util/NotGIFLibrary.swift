@@ -29,13 +29,11 @@ class NotGIFLibrary {
         
         allPhotos.enumerateObjects({ [weak self] asset, index, shouldStop in
             PHImageManager.default().requestImageData(for: asset, options: requestOptions, resultHandler: { (data, UTI, orientation, info) in
-                if UTTypeConformsTo(UTI as! CFString , kUTTypeGIF) {
-                    if let sSelf = self,
-                       let gifData = data,
-                       let gif = NotGIFImage(data: gifData) {
-                        sSelf.gifAssets.append(asset)
-                        sSelf.gifs.append(gif)
-                    }
+                if let uti = UTI, UTTypeConformsTo(uti as CFString , kUTTypeGIF),
+                   let gifData = data, let gif = NotGIFImage(data: gifData), let sSelf = self {
+
+                    sSelf.gifAssets.append(asset)
+                    sSelf.gifs.append(gif)
                 }
             })
         })
@@ -43,14 +41,12 @@ class NotGIFLibrary {
         return gifs
     }
     
-    func requestGIFData(at index: Int, doneHandler: @escaping ((Data) -> Void)) {
+    func requestGIFData(at index: Int, doneHandler: @escaping (Data?, String?) -> Void) {
         let requestOptions = PHImageRequestOptions()
         requestOptions.version = .unadjusted
         
         PHImageManager.default().requestImageData(for: gifAssets[index], options: requestOptions) { (data, UTI, orientation, info) in
-            if let gifData = data {
-                doneHandler(gifData)
-            }
+            doneHandler(data, UTI)
         }
     }
     

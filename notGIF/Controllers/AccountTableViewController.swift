@@ -31,7 +31,7 @@ class AccountTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.tintColor = UIColor.black
+        tableView.tintColor = .black
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
     }
 
@@ -53,6 +53,7 @@ class AccountTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        composeVC.selectedAccount = composeVC.accounts[indexPath.item]
         composeVC.reloadConfigurationItems()
         composeVC.popConfigurationViewController()
     }

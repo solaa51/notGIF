@@ -42,7 +42,7 @@ class GIFListViewController: UIViewController {
         navigationItem.title = ""
         navigationItem.titleView = titleLabel
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .pause, target: self, action: #selector(autoplayItemClicked))
-        navigationItem.rightBarButtonItem?.tintColor = UIColor.gray
+        navigationItem.rightBarButtonItem?.tintColor = .gray
         
         gifs = NotGIFLibrary.shared.checkGIFFromPhotos()
         
@@ -67,7 +67,7 @@ class GIFListViewController: UIViewController {
     
     func autoplayItemClicked() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: shouldPlay ? .play : .pause, target: self, action: #selector(autoplayItemClicked))
-        navigationItem.rightBarButtonItem?.tintColor = UIColor.gray
+        navigationItem.rightBarButtonItem?.tintColor = .gray
         hasPaused = shouldPlay
         shouldPlay = !shouldPlay
     }

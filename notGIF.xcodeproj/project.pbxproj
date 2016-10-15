@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C92EE77F1DB1370C002B084C /* StatusBarToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92EE77E1DB1370B002B084C /* StatusBarToast.swift */; };
+		C92EE7811DB1F66E002B084C /* SLRequestManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92EE7801DB1F66E002B084C /* SLRequestManger.swift */; };
 		C947E0901DAA279900625B72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C947E08F1DAA279900625B72 /* AppDelegate.swift */; };
 		C947E0971DAA279900625B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C947E0961DAA279900625B72 /* Assets.xcassets */; };
 		C947E09A1DAA279900625B72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C947E0981DAA279900625B72 /* LaunchScreen.storyboard */; };
@@ -33,6 +35,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C92EE77E1DB1370B002B084C /* StatusBarToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarToast.swift; sourceTree = "<group>"; };
+		C92EE7801DB1F66E002B084C /* SLRequestManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLRequestManger.swift; sourceTree = "<group>"; };
 		C947E08C1DAA279900625B72 /* notGIF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = notGIF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C947E08F1DAA279900625B72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C947E0961DAA279900625B72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,7 +97,7 @@
 				C947E08F1DAA279900625B72 /* AppDelegate.swift */,
 				C947E0AF1DAA2ABA00625B72 /* Controllers */,
 				C9567E2D1DAA3E7700EDA099 /* Views */,
-				C9AEAEBB1DADFC9D00857DD6 /* Model */,
+				C9AEAEBB1DADFC9D00857DD6 /* Service */,
 				C947E0AA1DAA2A5800625B72 /* Util */,
 				C947E0A11DAA27B000625B72 /* Supporthings */,
 			);
@@ -155,6 +159,7 @@
 		C9AEAE861DAB8C7600857DD6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C92EE77E1DB1370B002B084C /* StatusBarToast.swift */,
 				C9AEAEC21DAF6CD400857DD6 /* ATAlert.swift */,
 				C9567E421DAB2CD600EDA099 /* ATUtility.swift */,
 				C9AEAEB71DADDD4C00857DD6 /* DebugLog.swift */,
@@ -206,12 +211,13 @@
 			name = GIFList;
 			sourceTree = "<group>";
 		};
-		C9AEAEBB1DADFC9D00857DD6 /* Model */ = {
+		C9AEAEBB1DADFC9D00857DD6 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				C947E0B71DAA2F1500625B72 /* NotGIFLibrary.swift */,
+				C92EE7801DB1F66E002B084C /* SLRequestManger.swift */,
 			);
-			name = Model;
+			name = Service;
 			sourceTree = "<group>";
 		};
 		C9AEAEBC1DAE9C6A00857DD6 /* Compose */ = {
@@ -298,11 +304,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C92EE77F1DB1370C002B084C /* StatusBarToast.swift in Sources */,
 				C9567E351DAA482100EDA099 /* GIFDetailViewCell.swift in Sources */,
 				C9567E331DAA480400EDA099 /* GIFDetailViewController.swift in Sources */,
 				C9AEAEAC1DABAB4100857DD6 /* GIFShareBar.swift in Sources */,
 				C947E0901DAA279900625B72 /* AppDelegate.swift in Sources */,
 				C947E0AE1DAA2AA200625B72 /* NotGIFImageView.swift in Sources */,
+				C92EE7811DB1F66E002B084C /* SLRequestManger.swift in Sources */,
 				C9AEAEC31DAF6CD400857DD6 /* ATAlert.swift in Sources */,
 				C9AEAEB81DADDD4C00857DD6 /* DebugLog.swift in Sources */,
 				C9567E311DAA3EC700EDA099 /* FPSLabel.swift in Sources */,

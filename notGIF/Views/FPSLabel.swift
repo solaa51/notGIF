@@ -16,8 +16,8 @@ class FPSLabel: UILabel {
     private var lastTime: TimeInterval = 0
     private var count: Int = 0
     
-    override func didMoveToWindow() {
-        super.didMoveToWindow()
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
         
         guard let superView = superview else { return }
         frame = CGRect(x: 20, y: superView.bounds.height - 40, width: 55, height: 20)
@@ -43,7 +43,7 @@ class FPSLabel: UILabel {
         
         count += 1
         let timeDelta = dpLink.timestamp - lastTime
-        if timeDelta < 1 {
+        if timeDelta < 0.25 {
             return
         }
         

@@ -18,6 +18,7 @@ class GIFListViewCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(imageView)
         
+//        imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         let hC = NSLayoutConstraint.constraints(withVisualFormat: "H:|[imageView]|", options: [], metrics: nil, views: ["imageView": imageView])
         let vC = NSLayoutConstraint.constraints(withVisualFormat: "V:|[imageView]|", options: [], metrics: nil, views: ["imageView": imageView])
         contentView.addConstraints(hC + vC)

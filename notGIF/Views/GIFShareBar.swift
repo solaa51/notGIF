@@ -88,7 +88,7 @@ class GIFShareBar: UIView {
             return
         }
         
-        UIView.animate(withDuration: 0.15, animations: {
+        UIView.animate(withDuration: 0.13, animations: {
             self.shareButtons[self.showedIndex].layer.transform = transform
             self.showedIndex += 1
         }) { done in

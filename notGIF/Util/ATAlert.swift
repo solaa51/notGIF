@@ -12,9 +12,35 @@ public enum AlertType {
     case noAccount(String)
     case acAccessRejected(String)
     case noNetwork
+    case shareFailed(String)
+    case shareSuccess
+}
+
+public enum AlertStyle {
+    case alert
+    case toast
 }
 
 final class ATAlert {
+
+    class func alert(type: AlertType, style: AlertStyle) {
+        if style == .toast {
+            DispatchQueue.main.async {
+                var message = "", isError = false
+                switch type {
+                    case .shareFailed(let error):
+                        message = "failed: \(error)"
+                        isError = true
+                    case .shareSuccess:
+                        message = "Send successfully"
+                    default:
+                        return
+                }
+                
+                StatusBarToast.shared.show(message: message, isError: isError)
+            }
+        }
+    }
     
     class func alert(type: AlertType, in viewController: UIViewController, withDismissAction dismissAction: (() -> Void)?) {
         var title = "", message = ""
