@@ -32,7 +32,7 @@ final class SLRequestManager {
                     getMediaIDRequest?.account = account
                     
                     getMediaIDRequest?.perform(handler: { (data, response, error) in
-                        debugPrint("\n============mediaID===response==========\n\(response)\n\(error)")
+                        println("\n============mediaID===response==========\n\(response)\n\(error)")
                         
                         if let error = error {
                             ATAlert.alert(type: .shareFailed(error.localizedDescription), style: .toast)
@@ -56,12 +56,18 @@ final class SLRequestManager {
                                 tweetRequest?.account = account
                                 
                                 tweetRequest?.perform(handler: { (data, response, error) in
-                                    debugPrint("\n============tweet===response==========\n\(response)\n\(error)")
-                                    
+                                    println("\n============tweet===response==========\n\(response)\n\(error)")
+
                                     if let error = error {
                                         ATAlert.alert(type: .shareFailed(error.localizedDescription), style: .toast)
 
                                     } else {
+                                        
+                                        if let data = data,
+                                            let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? JSONDictionary {
+                                            
+                                            println("\n============= tweet data =========\n\(json)")
+                                        }
                                         ATAlert.alert(type: .shareSuccess, style: .toast)
                                     }
                                 })
@@ -84,7 +90,7 @@ final class SLRequestManager {
                     
                     uploadRequest?.perform(handler: { (data, response, error) in
                         
-                        debugPrint("\n=======Weibo======response=======\n\(response)\n\(error)")
+                        println("\n=======Weibo======response=======\n\(response)\n\(error)")
                         
                         if let error = error {
                             ATAlert.alert(type: .shareFailed(error.localizedDescription), style: .toast)
@@ -101,7 +107,7 @@ final class SLRequestManager {
                 
             } else {
                 
-                ATAlert.alert(type: .shareFailed("no gif data"), style: .toast)
+                ATAlert.alert(type: .shareFailed("can't get gif data"), style: .toast)
             }
         }
     }

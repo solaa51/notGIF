@@ -9,11 +9,12 @@
 import UIKit
 
 public enum AlertType {
+    case noApp(String)
     case noAccount(String)
     case acAccessRejected(String)
-    case noNetwork
     case shareFailed(String)
     case shareSuccess
+    case noInternet
 }
 
 public enum AlertStyle {
@@ -39,24 +40,38 @@ final class ATAlert {
                 
                 StatusBarToast.shared.show(message: message, isError: isError)
             }
+            
+        } else {
+                        
         }
     }
     
     class func alert(type: AlertType, in viewController: UIViewController, withDismissAction dismissAction: (() -> Void)?) {
         var title = "", message = ""
+        var dismissTitle = "Get it"
 
         switch type {
         case .noAccount(let accountType):
             title = "No \(accountType) Account Found"
             message = "There are no \(accountType) accounts configured. You can add or create a \(accountType) account in \n 'Settings' -> '\(accountType)"
+            
         case .acAccessRejected(let accountType):
             title = "Can't Access Your Account"
             message = "You can set in \n 'Settings' -> 'Privacy' -> '\(accountType)' \n to allow access to your account"
+        
+        case .noApp(let appName):
+            title = "You haven't installed \(appName)"
+            dismissTitle = "OK"
+            
+        case .noInternet:
+            title = "No Internet. Can't Share"
+            message = "You are not connected to the internet!"
+            
         default:
             break
         }
         
-        alert(title: title, message: message, dismissTitle: "Get it", in: viewController, withDismissAction: dismissAction)
+        alert(title: title, message: message, dismissTitle: dismissTitle, in: viewController, withDismissAction: dismissAction)
     }
 
     class func alert(title: String, message: String?, dismissTitle: String, in viewController: UIViewController?, withDismissAction dismissAction: (() -> Void)?) {

@@ -81,9 +81,28 @@ class GIFDetailViewController: UIViewController {
     
     // MARK: - Share GIF
     private func shareGIF(to type: ShareType) {
-        let composeVC = ComposeViewController(shareType: type, imgIndex: currentIndex)
-        composeVC.modalPresentationStyle = .overCurrentContext
-        present(composeVC, animated: true, completion: nil)
+        switch type {
+            
+        case .twitter, .weibo:
+            if let reachability = Reachability(), reachability.isReachable {
+                let composeVC = ComposeViewController(shareType: type, imgIndex: currentIndex)
+                composeVC.modalPresentationStyle = .overCurrentContext
+                present(composeVC, animated: true, completion: nil)
+                
+            } else {
+                ATAlert.alert(type: .noInternet, in: self, withDismissAction: nil)
+            }
+            
+        case .wechat:
+            if OpenShare.canOpen(platform: .wechat) {
+                OpenShare.shareGIF(at: currentIndex, to: .wechat)
+            } else {
+                ATAlert.alert(type: .noApp("Wechat"), in: self, withDismissAction: nil)
+            }
+            
+        default:
+            break
+        }
     }
 }
 

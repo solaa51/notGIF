@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C92EE77F1DB1370C002B084C /* StatusBarToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92EE77E1DB1370B002B084C /* StatusBarToast.swift */; };
 		C92EE7811DB1F66E002B084C /* SLRequestManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92EE7801DB1F66E002B084C /* SLRequestManger.swift */; };
+		C92EE7891DB310D5002B084C /* OpenShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92EE7881DB310D5002B084C /* OpenShare.swift */; };
+		C92EE7901DB39E6C002B084C /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92EE78F1DB39E6C002B084C /* Reachability.swift */; };
 		C947E0901DAA279900625B72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C947E08F1DAA279900625B72 /* AppDelegate.swift */; };
 		C947E0971DAA279900625B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C947E0961DAA279900625B72 /* Assets.xcassets */; };
 		C947E09A1DAA279900625B72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C947E0981DAA279900625B72 /* LaunchScreen.storyboard */; };
@@ -37,6 +39,8 @@
 /* Begin PBXFileReference section */
 		C92EE77E1DB1370B002B084C /* StatusBarToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarToast.swift; sourceTree = "<group>"; };
 		C92EE7801DB1F66E002B084C /* SLRequestManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLRequestManger.swift; sourceTree = "<group>"; };
+		C92EE7881DB310D5002B084C /* OpenShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenShare.swift; sourceTree = "<group>"; };
+		C92EE78F1DB39E6C002B084C /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		C947E08C1DAA279900625B72 /* notGIF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = notGIF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C947E08F1DAA279900625B72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C947E0961DAA279900625B72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -75,6 +79,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C92EE78A1DB3150F002B084C /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				C92EE77E1DB1370B002B084C /* StatusBarToast.swift */,
+				C9AEAEC21DAF6CD400857DD6 /* ATAlert.swift */,
+			);
+			name = Alert;
+			sourceTree = "<group>";
+		};
 		C947E0831DAA279900625B72 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +131,7 @@
 		C947E0AA1DAA2A5800625B72 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				C92EE78A1DB3150F002B084C /* Alert */,
 				C9AEAEB21DAC8B9100857DD6 /* FontAwesome */,
 				C9AEAE871DAB8C8000857DD6 /* GIF */,
 				C9AEAE861DAB8C7600857DD6 /* Common */,
@@ -159,8 +173,7 @@
 		C9AEAE861DAB8C7600857DD6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				C92EE77E1DB1370B002B084C /* StatusBarToast.swift */,
-				C9AEAEC21DAF6CD400857DD6 /* ATAlert.swift */,
+				C92EE78F1DB39E6C002B084C /* Reachability.swift */,
 				C9567E421DAB2CD600EDA099 /* ATUtility.swift */,
 				C9AEAEB71DADDD4C00857DD6 /* DebugLog.swift */,
 			);
@@ -216,6 +229,7 @@
 			children = (
 				C947E0B71DAA2F1500625B72 /* NotGIFLibrary.swift */,
 				C92EE7801DB1F66E002B084C /* SLRequestManger.swift */,
+				C92EE7881DB310D5002B084C /* OpenShare.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -307,6 +321,7 @@
 				C92EE77F1DB1370C002B084C /* StatusBarToast.swift in Sources */,
 				C9567E351DAA482100EDA099 /* GIFDetailViewCell.swift in Sources */,
 				C9567E331DAA480400EDA099 /* GIFDetailViewController.swift in Sources */,
+				C92EE7891DB310D5002B084C /* OpenShare.swift in Sources */,
 				C9AEAEAC1DABAB4100857DD6 /* GIFShareBar.swift in Sources */,
 				C947E0901DAA279900625B72 /* AppDelegate.swift in Sources */,
 				C947E0AE1DAA2AA200625B72 /* NotGIFImageView.swift in Sources */,
@@ -321,6 +336,7 @@
 				C9AEAEBF1DAE9D1800857DD6 /* ComposeViewController.swift in Sources */,
 				C947E0B81DAA2F1500625B72 /* NotGIFLibrary.swift in Sources */,
 				C947E0AD1DAA2AA200625B72 /* NotGIFImage.swift in Sources */,
+				C92EE7901DB39E6C002B084C /* Reachability.swift in Sources */,
 				C9AEAEB41DAC8E7400857DD6 /* FontAwesome.swift in Sources */,
 				C9567E431DAB2CD600EDA099 /* ATUtility.swift in Sources */,
 				C9AEAEBA1DADFB7C00857DD6 /* GIFInfoLabel.swift in Sources */,
@@ -439,7 +455,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = NO;
 				DEVELOPMENT_TEAM = HBGHZ85ABK;
 				INFOPLIST_FILE = notGIF/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = atuo.notGIF;
@@ -454,7 +470,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = HBGHZ85ABK;
 				INFOPLIST_FILE = notGIF/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = atuo.notGIF;
 				PRODUCT_NAME = "$(TARGET_NAME)";
