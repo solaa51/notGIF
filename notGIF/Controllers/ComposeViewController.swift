@@ -10,8 +10,6 @@ import UIKit
 import Social
 import Accounts
 
-public typealias JSONDictionary = [String: AnyObject]
-
 class ComposeViewController: SLComposeServiceViewController {
     public var accounts = [ACAccount]()
     public var selectedAccount: ACAccount? = nil
@@ -50,7 +48,7 @@ class ComposeViewController: SLComposeServiceViewController {
     override func configurationItems() -> [Any]! {
         let item = SLComposeSheetConfigurationItem()!
         item.title = "Account"
-        item.value = selectedAccount?.username
+        item.value = selectedAccount?.accountDescription
         item.tapHandler = { [weak self] in
             let accountTableVC = AccountTableViewController(in: self!)
             self?.pushConfigurationViewController(accountTableVC)

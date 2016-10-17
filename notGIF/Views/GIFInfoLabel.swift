@@ -25,7 +25,7 @@ class GIFInfoLabel: UILabel {
     init(info: String) {
         super.init(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
         
-        textColor = kTextColor
+        textColor = .tintColor
         textAlignment = .center
         numberOfLines = 2
         

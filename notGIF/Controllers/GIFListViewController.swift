@@ -17,7 +17,7 @@ class GIFListViewController: UIViewController {
     fileprivate var titleLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
         label.text = "/jif/"
-        label.textColor = kTextColor
+        label.textColor = .tintColor
         label.textAlignment = .center
         label.font = UIFont(name: "Kenia-Regular", size: 26)
         return label

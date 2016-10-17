@@ -47,7 +47,7 @@ class AccountTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         
         let account = composeVC.accounts[indexPath.item]
-        cell.textLabel?.text = account.username
+        cell.textLabel?.text = account.accountDescription
         cell.accessoryType = account == composeVC.selectedAccount ? .checkmark : .none
         return cell
     }

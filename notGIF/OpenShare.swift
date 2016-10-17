@@ -55,7 +55,7 @@ final class OpenShare {
                     
                     let wechatMessage = [platform.appID: wechatMessageInfo]
                     guard let messageData = try? PropertyListSerialization.data(fromPropertyList: wechatMessage, format: .binary, options: 0) else {
-                        ATAlert.alert(type: .shareFailed("unavailable data"), style: .toast)
+                        StatusBarToast.shared.show(info: .once(message: "unavailable data", succeed: false))
                         return
                     }
                     
@@ -70,7 +70,8 @@ final class OpenShare {
                 }
                 
             } else {
-                ATAlert.alert(type: .shareFailed("unavailable data"), style: .toast)
+                
+                StatusBarToast.shared.show(info: .once(message: "unavailable data", succeed: false))
             }
         }
     }

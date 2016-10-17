@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C92EE77F1DB1370C002B084C /* StatusBarToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92EE77E1DB1370B002B084C /* StatusBarToast.swift */; };
 		C92EE7811DB1F66E002B084C /* SLRequestManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92EE7801DB1F66E002B084C /* SLRequestManger.swift */; };
 		C92EE7891DB310D5002B084C /* OpenShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92EE7881DB310D5002B084C /* OpenShare.swift */; };
 		C92EE7901DB39E6C002B084C /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92EE78F1DB39E6C002B084C /* Reachability.swift */; };
+		C92EE7981DB4B5CD002B084C /* StatusBarLoadingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92EE7961DB4B5CD002B084C /* StatusBarLoadingLayer.swift */; };
+		C92EE7991DB4B5CD002B084C /* StatusBarToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92EE7971DB4B5CD002B084C /* StatusBarToast.swift */; };
 		C947E0901DAA279900625B72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C947E08F1DAA279900625B72 /* AppDelegate.swift */; };
 		C947E0971DAA279900625B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C947E0961DAA279900625B72 /* Assets.xcassets */; };
 		C947E09A1DAA279900625B72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C947E0981DAA279900625B72 /* LaunchScreen.storyboard */; };
@@ -37,10 +38,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C92EE77E1DB1370B002B084C /* StatusBarToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarToast.swift; sourceTree = "<group>"; };
 		C92EE7801DB1F66E002B084C /* SLRequestManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLRequestManger.swift; sourceTree = "<group>"; };
 		C92EE7881DB310D5002B084C /* OpenShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenShare.swift; sourceTree = "<group>"; };
 		C92EE78F1DB39E6C002B084C /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		C92EE7961DB4B5CD002B084C /* StatusBarLoadingLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarLoadingLayer.swift; sourceTree = "<group>"; };
+		C92EE7971DB4B5CD002B084C /* StatusBarToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarToast.swift; sourceTree = "<group>"; };
 		C947E08C1DAA279900625B72 /* notGIF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = notGIF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C947E08F1DAA279900625B72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C947E0961DAA279900625B72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -79,13 +81,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C92EE78A1DB3150F002B084C /* Alert */ = {
+		C92EE78A1DB3150F002B084C /* Toast */ = {
 			isa = PBXGroup;
 			children = (
-				C92EE77E1DB1370B002B084C /* StatusBarToast.swift */,
-				C9AEAEC21DAF6CD400857DD6 /* ATAlert.swift */,
+				C92EE7961DB4B5CD002B084C /* StatusBarLoadingLayer.swift */,
+				C92EE7971DB4B5CD002B084C /* StatusBarToast.swift */,
 			);
-			name = Alert;
+			name = Toast;
+			path = ../Util;
 			sourceTree = "<group>";
 		};
 		C947E0831DAA279900625B72 = {
@@ -131,7 +134,6 @@
 		C947E0AA1DAA2A5800625B72 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				C92EE78A1DB3150F002B084C /* Alert */,
 				C9AEAEB21DAC8B9100857DD6 /* FontAwesome */,
 				C9AEAE871DAB8C8000857DD6 /* GIF */,
 				C9AEAE861DAB8C7600857DD6 /* Common */,
@@ -175,6 +177,7 @@
 			children = (
 				C92EE78F1DB39E6C002B084C /* Reachability.swift */,
 				C9567E421DAB2CD600EDA099 /* ATUtility.swift */,
+				C9AEAEC21DAF6CD400857DD6 /* ATAlert.swift */,
 				C9AEAEB71DADDD4C00857DD6 /* DebugLog.swift */,
 			);
 			name = Common;
@@ -192,6 +195,7 @@
 		C9AEAE881DAB8C9300857DD6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C92EE78A1DB3150F002B084C /* Toast */,
 				C9567E301DAA3EC700EDA099 /* FPSLabel.swift */,
 			);
 			name = Common;
@@ -318,7 +322,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C92EE77F1DB1370C002B084C /* StatusBarToast.swift in Sources */,
 				C9567E351DAA482100EDA099 /* GIFDetailViewCell.swift in Sources */,
 				C9567E331DAA480400EDA099 /* GIFDetailViewController.swift in Sources */,
 				C92EE7891DB310D5002B084C /* OpenShare.swift in Sources */,
@@ -329,8 +332,10 @@
 				C9AEAEC31DAF6CD400857DD6 /* ATAlert.swift in Sources */,
 				C9AEAEB81DADDD4C00857DD6 /* DebugLog.swift in Sources */,
 				C9567E311DAA3EC700EDA099 /* FPSLabel.swift in Sources */,
+				C92EE7991DB4B5CD002B084C /* StatusBarToast.swift in Sources */,
 				C9AEAEC11DAF297900857DD6 /* AccountTableViewController.swift in Sources */,
 				C947E0B11DAA2ABA00625B72 /* GIFListViewController.swift in Sources */,
+				C92EE7981DB4B5CD002B084C /* StatusBarLoadingLayer.swift in Sources */,
 				C9567E2F1DAA3E7700EDA099 /* GIFLisViewCell.swift in Sources */,
 				C947E0B41DAA2B1400625B72 /* GIFListLayout.swift in Sources */,
 				C9AEAEBF1DAE9D1800857DD6 /* ComposeViewController.swift in Sources */,

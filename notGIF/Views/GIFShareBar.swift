@@ -48,7 +48,7 @@ class GIFShareBar: UIView {
         isUserInteractionEnabled = false
         
         for i in 0 ..< shareTypes.count {
-            let button = UIButton(iconCode: shareTypes[i].iconCode, color: kTextColor, fontSize: 28)
+            let button = UIButton(iconCode: shareTypes[i].iconCode, color: .tintColor, fontSize: 28)
             button.addTarget(self, action: #selector(shareButtonClicked(sender:)), for: .touchUpInside)
             button.frame.size = CGSize(width: itemSize, height: itemSize)
             button.tag = shareTypes[i].rawValue

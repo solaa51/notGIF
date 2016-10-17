@@ -10,11 +10,23 @@ import Social
 import MobileCoreServices
 import UIKit
 
-final class SLRequestManager {
+fileprivate typealias JSON = [String: AnyObject]
+fileprivate typealias Completion = (_ result: Result) -> ()
 
+fileprivate enum Result {
+    case success(JSON)
+    case wrong(String)
+    case failed(String)
+}
+
+final class SLRequestManager {
+    
     class func shareGIF(at index: Int, to account: ACAccount, with message: String) {
         
+        StatusBarToast.shared.show(info: .continue(message: "Sending  ", shouldLoading: true))
+
         NotGIFLibrary.shared.requestGIFData(at: index) { (data, UTI) in
+            
             if let gifData = data, let uti = UTI, UTTypeConformsTo(uti as CFString, kUTTypeGIF) {
                 
                 switch account.accountType.identifier {
@@ -24,91 +36,159 @@ final class SLRequestManager {
                     let uploadURL = URL(string: "https://upload.twitter.com/1.1/media/upload.json")!
                     let dataString = gifData.base64EncodedString(options: .lineLength64Characters)
                     
-                    let getMediaIDRequest = SLRequest(forServiceType: SLServiceTypeTwitter,
+                    guard let getMediaIDRequest = SLRequest(forServiceType: SLServiceTypeTwitter,
                                                       requestMethod: .POST,
                                                       url: uploadURL,
-                                                      parameters: ["media": dataString])
+                                                      parameters: ["media": dataString]) else {
+
+                        StatusBarToast.shared.show(info: .end(message: "invalid request", succeed: false))
+                        return
+                    }
                     
-                    getMediaIDRequest?.account = account
+                    getMediaIDRequest.account = account
                     
-                    getMediaIDRequest?.perform(handler: { (data, response, error) in
-                        println("\n============mediaID===response==========\n\(response)\n\(error)")
+                    SLRequestManager.perform(getMediaIDRequest) { result in
                         
-                        if let error = error {
-                            ATAlert.alert(type: .shareFailed(error.localizedDescription), style: .toast)
-                            
-                        } else {
-                            if let data = data,
-                                let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? JSONDictionary,
-                                let mediaID = json?["media_id_string"] as? String {
-                                
-                                var parameters = Dictionary<String, String>()
-                                parameters["status"] = message
-                                parameters["media_ids"] = mediaID
-                                
-                                // tweet
-                                let tweetURL = URL(string: "https://api.twitter.com/1.1/statuses/update.json")!
-                                let tweetRequest = SLRequest(forServiceType: SLServiceTypeTwitter,
-                                                             requestMethod: .POST,
-                                                             url: tweetURL,
-                                                             parameters: parameters)
-                                
-                                tweetRequest?.account = account
-                                
-                                tweetRequest?.perform(handler: { (data, response, error) in
-                                    println("\n============tweet===response==========\n\(response)\n\(error)")
-
-                                    if let error = error {
-                                        ATAlert.alert(type: .shareFailed(error.localizedDescription), style: .toast)
-
-                                    } else {
-                                        
-                                        if let data = data,
-                                            let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? JSONDictionary {
-                                            
-                                            println("\n============= tweet data =========\n\(json)")
-                                        }
-                                        ATAlert.alert(type: .shareSuccess, style: .toast)
-                                    }
-                                })
-                                
-                            } else {
-                                ATAlert.alert(type: .shareFailed("why"), style: .toast)
+                        switch result {
+                        case .success(let info):
+                            guard let mediaID = info["media_id_string"] as? String else {
+                                StatusBarToast.shared.show(info: .end(message: "api error", succeed: false))
+                                return
                             }
+                            
+                            var parameters = Dictionary<String, String>()
+                            parameters["status"] = message
+                            parameters["media_ids"] = mediaID
+                            
+                            let tweetURL = URL(string: "https://api.twitter.com/1.1/statuses/update.json")!
+                            guard let tweetRequest = SLRequest(forServiceType: SLServiceTypeTwitter,
+                                                         requestMethod: .POST,
+                                                         url: tweetURL,
+                                                         parameters: parameters) else {
+                                                            
+                                StatusBarToast.shared.show(info: .end(message: "invalid request", succeed: false))
+                                return
+                            }
+                            
+                            tweetRequest.account = account
+                            
+                            SLRequestManager.perform(tweetRequest) { result in
+                                var toastInfo: ToastInfoType
+                                
+                                switch result {
+                                case .success:
+                                    toastInfo = .end(message: "Successful :)", succeed: true)
+                                case .wrong(let info):
+                                    toastInfo = .end(message: "error: \(info)", succeed: false)
+                                case .failed(let info):
+                                    toastInfo = .end(message: "failed: \(info)", succeed: false)
+                                }
+                                
+                                StatusBarToast.shared.show(info: toastInfo)
+                            }
+                        
+                        case .wrong(let info):
+                            StatusBarToast.shared.show(info: .end(message: "error: \(info)", succeed: false))
+                            
+                        case .failed(let info):
+                            StatusBarToast.shared.show(info: .end(message: "failed: \(info)", succeed: false))
                         }
-                    })
-                    
+                    }
+
                 case ACAccountTypeIdentifierSinaWeibo:    // 👉 http://open.weibo.com/wiki/2/statuses/upload
+
                     let uploadURL = URL(string: "https://upload.api.weibo.com/2/statuses/upload.json")!
-                    let uploadRequest = SLRequest(forServiceType: SLServiceTypeSinaWeibo,
+                    guard let uploadRequest = SLRequest(forServiceType: SLServiceTypeSinaWeibo,
                                                   requestMethod: .POST,
                                                   url: uploadURL,
-                                                  parameters: ["status": message])
+                                                  parameters: ["status": message]) else {
+                        StatusBarToast.shared.show(info: .end(message: "invalid request", succeed: false))
+                        return
+                    }
                     
-                    uploadRequest?.account = account
-                    uploadRequest?.addMultipartData(gifData, withName: "pic", type: "image/gif", filename: nil)
+                    uploadRequest.account = account
+                    uploadRequest.addMultipartData(gifData, withName: "pic", type: "image/gif", filename: nil)
                     
-                    uploadRequest?.perform(handler: { (data, response, error) in
+                    SLRequestManager.perform(uploadRequest) { result in
+                        var toastInfo: ToastInfoType
                         
-                        println("\n=======Weibo======response=======\n\(response)\n\(error)")
-                        
-                        if let error = error {
-                            ATAlert.alert(type: .shareFailed(error.localizedDescription), style: .toast)
-                            
-                        } else {
-                            
-                            ATAlert.alert(type: .shareSuccess, style: .toast)
+                        switch result {
+                        case .success:
+                            toastInfo = .end(message: "Successful :)", succeed: true)
+                        case .wrong(let info):
+                            toastInfo = .end(message: "error: \(info)", succeed: false)
+                        case .failed(let info):
+                            toastInfo = .end(message: "failed: \(info)", succeed: false)
                         }
-                    })
+                        
+                        StatusBarToast.shared.show(info: toastInfo)
+                    }
                     
                 default:
-                    break
+                    StatusBarToast.shared.show(info: .end(message: "invalid account", succeed: false))
                 }
                 
             } else {
+                StatusBarToast.shared.show(info: .end(message: "unavailable data", succeed: false))
+            }
+        }
+    }
+    
+    fileprivate class func perform(_ request: SLRequest, completion: @escaping Completion) {
+        request.perform { (data, response, error) in
+            
+            if let error = error {
+                completion(.failed(error.localizedDescription))
                 
-                ATAlert.alert(type: .shareFailed("can't get gif data"), style: .toast)
+            } else {
+                
+                if let data = data, let response = response,
+                    let json = try! JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? JSON {
+                    
+                    let statusCode = response.statusCode
+                    
+                    if (200...299) ~= statusCode {
+                        completion(.success(json))
+                    } else {
+                        
+                        let accountType = request.account.accountType.identifier!
+                        
+                        switch accountType {
+                        case ACAccountTypeIdentifierTwitter: // 👉 https://dev.twitter.com/overview/api/response-codes
+                            
+                            if let error = (json["errors"] as? Array<JSON>)?.first,
+                                let message = error["message"] as? String {
+                                
+                                completion(.wrong(message))
+                                
+                            } else {
+                                
+                                let localizedString = HTTPURLResponse.localizedString(forStatusCode: statusCode)
+                                completion(.wrong(localizedString))
+                            }
+                            
+                        case ACAccountTypeIdentifierSinaWeibo:  // 👉 http://open.weibo.com/wiki/Error_code
+                            
+                            if let message = json["error"] as? String {
+                                completion(.wrong(message))
+
+                            } else {
+                                
+                                let localizedString = HTTPURLResponse.localizedString(forStatusCode: statusCode)
+                                completion(.wrong(localizedString))
+                            }
+                            
+                        default:
+                            completion(.wrong("errorType: \(accountType)"))
+                        }
+                    }
+                    
+                } else {
+                    
+                    completion(.failed("can't parse response"))
+                }
             }
         }
     }
 }
+

@@ -12,7 +12,7 @@ public let kScreenSize = ATScreenSize.shared.size
 public let kScreenWidth = ATScreenSize.shared.size.width
 public let kScreenHeight = ATScreenSize.shared.size.height
 
-public let kTextColor = UIColor.hex(0xFBFBFB, alpha: 0.95)
+//public let kTextColor = UIColor.hex(0xFBFBFB, alpha: 0.95)
 
 class ATScreenSize {
     static let shared = ATScreenSize()
@@ -30,10 +30,27 @@ class ATScreenSize {
     private init() {}
 }
 
+extension UIColor {
+    open class var tintColor: UIColor { return .hex(0xFBFBFB, alpha: 0.95) }
+    open class var bgColor: UIColor { return .hex(0x1C1C1C, alpha: 0.5) }
+    open class var tintRed: UIColor { return .hex(0xF4511E) }
+    open class var tintBlue: UIColor { return .hex(0x039BE5) }
+}
+
 extension Int {
     var byteString: String {
         let kb = self / 1024
+        let _ = Int.max
         return kb >= 1024 ? String(format: "%.1f MB", Float(kb) / 1024) : "\(kb) kB"
+    }
+}
+
+extension String {
+    func singleLineWidth(with font: UIFont) -> CGFloat {
+        return (self as NSString).boundingRect(with: CGSize(width: .max, height: .max),
+                                                options: [.usesFontLeading, .usesLineFragmentOrigin],
+                                                attributes: [NSFontAttributeName: font],
+                                                context: nil).size.width
     }
 }
 

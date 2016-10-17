@@ -71,7 +71,7 @@ class GIFDetailViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         view.addSubview(collectionView)
-        
+                
         collectionView.scrollToItem(at: IndexPath(item: currentIndex, section: 0), at: .left, animated: false)
     }
     
