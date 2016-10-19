@@ -12,8 +12,6 @@ public let kScreenSize = ATScreenSize.shared.size
 public let kScreenWidth = ATScreenSize.shared.size.width
 public let kScreenHeight = ATScreenSize.shared.size.height
 
-//public let kTextColor = UIColor.hex(0xFBFBFB, alpha: 0.95)
-
 class ATScreenSize {
     static let shared = ATScreenSize()
     

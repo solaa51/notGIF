@@ -43,6 +43,7 @@ class NotGIFLibrary {
     
     func requestGIFData(at index: Int, doneHandler: @escaping (Data?, String?) -> Void) {
         let requestOptions = PHImageRequestOptions()
+        requestOptions.isSynchronous = false
         requestOptions.version = .unadjusted
         
         PHImageManager.default().requestImageData(for: gifAssets[index], options: requestOptions) { (data, UTI, orientation, info) in

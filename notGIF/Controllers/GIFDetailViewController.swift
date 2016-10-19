@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MobileCoreServices
+import MessageUI
 
 private let cellID = "GIFDetailViewCell"
 
@@ -100,8 +102,35 @@ class GIFDetailViewController: UIViewController {
                 ATAlert.alert(type: .noApp("Wechat"), in: self, withDismissAction: nil)
             }
             
-        default:
-            break
+        case .more:
+            NotGIFLibrary.shared.requestGIFData(at: currentIndex, doneHandler: { data, UTI in
+                if let gifData = data, let uti = UTI, UTTypeConformsTo(uti as CFString, kUTTypeGIF) {
+                    let activityVC = UIActivityViewController(activityItems: [gifData], applicationActivities: nil)
+                    DispatchQueue.main.async {
+                        self.present(activityVC, animated: true, completion: nil)
+                    }
+                } else {
+                    StatusBarToast.shared.show(info: .once(message: "unavailable data, try again", succeed: false))
+                }
+            })
+            
+        case .message:
+            
+            if MFMessageComposeViewController.canSendAttachments() &&
+                MFMessageComposeViewController.isSupportedAttachmentUTI(kUTTypeGIF as String) {
+                
+                NotGIFLibrary.shared.requestGIFData(at: currentIndex, doneHandler: { data, UTI in
+                    if let gifData = data, let uti = UTI, UTTypeConformsTo(uti as CFString, kUTTypeGIF) {
+                        
+                        let messageVC = MFMessageComposeViewController()
+                        messageVC.messageComposeDelegate = self
+                        messageVC.addAttachmentData(gifData, typeIdentifier: kUTTypeGIF as String, filename: "not.gif")
+                        DispatchQueue.main.async {
+                            self.present(messageVC, animated: true, completion: nil)
+                        }
+                    }
+                })
+            }
         }
     }
 }
@@ -139,5 +168,14 @@ extension GIFDetailViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         currentIndex = Int(scrollView.contentOffset.x / kScreenWidth)
         infoLabel.info = gifs[currentIndex].gifInfo
+    }
+}
+
+// MARK: - MessageViewController Delegate
+extension GIFDetailViewController: MFMessageComposeViewControllerDelegate {
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        DispatchQueue.main.async {
+            controller.dismiss(animated: true, completion: nil)
+        }
     }
 }

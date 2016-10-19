@@ -23,7 +23,7 @@ final class SLRequestManager {
     
     class func shareGIF(at index: Int, to account: ACAccount, with message: String) {
         
-        StatusBarToast.shared.show(info: .continue(message: "Sending  ", shouldLoading: true))
+        StatusBarToast.shared.show(info: .continue(message: "sending  ", shouldLoading: true))
 
         NotGIFLibrary.shared.requestGIFData(at: index) { (data, UTI) in
             
