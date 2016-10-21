@@ -33,6 +33,12 @@ extension UIColor {
     open class var bgColor: UIColor { return .hex(0x1C1C1C, alpha: 0.5) }
     open class var tintRed: UIColor { return .hex(0xF4511E) }
     open class var tintBlue: UIColor { return .hex(0x039BE5) }
+    
+    public class func hex(_ hex: NSInteger, alpha: CGFloat = 1.0) -> UIColor {
+        return UIColor(red: ((CGFloat)((hex & 0xFF0000) >> 16))/255.0,
+                       green: ((CGFloat)((hex & 0xFF00) >> 8))/255.0,
+                       blue: ((CGFloat)(hex & 0xFF))/255.0, alpha: alpha)
+    }
 }
 
 extension Int {
@@ -52,6 +58,20 @@ extension String {
     }
 }
 
+extension IndexSet {
+    subscript(index: Int) -> Int {
+        return self[self.index(startIndex, offsetBy: index)]
+    }
+}
+
+extension Array where Element: Equatable {
+    mutating func remove(object: Element) {
+        if let index = index(of: object) {
+            remove(at: index)
+        }
+    }
+}
+
 extension UIImage {
     public func aspectFill(toSize: CGSize) -> UIImage {
         var cropArea = CGRect.zero
@@ -67,13 +87,5 @@ extension UIImage {
         
         let cropImageRef = cgImage!.cropping(to: cropArea)
         return UIImage(cgImage: cropImageRef!, scale: scale, orientation: .up)
-    }
-}
-
-extension UIColor {
-    public class func hex(_ hex: NSInteger, alpha: CGFloat = 1.0) -> UIColor {
-        return UIColor(red: ((CGFloat)((hex & 0xFF0000) >> 16))/255.0,
-                       green: ((CGFloat)((hex & 0xFF00) >> 8))/255.0,
-                       blue: ((CGFloat)(hex & 0xFF))/255.0, alpha: alpha)
     }
 }

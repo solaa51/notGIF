@@ -15,13 +15,13 @@ class ComposeViewController: SLComposeServiceViewController {
     public var selectedAccount: ACAccount? = nil
 
     fileprivate var shareType: ShareType!
-    fileprivate var imgIndex: Int!
+    fileprivate var gifInfo: GIFDataInfo!
     
-    convenience init(shareType: ShareType, imgIndex: Int) {
+    convenience init(shareType: ShareType, with dataInfo: GIFDataInfo) {
         self.init()
         
         self.shareType = shareType
-        self.imgIndex = imgIndex
+        self.gifInfo = dataInfo
         
         getAccounts(of: shareType)
     }
@@ -40,7 +40,7 @@ class ComposeViewController: SLComposeServiceViewController {
     // MARK: - Override SLComposeService
     
     override func loadPreviewView() -> UIView! {
-        let img = NotGIFLibrary.shared.gifs[imgIndex].thumbnail
+        let img = gifInfo.thumbnail
         let scaledImg = img.aspectFill(toSize: CGSize(width: 75, height: 75))
         return UIImageView(image: scaledImg)
     }
@@ -75,7 +75,7 @@ class ComposeViewController: SLComposeServiceViewController {
             return
         }
 
-        SLRequestManager.shareGIF(at: imgIndex, to: account, with: contentText)
+        SLRequestManager.shareGIF(asset: gifInfo.asset, to: account, with: contentText)
         dismiss(animated: true, completion: nil)
     }
     

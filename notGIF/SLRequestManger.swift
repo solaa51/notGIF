@@ -5,10 +5,11 @@
 //  Created by Atuooo on 15/10/2016.
 //  Copyright © 2016 xyz. All rights reserved.
 //
-import Accounts
-import Social
-import MobileCoreServices
 import UIKit
+import Photos
+import Social
+import Accounts
+import MobileCoreServices
 
 fileprivate typealias JSON = [String: AnyObject]
 fileprivate typealias Completion = (_ result: Result) -> ()
@@ -21,12 +22,12 @@ fileprivate enum Result {
 
 final class SLRequestManager {
     
-    class func shareGIF(at index: Int, to account: ACAccount, with message: String) {
+    class func shareGIF(asset: PHAsset, to account: ACAccount, with message: String) {
         
         StatusBarToast.shared.show(info: .continue(message: "sending  ", shouldLoading: true))
-
-        NotGIFLibrary.shared.requestGIFData(at: index) { (data, UTI) in
-            
+        
+        PHImageManager.requestGIFData(for: asset) { (data, UTI) in
+        
             if let gifData = data, let uti = UTI, UTTypeConformsTo(uti as CFString, kUTTypeGIF) {
                 
                 switch account.accountType.identifier {

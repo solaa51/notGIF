@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 import MobileCoreServices
 
 public enum Platform: String {
@@ -34,12 +35,15 @@ final class OpenShare {
         }
     }
     
-    class func shareGIF(at index: Int, to platform: Platform) {
-        NotGIFLibrary.shared.requestGIFData(at: index) { (data, UTI) in
+    class func shareGIF(to platform: Platform, with gifInfo: GIFDataInfo) {
+        
+        PHImageManager.requestGIFData(for: gifInfo.asset) { (data, UTI) in
+            
             if let gifData = data, let uti = UTI, UTTypeConformsTo(uti as CFString, kUTTypeGIF),
-                let thumbData = NotGIFLibrary.shared.gifs[index].thumbnail.monkeyking_compressedImageData {
-                
+                let thumbData = gifInfo.thumbnail.monkeyking_compressedImageData {
+    
                 switch platform {
+                    
                 case .wechat:
                     var wechatMessageInfo: [String: Any] = [
                         "result": "1",
@@ -152,4 +156,3 @@ private extension UIImage {
         return imageData
     }
 }
-

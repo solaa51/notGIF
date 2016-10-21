@@ -11,14 +11,14 @@ import MobileCoreServices
 import MessageUI
 
 private let cellID = "GIFDetailViewCell"
+private let tmpInfo = "xx Frames\nxx s / xxx"
 
 class GIFDetailViewController: UIViewController {
     var currentIndex: Int!
 
-    fileprivate var collectionView: UICollectionView!
-    fileprivate var gifs = [NotGIFImage]()
-    
+    fileprivate var gifLibrary: NotGIFLibrary!
     fileprivate var infoLabel: GIFInfoLabel!
+    fileprivate var collectionView: UICollectionView!
 
     fileprivate var isHideBar = false {
         didSet {
@@ -39,13 +39,8 @@ class GIFDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        gifs = NotGIFLibrary.shared.gifs
+        gifLibrary = NotGIFLibrary.shared
         makeUI()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -58,7 +53,7 @@ class GIFDetailViewController: UIViewController {
         
         automaticallyAdjustsScrollViewInsets = false
         
-        infoLabel = GIFInfoLabel(info: gifs[currentIndex].gifInfo)
+        infoLabel = GIFInfoLabel(info: gifLibrary[currentIndex]?.gifInfo ?? tmpInfo)
         navigationItem.titleView = infoLabel
         
         let layout = UICollectionViewFlowLayout()
@@ -81,15 +76,25 @@ class GIFDetailViewController: UIViewController {
         println(" deinit GIFDetailViewController ") 
     }
     
+    func updateUI() {
+        collectionView.reloadData()
+        currentIndex = Int(collectionView.contentOffset.x / kScreenWidth)
+        infoLabel.info = gifLibrary[currentIndex]?.gifInfo ?? tmpInfo
+    }
+    
     // MARK: - Share GIF
     private func shareGIF(to type: ShareType) {
         switch type {
             
         case .twitter, .weibo:
             if let reachability = Reachability(), reachability.isReachable {
-                let composeVC = ComposeViewController(shareType: type, imgIndex: currentIndex)
-                composeVC.modalPresentationStyle = .overCurrentContext
-                present(composeVC, animated: true, completion: nil)
+                if let gifInfo = gifLibrary.getDataInfo(at: currentIndex) {
+                    let composeVC = ComposeViewController(shareType: type, with: gifInfo)
+                    composeVC.modalPresentationStyle = .overCurrentContext
+                    present(composeVC, animated: true, completion: nil)
+                } else {
+                    StatusBarToast.shared.show(info: .once(message: "unavailable data, try again", succeed: false))
+                }
                 
             } else {
                 ATAlert.alert(type: .noInternet, in: self, withDismissAction: nil)
@@ -97,7 +102,11 @@ class GIFDetailViewController: UIViewController {
             
         case .wechat:
             if OpenShare.canOpen(platform: .wechat) {
-                OpenShare.shareGIF(at: currentIndex, to: .wechat)
+                if let gifInfo = gifLibrary.getDataInfo(at: currentIndex) {
+                    OpenShare.shareGIF(to: .wechat, with: gifInfo)
+                } else {
+                    StatusBarToast.shared.show(info: .once(message: "unavailable data, try again", succeed: false))
+                }
             } else {
                 ATAlert.alert(type: .noApp("Wechat"), in: self, withDismissAction: nil)
             }
@@ -138,7 +147,7 @@ class GIFDetailViewController: UIViewController {
 // MARK: - UICollectionView Delegate
 extension GIFDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return gifs.count
+        return gifLibrary.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -151,7 +160,9 @@ extension GIFDetailViewController: UICollectionViewDelegate, UICollectionViewDat
         
         guard let cell = cell as? GIFDetailViewCell else { return }
         
-        cell.configureWithImage(image: gifs[indexPath.item])
+        gifLibrary.getGIFImage(at: indexPath.item) { gif in
+            cell.configureWithImage(image: gif)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -167,7 +178,7 @@ extension GIFDetailViewController: UIScrollViewDelegate {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         currentIndex = Int(scrollView.contentOffset.x / kScreenWidth)
-        infoLabel.info = gifs[currentIndex].gifInfo
+        infoLabel.info = gifLibrary[currentIndex]?.gifInfo ?? tmpInfo
     }
 }
 

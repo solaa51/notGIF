@@ -61,11 +61,13 @@ class NotGIFImageView: UIImageView {
     }
     
     override func stopAnimating()  {
-        if let _ = animatedImage {
-            displayLink.isPaused = true
-        } else {
-            super.stopAnimating()
-        }
+        displayLink.isPaused = true
+
+//        if let _ = animatedImage {
+//            displayLink.isPaused = true
+//        } else {
+//            super.stopAnimating()
+//        }
     }
     
     override var isHighlighted: Bool {

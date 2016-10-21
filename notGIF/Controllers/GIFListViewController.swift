@@ -11,7 +11,9 @@ import UIKit
 private let cellID = "GIFListViewCell"
 
 class GIFListViewController: UIViewController {
-    fileprivate var gifs = [NotGIFImage]()
+    fileprivate var gifLibrary: NotGIFLibrary!
+    fileprivate var gifs = [NotGIFImage?]()
+    fileprivate var gifRatios = [CGFloat]()
     fileprivate var collectionView: UICollectionView!
     
     fileprivate var titleLabel: UILabel = {
@@ -24,6 +26,7 @@ class GIFListViewController: UIViewController {
     }()
     
     fileprivate var hasPaused = false
+    
     fileprivate var shouldPlay = true {
         didSet {
             if shouldPlay != oldValue {
@@ -44,8 +47,9 @@ class GIFListViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .pause, target: self, action: #selector(autoplayItemClicked))
         navigationItem.rightBarButtonItem?.tintColor = .gray
         
-        gifs = NotGIFLibrary.shared.checkGIFFromPhotos()
-        
+        gifLibrary = NotGIFLibrary.shared.getGIFLibrary()
+        gifLibrary.observer = self
+            
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: GIFListLayout(delegate: self))
         collectionView.register(GIFListViewCell.self, forCellWithReuseIdentifier: cellID)
         collectionView.delegate = self
@@ -64,9 +68,13 @@ class GIFListViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if !gifs.isEmpty && !hasPaused {
+        if !hasPaused {
             shouldPlay = true
         }
+    }
+    
+    deinit {
+        gifLibrary.observer = nil
     }
     
     func autoplayItemClicked() {
@@ -80,7 +88,7 @@ class GIFListViewController: UIViewController {
 // MARK: - Collection Delegate
 extension GIFListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return gifs.count
+        return gifLibrary.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -92,10 +100,12 @@ extension GIFListViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         guard let cell = cell as? GIFListViewCell else { return }
-        
-        DispatchQueue.main.async {
-            cell.imageView.image = self.gifs[indexPath.item]
-            self.shouldPlay ? cell.imageView.startAnimating() : cell.imageView.stopAnimating()
+
+        gifLibrary.getGIFImage(at: indexPath.item) { gif in
+            DispatchQueue.main.async {
+                cell.imageView.image = gif
+                self.shouldPlay ? cell.imageView.startAnimating() : cell.imageView.stopAnimating()
+            }
         }
     }
     
@@ -107,9 +117,23 @@ extension GIFListViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
 }
 
+// MARK: - GIFLibraryChange Observer
+extension GIFListViewController: NotGIFLibraryChangeObserver {
+    func gifLibraryDidChange() {
+        DispatchQueue.main.async {
+            guard let collectionView = self.collectionView else { return }
+            collectionView.reloadData()
+            
+            if let detailVC = self.navigationController?.topViewController as? GIFDetailViewController {
+                detailVC.updateUI()
+            }
+        }
+    }
+}
+
 // MARK: - GIFListLayout Delegate
 extension GIFListViewController: GIFListLayoutDelegate {
     func ratioForImageAtIndexPath(indexPath: IndexPath) -> CGFloat {
-        return gifs[indexPath.item].ratio
+        return gifLibrary.gifAssets[indexPath.item].ratio
     }
 }
