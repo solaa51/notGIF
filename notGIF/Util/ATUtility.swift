@@ -43,6 +43,12 @@ extension Int {
     }
 }
 
+extension IndexSet {
+    subscript(index: Int) -> Int {
+        return self[self.index(startIndex, offsetBy: index)]
+    }
+}
+
 extension String {
     func singleLineWidth(with font: UIFont) -> CGFloat {
         return (self as NSString).boundingRect(with: CGSize(width: .max, height: .max),

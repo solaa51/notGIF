@@ -34,7 +34,7 @@ class GIFDetailViewCell: UICollectionViewCell {
             imageView.frame.size = CGSize(width: kScreenWidth, height: imageH)
         }
         
-        imageView.center = contentView.center //CGPoint(x: kScreenWidth / 2, y: contentView.center.y - 32)
+        imageView.center = contentView.center
         imageView.image = image
     }
     

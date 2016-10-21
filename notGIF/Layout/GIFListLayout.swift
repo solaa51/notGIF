@@ -54,6 +54,8 @@ class GIFListLayout: UICollectionViewLayout {
     fileprivate func cacheAttributes() {
         guard let collectionView = collectionView else { return }
         
+        cachedAttributes.removeAll()
+        
         let itemCount = collectionView.numberOfItems(inSection: 0)
         let contentWidth = UIScreen.main.bounds.size.width - 3 * cellPadding
         

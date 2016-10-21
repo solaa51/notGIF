@@ -37,7 +37,7 @@ final class OpenShare {
     class func shareGIF(at index: Int, to platform: Platform) {
         NotGIFLibrary.shared.requestGIFData(at: index) { (data, UTI) in
             if let gifData = data, let uti = UTI, UTTypeConformsTo(uti as CFString, kUTTypeGIF),
-                let thumbData = NotGIFLibrary.shared.gifs[index].thumbnail.monkeyking_compressedImageData {
+                let thumbData = NotGIFLibrary.shared[index]?.thumbnail.monkeyking_compressedImageData {
                 
                 switch platform {
                 case .wechat:

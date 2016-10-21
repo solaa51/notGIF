@@ -40,8 +40,8 @@ class ComposeViewController: SLComposeServiceViewController {
     // MARK: - Override SLComposeService
     
     override func loadPreviewView() -> UIView! {
-        let img = NotGIFLibrary.shared.gifs[imgIndex].thumbnail
-        let scaledImg = img.aspectFill(toSize: CGSize(width: 75, height: 75))
+        let img = NotGIFLibrary.shared[imgIndex]?.thumbnail
+        let scaledImg = img?.aspectFill(toSize: CGSize(width: 75, height: 75))
         return UIImageView(image: scaledImg)
     }
     
