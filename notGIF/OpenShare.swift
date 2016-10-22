@@ -41,7 +41,7 @@ final class OpenShare {
             
             if let gifData = data, let uti = UTI, UTTypeConformsTo(uti as CFString, kUTTypeGIF),
                 let thumbData = gifInfo.thumbnail.monkeyking_compressedImageData {
-    
+
                 switch platform {
                     
                 case .wechat:

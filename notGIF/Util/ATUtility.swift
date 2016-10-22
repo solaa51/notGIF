@@ -49,12 +49,13 @@ extension Int {
     }
 }
 
+
 extension String {
     func singleLineWidth(with font: UIFont) -> CGFloat {
         return (self as NSString).boundingRect(with: CGSize(width: .max, height: .max),
-                                                options: [.usesFontLeading, .usesLineFragmentOrigin],
-                                                attributes: [NSFontAttributeName: font],
-                                                context: nil).size.width
+                                               options: [.usesFontLeading, .usesLineFragmentOrigin],
+                                               attributes: [NSFontAttributeName: font],
+                                               context: nil).size.width
     }
 }
 
@@ -63,6 +64,7 @@ extension IndexSet {
         return self[self.index(startIndex, offsetBy: index)]
     }
 }
+
 
 extension Array where Element: Equatable {
     mutating func remove(object: Element) {
