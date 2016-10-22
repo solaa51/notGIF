@@ -77,9 +77,18 @@ class GIFDetailViewController: UIViewController {
     }
     
     func updateUI() {
+        func updateInfoLabel() {
+            currentIndex = Int(collectionView.contentOffset.x / kScreenWidth)
+            infoLabel.info = gifLibrary[currentIndex]?.gifInfo ?? tmpInfo
+        }
+        
+        CATransaction.begin()
+        CATransaction.setCompletionBlock {
+            updateInfoLabel()
+        }
+        
         collectionView.reloadData()
-        currentIndex = Int(collectionView.contentOffset.x / kScreenWidth)
-        infoLabel.info = gifLibrary[currentIndex]?.gifInfo ?? tmpInfo
+        CATransaction.commit()
     }
     
     // MARK: - Share GIF

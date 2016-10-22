@@ -29,7 +29,11 @@ class NotGIFLibrary: NSObject {
     }
     
     subscript(index: Int) -> NotGIFImage? {
-        return gifPool[gifAssets[index].localIdentifier]
+        if index >= count {
+            return nil
+        } else {
+            return gifPool[gifAssets[index].localIdentifier]
+        }
     }
     
     fileprivate var gifPool = [String: NotGIFImage]()
