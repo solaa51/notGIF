@@ -1,0 +1,6 @@
+framework module Pods_notGIFMessage {
+  umbrella header "Pods-notGIFMessage-umbrella.h"
+
+  export *
+  module * { export * }
+}

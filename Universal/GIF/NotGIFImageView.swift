@@ -48,7 +48,7 @@ class NotGIFImageView: UIImageView {
                 }
             }
             
-            self.layer.setNeedsDisplay()
+            layer.setNeedsDisplay()
         }
     }
     

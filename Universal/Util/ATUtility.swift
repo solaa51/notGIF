@@ -29,10 +29,12 @@ class ATScreenSize {
 }
 
 extension UIColor {
-    open class var tintColor: UIColor { return .hex(0xFBFBFB, alpha: 0.95) }
-    open class var bgColor: UIColor { return .hex(0x1C1C1C, alpha: 0.5) }
-    open class var tintRed: UIColor { return .hex(0xF4511E) }
-    open class var tintBlue: UIColor { return .hex(0x039BE5) }
+
+    @nonobjc static let tintRed   = UIColor.hex(0xF4511E)
+    @nonobjc static let tintBlue  = UIColor.hex(0x039BE5)
+    @nonobjc static let bgColor   = UIColor.hex(0x1C1C1C, alpha: 0.5)
+    @nonobjc static let tintColor = UIColor.hex(0xFBFBFB, alpha: 0.95)
+
     
     public class func hex(_ hex: NSInteger, alpha: CGFloat = 1.0) -> UIColor {
         return UIColor(red: ((CGFloat)((hex & 0xFF0000) >> 16))/255.0,

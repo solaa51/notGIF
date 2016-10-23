@@ -25,6 +25,8 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 */
 
+// Reachability.swift version 2.2beta2
+
 import SystemConfiguration
 import Foundation
 
@@ -69,9 +71,6 @@ public class Reachability {
     public var whenReachable: NetworkReachable?
     public var whenUnreachable: NetworkUnreachable?
     public var reachableOnWWAN: Bool
-    
-    // The notification center on which "reachability changed" events are being posted
-    public var notificationCenter: NotificationCenter = NotificationCenter.default
 
     public var currentReachabilityString: String {
         return "\(currentReachabilityStatus)"
@@ -237,7 +236,7 @@ fileprivate extension Reachability {
         let block = isReachable ? whenReachable : whenUnreachable
         block?(self)
         
-        self.notificationCenter.post(name: ReachabilityChangedNotification, object:self)
+        NotificationCenter.default.post(name: ReachabilityChangedNotification, object:self)
         
         previousFlags = flags
     }

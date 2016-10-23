@@ -7,43 +7,24 @@
 //
 
 import UIKit
+import Photos
 
 private let cellID = "GIFListViewCell"
 
+protocol GIFListViewControllerDelegate: class {
+    func sendGIF(with url: URL)
+}
+
 class GIFListViewController: UIViewController {
+    weak var delegate: GIFListViewControllerDelegate?
+    
     fileprivate var gifLibrary: NotGIFLibrary!
     fileprivate var collectionView: UICollectionView!
-    
-    fileprivate var titleLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
-        label.text = "/jif/"
-        label.textColor = .tintColor
-        label.textAlignment = .center
-        label.font = UIFont(name: "Kenia-Regular", size: 26)
-        return label
-    }()
-    
-    fileprivate var hasPaused = false
-    
-    fileprivate var shouldPlay = true {
-        didSet {
-            if shouldPlay != oldValue {
-                for cell in collectionView.visibleCells {
-                    if let cell = cell as? GIFListViewCell {
-                        shouldPlay ? cell.imageView.startAnimating() : cell.imageView.stopAnimating()
-                    }
-                }
-            }
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = ""
-        navigationItem.titleView = titleLabel
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .pause, target: self, action: #selector(autoplayItemClicked))
-        navigationItem.rightBarButtonItem?.tintColor = .gray
+        view.backgroundColor = .bgColor
         
         gifLibrary = NotGIFLibrary.shared.getGIFLibrary()
         gifLibrary.observer = self
@@ -58,33 +39,10 @@ class GIFListViewController: UIViewController {
         collectionView.snp.makeConstraints { make in
             make.edges.equalTo(view)
         }
-        
-        #if DEBUG
-            view.addSubview(FPSLabel())
-        #endif
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        if !hasPaused {
-            shouldPlay = true
-        }
     }
     
     deinit {
         gifLibrary.observer = nil
-    }
-    
-    func autoplayItemClicked() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: shouldPlay ? .play : .pause, target: self, action: #selector(autoplayItemClicked))
-        navigationItem.rightBarButtonItem?.tintColor = .gray
-        hasPaused = shouldPlay
-        shouldPlay = !shouldPlay
     }
 }
 
@@ -107,16 +65,18 @@ extension GIFListViewController: UICollectionViewDelegate, UICollectionViewDataS
         gifLibrary.getGIFImage(at: indexPath.item) { gif in
             DispatchQueue.main.async {
                 cell.imageView.image = gif
-                self.shouldPlay ? cell.imageView.startAnimating() : cell.imageView.stopAnimating()
+                cell.imageView.startAnimating()
             }
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailVC = GIFDetailViewController()
-        detailVC.currentIndex = indexPath.item
-        shouldPlay = false
-        navigationController?.pushViewController(detailVC, animated: true)
+        let asset = gifLibrary.gifAssets[indexPath.item]
+        asset.requestContentEditingInput(with: PHContentEditingInputRequestOptions()) { (eidtingInput, info) in
+            if let input = eidtingInput, let gifURL = input.fullSizeImageURL {
+                self.delegate?.sendGIF(with: gifURL)
+            }
+        }
     }
 }
 
@@ -126,10 +86,6 @@ extension GIFListViewController: NotGIFLibraryChangeObserver {
         DispatchQueue.main.async {
             guard let collectionView = self.collectionView else { return }
             collectionView.reloadData()
-            
-            if let detailVC = self.navigationController?.topViewController as? GIFDetailViewController {
-                detailVC.updateUI()
-            }
         }
     }
 }

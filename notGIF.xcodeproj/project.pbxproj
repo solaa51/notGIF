@@ -7,67 +7,123 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C92EE7811DB1F66E002B084C /* SLRequestManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92EE7801DB1F66E002B084C /* SLRequestManger.swift */; };
-		C92EE7891DB310D5002B084C /* OpenShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92EE7881DB310D5002B084C /* OpenShare.swift */; };
-		C92EE7901DB39E6C002B084C /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92EE78F1DB39E6C002B084C /* Reachability.swift */; };
-		C92EE7981DB4B5CD002B084C /* StatusBarLoadingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92EE7961DB4B5CD002B084C /* StatusBarLoadingLayer.swift */; };
-		C92EE7991DB4B5CD002B084C /* StatusBarToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92EE7971DB4B5CD002B084C /* StatusBarToast.swift */; };
 		C947E0901DAA279900625B72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C947E08F1DAA279900625B72 /* AppDelegate.swift */; };
 		C947E0971DAA279900625B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C947E0961DAA279900625B72 /* Assets.xcassets */; };
 		C947E09A1DAA279900625B72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C947E0981DAA279900625B72 /* LaunchScreen.storyboard */; };
-		C947E0AD1DAA2AA200625B72 /* NotGIFImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C947E0AB1DAA2AA200625B72 /* NotGIFImage.swift */; };
-		C947E0AE1DAA2AA200625B72 /* NotGIFImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C947E0AC1DAA2AA200625B72 /* NotGIFImageView.swift */; };
-		C947E0B11DAA2ABA00625B72 /* GIFListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C947E0B01DAA2ABA00625B72 /* GIFListViewController.swift */; };
-		C947E0B41DAA2B1400625B72 /* GIFListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C947E0B31DAA2B1400625B72 /* GIFListLayout.swift */; };
-		C947E0B81DAA2F1500625B72 /* NotGIFLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C947E0B71DAA2F1500625B72 /* NotGIFLibrary.swift */; };
-		C9567E2F1DAA3E7700EDA099 /* GIFLisViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9567E2E1DAA3E7700EDA099 /* GIFLisViewCell.swift */; };
-		C9567E311DAA3EC700EDA099 /* FPSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9567E301DAA3EC700EDA099 /* FPSLabel.swift */; };
-		C9567E331DAA480400EDA099 /* GIFDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9567E321DAA480400EDA099 /* GIFDetailViewController.swift */; };
-		C9567E351DAA482100EDA099 /* GIFDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9567E341DAA482100EDA099 /* GIFDetailViewCell.swift */; };
-		C9567E401DAA82F700EDA099 /* Kenia-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9567E3E1DAA82F700EDA099 /* Kenia-Regular.ttf */; };
-		C9567E411DAA82F700EDA099 /* Shojumaru-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9567E3F1DAA82F700EDA099 /* Shojumaru-Regular.ttf */; };
-		C9567E431DAB2CD600EDA099 /* ATUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9567E421DAB2CD600EDA099 /* ATUtility.swift */; };
-		C9AEAEAC1DABAB4100857DD6 /* GIFShareBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AEAEAB1DABAB4100857DD6 /* GIFShareBar.swift */; };
-		C9AEAEAF1DAC820A00857DD6 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9AEAEAE1DAC820A00857DD6 /* FontAwesome.otf */; };
-		C9AEAEB41DAC8E7400857DD6 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AEAEB31DAC8E7400857DD6 /* FontAwesome.swift */; };
-		C9AEAEB81DADDD4C00857DD6 /* DebugLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AEAEB71DADDD4C00857DD6 /* DebugLog.swift */; };
-		C9AEAEBA1DADFB7C00857DD6 /* GIFInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AEAEB91DADFB7C00857DD6 /* GIFInfoLabel.swift */; };
-		C9AEAEBF1DAE9D1800857DD6 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AEAEBE1DAE9D1800857DD6 /* ComposeViewController.swift */; };
-		C9AEAEC11DAF297900857DD6 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AEAEC01DAF297900857DD6 /* AccountTableViewController.swift */; };
-		C9AEAEC31DAF6CD400857DD6 /* ATAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AEAEC21DAF6CD400857DD6 /* ATAlert.swift */; };
+		C9F860881DBD027E006B1221 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F860871DBD027E006B1221 /* Messages.framework */; };
+		C9F8608B1DBD027E006B1221 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F8608A1DBD027E006B1221 /* MessagesViewController.swift */; };
+		C9F8608E1DBD027E006B1221 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9F8608C1DBD027E006B1221 /* MainInterface.storyboard */; };
+		C9F860901DBD027E006B1221 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9F8608F1DBD027E006B1221 /* Assets.xcassets */; };
+		C9F860941DBD027E006B1221 /* notGIFMessage.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C9F860861DBD027E006B1221 /* notGIFMessage.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C9F8615D1DBD0B1C006B1221 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9F861511DBD0B1C006B1221 /* FontAwesome.otf */; };
+		C9F8615E1DBD0B1C006B1221 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9F861511DBD0B1C006B1221 /* FontAwesome.otf */; };
+		C9F8615F1DBD0B1C006B1221 /* Kenia-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9F861521DBD0B1C006B1221 /* Kenia-Regular.ttf */; };
+		C9F861601DBD0B1C006B1221 /* Kenia-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9F861521DBD0B1C006B1221 /* Kenia-Regular.ttf */; };
+		C9F861611DBD0B1C006B1221 /* Shojumaru-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9F861531DBD0B1C006B1221 /* Shojumaru-Regular.ttf */; };
+		C9F861621DBD0B1C006B1221 /* Shojumaru-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9F861531DBD0B1C006B1221 /* Shojumaru-Regular.ttf */; };
+		C9F861631DBD0B1C006B1221 /* NotGIFImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861551DBD0B1C006B1221 /* NotGIFImage.swift */; };
+		C9F861641DBD0B1C006B1221 /* NotGIFImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861551DBD0B1C006B1221 /* NotGIFImage.swift */; };
+		C9F861651DBD0B1C006B1221 /* NotGIFImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861561DBD0B1C006B1221 /* NotGIFImageView.swift */; };
+		C9F861661DBD0B1C006B1221 /* NotGIFImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861561DBD0B1C006B1221 /* NotGIFImageView.swift */; };
+		C9F861671DBD0B1C006B1221 /* NotGIFLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861571DBD0B1C006B1221 /* NotGIFLibrary.swift */; };
+		C9F861681DBD0B1C006B1221 /* NotGIFLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861571DBD0B1C006B1221 /* NotGIFLibrary.swift */; };
+		C9F8616B1DBD0B1C006B1221 /* ATUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F8615A1DBD0B1C006B1221 /* ATUtility.swift */; };
+		C9F8616C1DBD0B1C006B1221 /* ATUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F8615A1DBD0B1C006B1221 /* ATUtility.swift */; };
+		C9F8616D1DBD0B1C006B1221 /* DebugLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F8615B1DBD0B1C006B1221 /* DebugLog.swift */; };
+		C9F8616E1DBD0B1C006B1221 /* DebugLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F8615B1DBD0B1C006B1221 /* DebugLog.swift */; };
+		C9F861731DBD0BBA006B1221 /* ATAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861711DBD0BBA006B1221 /* ATAlert.swift */; };
+		C9F861741DBD0BBA006B1221 /* ATAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861711DBD0BBA006B1221 /* ATAlert.swift */; };
+		C9F861751DBD0BBA006B1221 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861721DBD0BBA006B1221 /* FontAwesome.swift */; };
+		C9F861761DBD0BBA006B1221 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861721DBD0BBA006B1221 /* FontAwesome.swift */; };
+		C9F861881DBD0BD6006B1221 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861781DBD0BD6006B1221 /* AccountTableViewController.swift */; };
+		C9F861891DBD0BD6006B1221 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861791DBD0BD6006B1221 /* ComposeViewController.swift */; };
+		C9F8618A1DBD0BD6006B1221 /* GIFDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F8617A1DBD0BD6006B1221 /* GIFDetailViewController.swift */; };
+		C9F8618B1DBD0BD6006B1221 /* GIFListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F8617B1DBD0BD6006B1221 /* GIFListViewController.swift */; };
+		C9F8618C1DBD0BD6006B1221 /* OpenShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F8617D1DBD0BD6006B1221 /* OpenShare.swift */; };
+		C9F8618D1DBD0BD6006B1221 /* SLRequestManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F8617E1DBD0BD6006B1221 /* SLRequestManger.swift */; };
+		C9F8618E1DBD0BD6006B1221 /* FPSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861801DBD0BD6006B1221 /* FPSLabel.swift */; };
+		C9F8618F1DBD0BD6006B1221 /* GIFDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861811DBD0BD6006B1221 /* GIFDetailViewCell.swift */; };
+		C9F861901DBD0BD6006B1221 /* GIFInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861821DBD0BD6006B1221 /* GIFInfoLabel.swift */; };
+		C9F861921DBD0BD6006B1221 /* GIFLisViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861841DBD0BD6006B1221 /* GIFLisViewCell.swift */; };
+		C9F861931DBD0BD6006B1221 /* GIFShareBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861851DBD0BD6006B1221 /* GIFShareBar.swift */; };
+		C9F861941DBD0BD6006B1221 /* StatusBarLoadingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861861DBD0BD6006B1221 /* StatusBarLoadingLayer.swift */; };
+		C9F861951DBD0BD6006B1221 /* StatusBarToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861871DBD0BD6006B1221 /* StatusBarToast.swift */; };
+		C9F861A01DBD0D22006B1221 /* GIFListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F8619F1DBD0D22006B1221 /* GIFListLayout.swift */; };
+		C9F861A11DBD0D22006B1221 /* GIFListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F8619F1DBD0D22006B1221 /* GIFListLayout.swift */; };
+		C9F861A91DBD1046006B1221 /* GIFLisViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861A81DBD1046006B1221 /* GIFLisViewCell.swift */; };
+		C9F861AB1DBD104F006B1221 /* GIFListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861AA1DBD104F006B1221 /* GIFListViewController.swift */; };
+		D0059755BF0A4A8ED99FB80E /* Pods_notGIFMessage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77787802832EB1AFAF109C0C /* Pods_notGIFMessage.framework */; };
+		F6489894CDB7CC2C39F1B825 /* Pods_notGIF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7989C9163A7614ED2EDFD44 /* Pods_notGIF.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C9F860921DBD027E006B1221 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C947E0841DAA279900625B72 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9F860851DBD027E006B1221;
+			remoteInfo = notGIFMessage;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C9F860981DBD027E006B1221 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C9F860941DBD027E006B1221 /* notGIFMessage.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		C92EE7801DB1F66E002B084C /* SLRequestManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLRequestManger.swift; sourceTree = "<group>"; };
-		C92EE7881DB310D5002B084C /* OpenShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenShare.swift; sourceTree = "<group>"; };
-		C92EE78F1DB39E6C002B084C /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
-		C92EE7961DB4B5CD002B084C /* StatusBarLoadingLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarLoadingLayer.swift; sourceTree = "<group>"; };
-		C92EE7971DB4B5CD002B084C /* StatusBarToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarToast.swift; sourceTree = "<group>"; };
+		117F574B007756B6F4EC37EA /* Pods-notGIFMessage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-notGIFMessage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-notGIFMessage/Pods-notGIFMessage.debug.xcconfig"; sourceTree = "<group>"; };
+		25FEBD5B3FC0320DFA349F80 /* Pods-notGIFMessage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-notGIFMessage.release.xcconfig"; path = "Pods/Target Support Files/Pods-notGIFMessage/Pods-notGIFMessage.release.xcconfig"; sourceTree = "<group>"; };
+		5E83B6C1B2758C67408FBD2A /* Pods-notGIF.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-notGIF.release.xcconfig"; path = "Pods/Target Support Files/Pods-notGIF/Pods-notGIF.release.xcconfig"; sourceTree = "<group>"; };
+		77787802832EB1AFAF109C0C /* Pods_notGIFMessage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_notGIFMessage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99390F0FC548DA7E562C6B7B /* Pods-notGIF.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-notGIF.debug.xcconfig"; path = "Pods/Target Support Files/Pods-notGIF/Pods-notGIF.debug.xcconfig"; sourceTree = "<group>"; };
+		B7989C9163A7614ED2EDFD44 /* Pods_notGIF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_notGIF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C947E08C1DAA279900625B72 /* notGIF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = notGIF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C947E08F1DAA279900625B72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C947E0961DAA279900625B72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C947E0991DAA279900625B72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C947E09B1DAA279900625B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C947E0AB1DAA2AA200625B72 /* NotGIFImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotGIFImage.swift; sourceTree = "<group>"; };
-		C947E0AC1DAA2AA200625B72 /* NotGIFImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotGIFImageView.swift; sourceTree = "<group>"; };
-		C947E0B01DAA2ABA00625B72 /* GIFListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFListViewController.swift; sourceTree = "<group>"; };
-		C947E0B31DAA2B1400625B72 /* GIFListLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GIFListLayout.swift; path = ../Layout/GIFListLayout.swift; sourceTree = "<group>"; };
-		C947E0B71DAA2F1500625B72 /* NotGIFLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotGIFLibrary.swift; path = Util/NotGIFLibrary.swift; sourceTree = "<group>"; };
-		C9567E2E1DAA3E7700EDA099 /* GIFLisViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFLisViewCell.swift; sourceTree = "<group>"; };
-		C9567E301DAA3EC700EDA099 /* FPSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPSLabel.swift; sourceTree = "<group>"; };
-		C9567E321DAA480400EDA099 /* GIFDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFDetailViewController.swift; sourceTree = "<group>"; };
-		C9567E341DAA482100EDA099 /* GIFDetailViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFDetailViewCell.swift; sourceTree = "<group>"; };
-		C9567E3E1DAA82F700EDA099 /* Kenia-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kenia-Regular.ttf"; sourceTree = "<group>"; };
-		C9567E3F1DAA82F700EDA099 /* Shojumaru-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Shojumaru-Regular.ttf"; sourceTree = "<group>"; };
-		C9567E421DAB2CD600EDA099 /* ATUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATUtility.swift; sourceTree = "<group>"; };
-		C9AEAEAB1DABAB4100857DD6 /* GIFShareBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFShareBar.swift; sourceTree = "<group>"; };
-		C9AEAEAE1DAC820A00857DD6 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
-		C9AEAEB31DAC8E7400857DD6 /* FontAwesome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesome.swift; sourceTree = "<group>"; };
-		C9AEAEB71DADDD4C00857DD6 /* DebugLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugLog.swift; sourceTree = "<group>"; };
-		C9AEAEB91DADFB7C00857DD6 /* GIFInfoLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFInfoLabel.swift; sourceTree = "<group>"; };
-		C9AEAEBE1DAE9D1800857DD6 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
-		C9AEAEC01DAF297900857DD6 /* AccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
-		C9AEAEC21DAF6CD400857DD6 /* ATAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATAlert.swift; sourceTree = "<group>"; };
+		C9F860861DBD027E006B1221 /* notGIFMessage.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = notGIFMessage.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9F860871DBD027E006B1221 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		C9F8608A1DBD027E006B1221 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		C9F8608D1DBD027E006B1221 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		C9F8608F1DBD027E006B1221 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C9F860911DBD027E006B1221 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9F861511DBD0B1C006B1221 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
+		C9F861521DBD0B1C006B1221 /* Kenia-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kenia-Regular.ttf"; sourceTree = "<group>"; };
+		C9F861531DBD0B1C006B1221 /* Shojumaru-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Shojumaru-Regular.ttf"; sourceTree = "<group>"; };
+		C9F861551DBD0B1C006B1221 /* NotGIFImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotGIFImage.swift; sourceTree = "<group>"; };
+		C9F861561DBD0B1C006B1221 /* NotGIFImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotGIFImageView.swift; sourceTree = "<group>"; };
+		C9F861571DBD0B1C006B1221 /* NotGIFLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotGIFLibrary.swift; sourceTree = "<group>"; };
+		C9F8615A1DBD0B1C006B1221 /* ATUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATUtility.swift; sourceTree = "<group>"; };
+		C9F8615B1DBD0B1C006B1221 /* DebugLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugLog.swift; sourceTree = "<group>"; };
+		C9F861711DBD0BBA006B1221 /* ATAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATAlert.swift; sourceTree = "<group>"; };
+		C9F861721DBD0BBA006B1221 /* FontAwesome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesome.swift; sourceTree = "<group>"; };
+		C9F861781DBD0BD6006B1221 /* AccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
+		C9F861791DBD0BD6006B1221 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		C9F8617A1DBD0BD6006B1221 /* GIFDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFDetailViewController.swift; sourceTree = "<group>"; };
+		C9F8617B1DBD0BD6006B1221 /* GIFListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFListViewController.swift; sourceTree = "<group>"; };
+		C9F8617D1DBD0BD6006B1221 /* OpenShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenShare.swift; sourceTree = "<group>"; };
+		C9F8617E1DBD0BD6006B1221 /* SLRequestManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLRequestManger.swift; sourceTree = "<group>"; };
+		C9F861801DBD0BD6006B1221 /* FPSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPSLabel.swift; sourceTree = "<group>"; };
+		C9F861811DBD0BD6006B1221 /* GIFDetailViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFDetailViewCell.swift; sourceTree = "<group>"; };
+		C9F861821DBD0BD6006B1221 /* GIFInfoLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFInfoLabel.swift; sourceTree = "<group>"; };
+		C9F861841DBD0BD6006B1221 /* GIFLisViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFLisViewCell.swift; sourceTree = "<group>"; };
+		C9F861851DBD0BD6006B1221 /* GIFShareBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFShareBar.swift; sourceTree = "<group>"; };
+		C9F861861DBD0BD6006B1221 /* StatusBarLoadingLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarLoadingLayer.swift; sourceTree = "<group>"; };
+		C9F861871DBD0BD6006B1221 /* StatusBarToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarToast.swift; sourceTree = "<group>"; };
+		C9F8619F1DBD0D22006B1221 /* GIFListLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFListLayout.swift; sourceTree = "<group>"; };
+		C9F861A81DBD1046006B1221 /* GIFLisViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GIFLisViewCell.swift; path = View/GIFLisViewCell.swift; sourceTree = "<group>"; };
+		C9F861AA1DBD104F006B1221 /* GIFListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GIFListViewController.swift; path = ViewController/GIFListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,27 +131,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6489894CDB7CC2C39F1B825 /* Pods_notGIF.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9F860831DBD027E006B1221 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9F860881DBD027E006B1221 /* Messages.framework in Frameworks */,
+				D0059755BF0A4A8ED99FB80E /* Pods_notGIFMessage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C92EE78A1DB3150F002B084C /* Toast */ = {
+		2C34D67C976F2BA279457C9E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C92EE7961DB4B5CD002B084C /* StatusBarLoadingLayer.swift */,
-				C92EE7971DB4B5CD002B084C /* StatusBarToast.swift */,
+				B7989C9163A7614ED2EDFD44 /* Pods_notGIF.framework */,
+				C9F860871DBD027E006B1221 /* Messages.framework */,
+				77787802832EB1AFAF109C0C /* Pods_notGIFMessage.framework */,
 			);
-			name = Toast;
-			path = ../Util;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C947E0831DAA279900625B72 = {
 			isa = PBXGroup;
 			children = (
+				C9F8614F1DBD0B1C006B1221 /* Universal */,
 				C947E08E1DAA279900625B72 /* notGIF */,
+				C9F860891DBD027E006B1221 /* notGIFMessage */,
 				C947E08D1DAA279900625B72 /* Products */,
+				E3EA69F66433BE76AC6DA675 /* Pods */,
+				2C34D67C976F2BA279457C9E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				C947E08C1DAA279900625B72 /* notGIF.app */,
+				C9F860861DBD027E006B1221 /* notGIFMessage.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -111,10 +182,9 @@
 			isa = PBXGroup;
 			children = (
 				C947E08F1DAA279900625B72 /* AppDelegate.swift */,
-				C947E0AF1DAA2ABA00625B72 /* Controllers */,
-				C9567E2D1DAA3E7700EDA099 /* Views */,
-				C9AEAEBB1DADFC9D00857DD6 /* Service */,
-				C947E0AA1DAA2A5800625B72 /* Util */,
+				C9F861771DBD0BD6006B1221 /* Controllers */,
+				C9F8617C1DBD0BD6006B1221 /* Service */,
+				C9F8617F1DBD0BD6006B1221 /* Views */,
 				C947E0A11DAA27B000625B72 /* Supporthings */,
 			);
 			path = notGIF;
@@ -123,7 +193,6 @@
 		C947E0A11DAA27B000625B72 /* Supporthings */ = {
 			isa = PBXGroup;
 			children = (
-				C9567E3D1DAA82F700EDA099 /* Fonts */,
 				C947E0981DAA279900625B72 /* LaunchScreen.storyboard */,
 				C947E0961DAA279900625B72 /* Assets.xcassets */,
 				C947E09B1DAA279900625B72 /* Info.plist */,
@@ -131,120 +200,152 @@
 			name = Supporthings;
 			sourceTree = "<group>";
 		};
-		C947E0AA1DAA2A5800625B72 /* Util */ = {
+		C9F860891DBD027E006B1221 /* notGIFMessage */ = {
 			isa = PBXGroup;
 			children = (
-				C9AEAEB21DAC8B9100857DD6 /* FontAwesome */,
-				C9AEAE871DAB8C8000857DD6 /* GIF */,
-				C9AEAE861DAB8C7600857DD6 /* Common */,
+				C9F8608A1DBD027E006B1221 /* MessagesViewController.swift */,
+				C9F861AA1DBD104F006B1221 /* GIFListViewController.swift */,
+				C9F861A81DBD1046006B1221 /* GIFLisViewCell.swift */,
+				C9F8614E1DBD0ABC006B1221 /* Supporthings */,
 			);
-			name = Util;
-			path = notGIF/Util;
-			sourceTree = SOURCE_ROOT;
-		};
-		C947E0AF1DAA2ABA00625B72 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				C947E0B01DAA2ABA00625B72 /* GIFListViewController.swift */,
-				C9567E321DAA480400EDA099 /* GIFDetailViewController.swift */,
-				C9AEAEBC1DAE9C6A00857DD6 /* Compose */,
-			);
-			path = Controllers;
+			path = notGIFMessage;
 			sourceTree = "<group>";
 		};
-		C9567E2D1DAA3E7700EDA099 /* Views */ = {
+		C9F8614E1DBD0ABC006B1221 /* Supporthings */ = {
 			isa = PBXGroup;
 			children = (
-				C9AEAEB61DADD62500857DD6 /* GIFList */,
-				C9AEAEB51DADD60A00857DD6 /* GIFDetail */,
-				C9AEAE881DAB8C9300857DD6 /* Common */,
+				C9F860911DBD027E006B1221 /* Info.plist */,
+				C9F8608F1DBD027E006B1221 /* Assets.xcassets */,
+				C9F8608C1DBD027E006B1221 /* MainInterface.storyboard */,
 			);
-			path = Views;
+			name = Supporthings;
 			sourceTree = "<group>";
 		};
-		C9567E3D1DAA82F700EDA099 /* Fonts */ = {
+		C9F8614F1DBD0B1C006B1221 /* Universal */ = {
 			isa = PBXGroup;
 			children = (
-				C9AEAEAE1DAC820A00857DD6 /* FontAwesome.otf */,
-				C9567E3E1DAA82F700EDA099 /* Kenia-Regular.ttf */,
-				C9567E3F1DAA82F700EDA099 /* Shojumaru-Regular.ttf */,
+				C9F861541DBD0B1C006B1221 /* GIF */,
+				C9F861581DBD0B1C006B1221 /* Util */,
+				C9F8619E1DBD0D22006B1221 /* Layout */,
+				C9F861501DBD0B1C006B1221 /* Fonts */,
+			);
+			path = Universal;
+			sourceTree = "<group>";
+		};
+		C9F861501DBD0B1C006B1221 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C9F861511DBD0B1C006B1221 /* FontAwesome.otf */,
+				C9F861521DBD0B1C006B1221 /* Kenia-Regular.ttf */,
+				C9F861531DBD0B1C006B1221 /* Shojumaru-Regular.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		C9AEAE861DAB8C7600857DD6 /* Common */ = {
+		C9F861541DBD0B1C006B1221 /* GIF */ = {
 			isa = PBXGroup;
 			children = (
-				C92EE78F1DB39E6C002B084C /* Reachability.swift */,
-				C9567E421DAB2CD600EDA099 /* ATUtility.swift */,
-				C9AEAEC21DAF6CD400857DD6 /* ATAlert.swift */,
-				C9AEAEB71DADDD4C00857DD6 /* DebugLog.swift */,
+				C9F861551DBD0B1C006B1221 /* NotGIFImage.swift */,
+				C9F861561DBD0B1C006B1221 /* NotGIFImageView.swift */,
+				C9F861571DBD0B1C006B1221 /* NotGIFLibrary.swift */,
 			);
-			name = Common;
+			path = GIF;
 			sourceTree = "<group>";
 		};
-		C9AEAE871DAB8C8000857DD6 /* GIF */ = {
+		C9F861581DBD0B1C006B1221 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				C947E0AB1DAA2AA200625B72 /* NotGIFImage.swift */,
-				C947E0AC1DAA2AA200625B72 /* NotGIFImageView.swift */,
+				C9F861711DBD0BBA006B1221 /* ATAlert.swift */,
+				C9F8615A1DBD0B1C006B1221 /* ATUtility.swift */,
+				C9F8615B1DBD0B1C006B1221 /* DebugLog.swift */,
+				C9F861721DBD0BBA006B1221 /* FontAwesome.swift */,
 			);
-			name = GIF;
+			path = Util;
 			sourceTree = "<group>";
 		};
-		C9AEAE881DAB8C9300857DD6 /* Common */ = {
+		C9F861771DBD0BD6006B1221 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C92EE78A1DB3150F002B084C /* Toast */,
-				C9567E301DAA3EC700EDA099 /* FPSLabel.swift */,
+				C9F8617B1DBD0BD6006B1221 /* GIFListViewController.swift */,
+				C9F8617A1DBD0BD6006B1221 /* GIFDetailViewController.swift */,
+				C9F861961DBD0BE0006B1221 /* Compose */,
 			);
-			name = Common;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		C9AEAEB21DAC8B9100857DD6 /* FontAwesome */ = {
+		C9F8617C1DBD0BD6006B1221 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				C9AEAEB31DAC8E7400857DD6 /* FontAwesome.swift */,
+				C9F8617D1DBD0BD6006B1221 /* OpenShare.swift */,
+				C9F8617E1DBD0BD6006B1221 /* SLRequestManger.swift */,
 			);
-			name = FontAwesome;
+			path = Service;
 			sourceTree = "<group>";
 		};
-		C9AEAEB51DADD60A00857DD6 /* GIFDetail */ = {
+		C9F8617F1DBD0BD6006B1221 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C9567E341DAA482100EDA099 /* GIFDetailViewCell.swift */,
-				C9AEAEAB1DABAB4100857DD6 /* GIFShareBar.swift */,
-				C9AEAEB91DADFB7C00857DD6 /* GIFInfoLabel.swift */,
+				C9F861981DBD0C13006B1221 /* List */,
+				C9F861971DBD0BFA006B1221 /* Detail */,
+				C9F861991DBD0C2E006B1221 /* Toast */,
 			);
-			name = GIFDetail;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		C9AEAEB61DADD62500857DD6 /* GIFList */ = {
+		C9F861961DBD0BE0006B1221 /* Compose */ = {
 			isa = PBXGroup;
 			children = (
-				C9567E2E1DAA3E7700EDA099 /* GIFLisViewCell.swift */,
-				C947E0B31DAA2B1400625B72 /* GIFListLayout.swift */,
-			);
-			name = GIFList;
-			sourceTree = "<group>";
-		};
-		C9AEAEBB1DADFC9D00857DD6 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				C947E0B71DAA2F1500625B72 /* NotGIFLibrary.swift */,
-				C92EE7801DB1F66E002B084C /* SLRequestManger.swift */,
-				C92EE7881DB310D5002B084C /* OpenShare.swift */,
-			);
-			name = Service;
-			sourceTree = "<group>";
-		};
-		C9AEAEBC1DAE9C6A00857DD6 /* Compose */ = {
-			isa = PBXGroup;
-			children = (
-				C9AEAEBE1DAE9D1800857DD6 /* ComposeViewController.swift */,
-				C9AEAEC01DAF297900857DD6 /* AccountTableViewController.swift */,
+				C9F861781DBD0BD6006B1221 /* AccountTableViewController.swift */,
+				C9F861791DBD0BD6006B1221 /* ComposeViewController.swift */,
 			);
 			name = Compose;
+			sourceTree = "<group>";
+		};
+		C9F861971DBD0BFA006B1221 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				C9F861811DBD0BD6006B1221 /* GIFDetailViewCell.swift */,
+				C9F861821DBD0BD6006B1221 /* GIFInfoLabel.swift */,
+				C9F861851DBD0BD6006B1221 /* GIFShareBar.swift */,
+			);
+			name = Detail;
+			sourceTree = "<group>";
+		};
+		C9F861981DBD0C13006B1221 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				C9F861841DBD0BD6006B1221 /* GIFLisViewCell.swift */,
+			);
+			name = List;
+			sourceTree = "<group>";
+		};
+		C9F861991DBD0C2E006B1221 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				C9F861861DBD0BD6006B1221 /* StatusBarLoadingLayer.swift */,
+				C9F861871DBD0BD6006B1221 /* StatusBarToast.swift */,
+				C9F861801DBD0BD6006B1221 /* FPSLabel.swift */,
+			);
+			name = Toast;
+			sourceTree = "<group>";
+		};
+		C9F8619E1DBD0D22006B1221 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				C9F8619F1DBD0D22006B1221 /* GIFListLayout.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		E3EA69F66433BE76AC6DA675 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				99390F0FC548DA7E562C6B7B /* Pods-notGIF.debug.xcconfig */,
+				5E83B6C1B2758C67408FBD2A /* Pods-notGIF.release.xcconfig */,
+				117F574B007756B6F4EC37EA /* Pods-notGIFMessage.debug.xcconfig */,
+				25FEBD5B3FC0320DFA349F80 /* Pods-notGIFMessage.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,18 +355,42 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C947E09E1DAA279900625B72 /* Build configuration list for PBXNativeTarget "notGIF" */;
 			buildPhases = (
+				4882ECE8F0EECDB6276DFF14 /* [CP] Check Pods Manifest.lock */,
 				C947E0881DAA279900625B72 /* Sources */,
 				C947E0891DAA279900625B72 /* Frameworks */,
 				C947E08A1DAA279900625B72 /* Resources */,
+				C8E6FC6FAA8B3E9D33FB6B8A /* [CP] Embed Pods Frameworks */,
+				A571311E5F498C2FF2121862 /* [CP] Copy Pods Resources */,
+				C9F860981DBD027E006B1221 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C9F860931DBD027E006B1221 /* PBXTargetDependency */,
 			);
 			name = notGIF;
 			productName = notGIF;
 			productReference = C947E08C1DAA279900625B72 /* notGIF.app */;
 			productType = "com.apple.product-type.application";
+		};
+		C9F860851DBD027E006B1221 /* notGIFMessage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9F860951DBD027E006B1221 /* Build configuration list for PBXNativeTarget "notGIFMessage" */;
+			buildPhases = (
+				5883E66A575480AA086CEF38 /* [CP] Check Pods Manifest.lock */,
+				C9F860821DBD027E006B1221 /* Sources */,
+				C9F860831DBD027E006B1221 /* Frameworks */,
+				C9F860841DBD027E006B1221 /* Resources */,
+				5E8761DBC5466D5B7885BFA6 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = notGIFMessage;
+			productName = notGIFMessage;
+			productReference = C9F860861DBD027E006B1221 /* notGIFMessage.appex */;
+			productType = "com.apple.product-type.app-extension.messages";
 		};
 /* End PBXNativeTarget section */
 
@@ -278,6 +403,11 @@
 				ORGANIZATIONNAME = xyz;
 				TargetAttributes = {
 					C947E08B1DAA279900625B72 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = HBGHZ85ABK;
+						ProvisioningStyle = Automatic;
+					};
+					C9F860851DBD027E006B1221 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = HBGHZ85ABK;
 						ProvisioningStyle = Automatic;
@@ -298,6 +428,7 @@
 			projectRoot = "";
 			targets = (
 				C947E08B1DAA279900625B72 /* notGIF */,
+				C9F860851DBD027E006B1221 /* notGIFMessage */,
 			);
 		};
 /* End PBXProject section */
@@ -307,48 +438,163 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9F8615F1DBD0B1C006B1221 /* Kenia-Regular.ttf in Resources */,
 				C947E09A1DAA279900625B72 /* LaunchScreen.storyboard in Resources */,
-				C9AEAEAF1DAC820A00857DD6 /* FontAwesome.otf in Resources */,
-				C9567E401DAA82F700EDA099 /* Kenia-Regular.ttf in Resources */,
-				C9567E411DAA82F700EDA099 /* Shojumaru-Regular.ttf in Resources */,
 				C947E0971DAA279900625B72 /* Assets.xcassets in Resources */,
+				C9F8615D1DBD0B1C006B1221 /* FontAwesome.otf in Resources */,
+				C9F861611DBD0B1C006B1221 /* Shojumaru-Regular.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9F860841DBD027E006B1221 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9F861601DBD0B1C006B1221 /* Kenia-Regular.ttf in Resources */,
+				C9F860901DBD027E006B1221 /* Assets.xcassets in Resources */,
+				C9F8608E1DBD027E006B1221 /* MainInterface.storyboard in Resources */,
+				C9F8615E1DBD0B1C006B1221 /* FontAwesome.otf in Resources */,
+				C9F861621DBD0B1C006B1221 /* Shojumaru-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4882ECE8F0EECDB6276DFF14 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5883E66A575480AA086CEF38 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5E8761DBC5466D5B7885BFA6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-notGIFMessage/Pods-notGIFMessage-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A571311E5F498C2FF2121862 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-notGIF/Pods-notGIF-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C8E6FC6FAA8B3E9D33FB6B8A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-notGIF/Pods-notGIF-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C947E0881DAA279900625B72 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9567E351DAA482100EDA099 /* GIFDetailViewCell.swift in Sources */,
-				C9567E331DAA480400EDA099 /* GIFDetailViewController.swift in Sources */,
-				C92EE7891DB310D5002B084C /* OpenShare.swift in Sources */,
-				C9AEAEAC1DABAB4100857DD6 /* GIFShareBar.swift in Sources */,
+				C9F861731DBD0BBA006B1221 /* ATAlert.swift in Sources */,
+				C9F861631DBD0B1C006B1221 /* NotGIFImage.swift in Sources */,
+				C9F861A01DBD0D22006B1221 /* GIFListLayout.swift in Sources */,
+				C9F861931DBD0BD6006B1221 /* GIFShareBar.swift in Sources */,
+				C9F8618A1DBD0BD6006B1221 /* GIFDetailViewController.swift in Sources */,
 				C947E0901DAA279900625B72 /* AppDelegate.swift in Sources */,
-				C947E0AE1DAA2AA200625B72 /* NotGIFImageView.swift in Sources */,
-				C92EE7811DB1F66E002B084C /* SLRequestManger.swift in Sources */,
-				C9AEAEC31DAF6CD400857DD6 /* ATAlert.swift in Sources */,
-				C9AEAEB81DADDD4C00857DD6 /* DebugLog.swift in Sources */,
-				C9567E311DAA3EC700EDA099 /* FPSLabel.swift in Sources */,
-				C92EE7991DB4B5CD002B084C /* StatusBarToast.swift in Sources */,
-				C9AEAEC11DAF297900857DD6 /* AccountTableViewController.swift in Sources */,
-				C947E0B11DAA2ABA00625B72 /* GIFListViewController.swift in Sources */,
-				C92EE7981DB4B5CD002B084C /* StatusBarLoadingLayer.swift in Sources */,
-				C9567E2F1DAA3E7700EDA099 /* GIFLisViewCell.swift in Sources */,
-				C947E0B41DAA2B1400625B72 /* GIFListLayout.swift in Sources */,
-				C9AEAEBF1DAE9D1800857DD6 /* ComposeViewController.swift in Sources */,
-				C947E0B81DAA2F1500625B72 /* NotGIFLibrary.swift in Sources */,
-				C947E0AD1DAA2AA200625B72 /* NotGIFImage.swift in Sources */,
-				C92EE7901DB39E6C002B084C /* Reachability.swift in Sources */,
-				C9AEAEB41DAC8E7400857DD6 /* FontAwesome.swift in Sources */,
-				C9567E431DAB2CD600EDA099 /* ATUtility.swift in Sources */,
-				C9AEAEBA1DADFB7C00857DD6 /* GIFInfoLabel.swift in Sources */,
+				C9F8616D1DBD0B1C006B1221 /* DebugLog.swift in Sources */,
+				C9F8618E1DBD0BD6006B1221 /* FPSLabel.swift in Sources */,
+				C9F861941DBD0BD6006B1221 /* StatusBarLoadingLayer.swift in Sources */,
+				C9F8618F1DBD0BD6006B1221 /* GIFDetailViewCell.swift in Sources */,
+				C9F861751DBD0BBA006B1221 /* FontAwesome.swift in Sources */,
+				C9F8618D1DBD0BD6006B1221 /* SLRequestManger.swift in Sources */,
+				C9F861891DBD0BD6006B1221 /* ComposeViewController.swift in Sources */,
+				C9F8618B1DBD0BD6006B1221 /* GIFListViewController.swift in Sources */,
+				C9F861921DBD0BD6006B1221 /* GIFLisViewCell.swift in Sources */,
+				C9F861901DBD0BD6006B1221 /* GIFInfoLabel.swift in Sources */,
+				C9F861671DBD0B1C006B1221 /* NotGIFLibrary.swift in Sources */,
+				C9F861651DBD0B1C006B1221 /* NotGIFImageView.swift in Sources */,
+				C9F8618C1DBD0BD6006B1221 /* OpenShare.swift in Sources */,
+				C9F8616B1DBD0B1C006B1221 /* ATUtility.swift in Sources */,
+				C9F861881DBD0BD6006B1221 /* AccountTableViewController.swift in Sources */,
+				C9F861951DBD0BD6006B1221 /* StatusBarToast.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9F860821DBD027E006B1221 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9F861A91DBD1046006B1221 /* GIFLisViewCell.swift in Sources */,
+				C9F861741DBD0BBA006B1221 /* ATAlert.swift in Sources */,
+				C9F861641DBD0B1C006B1221 /* NotGIFImage.swift in Sources */,
+				C9F8608B1DBD027E006B1221 /* MessagesViewController.swift in Sources */,
+				C9F8616E1DBD0B1C006B1221 /* DebugLog.swift in Sources */,
+				C9F861A11DBD0D22006B1221 /* GIFListLayout.swift in Sources */,
+				C9F861761DBD0BBA006B1221 /* FontAwesome.swift in Sources */,
+				C9F861681DBD0B1C006B1221 /* NotGIFLibrary.swift in Sources */,
+				C9F861661DBD0B1C006B1221 /* NotGIFImageView.swift in Sources */,
+				C9F861AB1DBD104F006B1221 /* GIFListViewController.swift in Sources */,
+				C9F8616C1DBD0B1C006B1221 /* ATUtility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C9F860931DBD027E006B1221 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C9F860851DBD027E006B1221 /* notGIFMessage */;
+			targetProxy = C9F860921DBD027E006B1221 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C947E0981DAA279900625B72 /* LaunchScreen.storyboard */ = {
@@ -357,6 +603,14 @@
 				C947E0991DAA279900625B72 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C9F8608C1DBD027E006B1221 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C9F8608D1DBD027E006B1221 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -455,7 +709,9 @@
 		};
 		C947E09F1DAA279900625B72 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99390F0FC548DA7E562C6B7B /* Pods-notGIF.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_SUSPICIOUS_MOVES = NO;
 				DEVELOPMENT_TEAM = HBGHZ85ABK;
@@ -471,7 +727,9 @@
 		};
 		C947E0A01DAA279900625B72 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E83B6C1B2758C67408FBD2A /* Pods-notGIF.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = HBGHZ85ABK;
 				INFOPLIST_FILE = notGIF/Info.plist;
@@ -479,6 +737,38 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = atuo.notGIF;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		C9F860961DBD027E006B1221 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 117F574B007756B6F4EC37EA /* Pods-notGIFMessage.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEVELOPMENT_TEAM = HBGHZ85ABK;
+				INFOPLIST_FILE = notGIFMessage/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = atuo.notGIF.notGIFMessage;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		C9F860971DBD027E006B1221 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25FEBD5B3FC0320DFA349F80 /* Pods-notGIFMessage.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				DEVELOPMENT_TEAM = HBGHZ85ABK;
+				INFOPLIST_FILE = notGIFMessage/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = atuo.notGIF.notGIFMessage;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -500,6 +790,15 @@
 			buildConfigurations = (
 				C947E09F1DAA279900625B72 /* Debug */,
 				C947E0A01DAA279900625B72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9F860951DBD027E006B1221 /* Build configuration list for PBXNativeTarget "notGIFMessage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9F860961DBD027E006B1221 /* Debug */,
+				C9F860971DBD027E006B1221 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

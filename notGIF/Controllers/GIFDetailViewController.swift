@@ -7,8 +7,9 @@
 //
 
 import UIKit
-import MobileCoreServices
 import MessageUI
+import ReachabilitySwift
+import MobileCoreServices
 
 private let cellID = "GIFDetailViewCell"
 private let tmpInfo = "xx Frames\nxx s / xxx"
@@ -62,12 +63,17 @@ class GIFDetailViewController: UIViewController {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
+        collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionView.register(GIFDetailViewCell.self, forCellWithReuseIdentifier: cellID)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.isPagingEnabled = true
         collectionView.delegate = self
         collectionView.dataSource = self
         view.addSubview(collectionView)
+        
+        collectionView.snp.makeConstraints { make in
+            make.edges.equalTo(view)
+        }
                 
         collectionView.scrollToItem(at: IndexPath(item: currentIndex, section: 0), at: .left, animated: false)
     }

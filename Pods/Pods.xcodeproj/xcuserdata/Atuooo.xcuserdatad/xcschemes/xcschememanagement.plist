@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-notGIF.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-notGIFMessage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ReachabilitySwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SnapKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>16C901065FD6FEEFD5750667F72EBF98</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>69033CF38ED298C16295E7AAC0E40780</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BD12977EF8CFF69DEF137DDD4B6DEA73</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C306EFB6514D494B0BD0AD6D3436F677</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

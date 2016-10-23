@@ -9,10 +9,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>notGIFMessage.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>C947E08B1DAA279900625B72</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C9F860851DBD027E006B1221</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -50,6 +50,7 @@ class NotGIFLibrary: NSObject {
                 sSelf.gifAssets.append(asset)
             }
         }
+        
         return self
     }
     
