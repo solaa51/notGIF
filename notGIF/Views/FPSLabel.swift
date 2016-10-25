@@ -20,7 +20,7 @@ class FPSLabel: UILabel {
         super.didMoveToSuperview()
         
         guard let superView = superview else { return }
-        frame = CGRect(x: 20, y: superView.bounds.height - 40, width: 55, height: 20)
+        frame = CGRect(x: 20, y: superView.bounds.height - 64 - 40, width: 55, height: 20)
         
         layer.cornerRadius = 5
         clipsToBounds = true

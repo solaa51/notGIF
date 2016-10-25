@@ -26,9 +26,9 @@ final class SLRequestManager {
         
         StatusBarToast.shared.show(info: .continue(message: "sending  ", shouldLoading: true))
         
-        PHImageManager.requestGIFData(for: asset) { (data, UTI) in
+        PHImageManager.requestGIFData(for: asset) { data in
         
-            if let gifData = data, let uti = UTI, UTTypeConformsTo(uti as CFString, kUTTypeGIF) {
+            if let gifData = data {
                 
                 switch account.accountType.identifier {
                     

@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 private let cellID = "GIFListViewCell"
 
 class GIFListViewController: UIViewController {
-    fileprivate var gifLibrary: NotGIFLibrary!
+    fileprivate let gifLibrary = NotGIFLibrary.shared
     fileprivate var collectionView: UICollectionView!
     
     fileprivate var titleLabel: UILabel = {
@@ -39,15 +40,14 @@ class GIFListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        gifLibrary.observer = self
         
         navigationItem.title = ""
+        edgesForExtendedLayout = []
         navigationItem.titleView = titleLabel
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .pause, target: self, action: #selector(autoplayItemClicked))
         navigationItem.rightBarButtonItem?.tintColor = .gray
         
-        gifLibrary = NotGIFLibrary.shared.getGIFLibrary()
-        gifLibrary.observer = self
-            
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: GIFListLayout(delegate: self))
         collectionView.register(GIFListViewCell.self, forCellWithReuseIdentifier: cellID)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -59,13 +59,18 @@ class GIFListViewController: UIViewController {
             make.edges.equalTo(view)
         }
         
+        MBProgressHUD.showAdded(to: navigationController!.view, with: "fetching GIFs...",  progressHandler: {
+            self.gifLibrary.prepare()
+        }, completion: {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        })
+        
+        collectionView.decelerationRate = UIScrollViewDecelerationRateNormal
         #if DEBUG
             view.addSubview(FPSLabel())
         #endif
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
     }
     
     override func viewDidAppear(_ animated: Bool) {

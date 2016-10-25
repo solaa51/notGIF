@@ -10,6 +10,6 @@ import Foundation
 
 func println(_ item: @autoclosure () -> Any) {
     #if DEBUG
-        print("^ \(item())")
+        print("\n^ \(item())")
     #endif
 }

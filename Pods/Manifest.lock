@@ -1,15 +1,18 @@
 PODS:
+  - MBProgressHUD (1.0.0)
   - ReachabilitySwift (3)
   - SnapKit (3.0.2)
 
 DEPENDENCIES:
+  - MBProgressHUD
   - ReachabilitySwift
   - SnapKit
 
 SPEC CHECKSUMS:
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
 
-PODFILE CHECKSUM: 3a06ee483fd11a90cd046db26efefa1838d9875b
+PODFILE CHECKSUM: 617fea39ee0c0a52d7bf22db9ecc89e88cc6e1f1
 
 COCOAPODS: 1.1.0.beta.2

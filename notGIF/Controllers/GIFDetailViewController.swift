@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import MBProgressHUD
 import ReachabilitySwift
 import MobileCoreServices
 
@@ -17,7 +18,7 @@ private let tmpInfo = "xx Frames\nxx s / xxx"
 class GIFDetailViewController: UIViewController {
     var currentIndex: Int!
 
-    fileprivate var gifLibrary: NotGIFLibrary!
+    fileprivate var gifLibrary = NotGIFLibrary.shared
     fileprivate var infoLabel: GIFInfoLabel!
     fileprivate var collectionView: UICollectionView!
 
@@ -36,11 +37,11 @@ class GIFDetailViewController: UIViewController {
         return bar
     }()
     
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        gifLibrary = NotGIFLibrary.shared
         makeUI()
     }
     
@@ -70,16 +71,20 @@ class GIFDetailViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         view.addSubview(collectionView)
+        collectionView.reloadData()
         
         collectionView.snp.makeConstraints { make in
             make.edges.equalTo(view)
         }
-                
-        collectionView.scrollToItem(at: IndexPath(item: currentIndex, section: 0), at: .left, animated: false)
     }
     
     deinit {
-        println(" deinit GIFDetailViewController ") 
+        println(" deinit GIFDetailViewController ")
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        collectionView.scrollToItem(at: IndexPath(item: currentIndex, section: 0), at: .left, animated: false)
     }
     
     func updateUI() {
@@ -127,33 +132,46 @@ class GIFDetailViewController: UIViewController {
             }
             
         case .more:
-            NotGIFLibrary.shared.requestGIFData(at: currentIndex, doneHandler: { data, UTI in
-                if let gifData = data, let uti = UTI, UTTypeConformsTo(uti as CFString, kUTTypeGIF) {
+            
+            MBProgressHUD.showAdded(to: view, with: "Preparing")
+
+            NotGIFLibrary.shared.requestGIFData(at: currentIndex) { data in
+                if let gifData = data {
                     let activityVC = UIActivityViewController(activityItems: [gifData], applicationActivities: nil)
                     DispatchQueue.main.async {
                         self.present(activityVC, animated: true, completion: nil)
+                        MBProgressHUD.hide(for: self.view, animated: true)
                     }
                 } else {
+                    MBProgressHUD.hide(for: self.view, animated: true)
                     StatusBarToast.shared.show(info: .once(message: "unavailable data, try again", succeed: false))
                 }
-            })
-            
+            }
+
         case .message:
             
             if MFMessageComposeViewController.canSendAttachments() &&
                 MFMessageComposeViewController.isSupportedAttachmentUTI(kUTTypeGIF as String) {
                 
-                NotGIFLibrary.shared.requestGIFData(at: currentIndex, doneHandler: { data, UTI in
-                    if let gifData = data, let uti = UTI, UTTypeConformsTo(uti as CFString, kUTTypeGIF) {
+                MBProgressHUD.showAdded(to: view, with: "Prepareing")
+                
+                NotGIFLibrary.shared.requestGIFData(at: currentIndex) { data in
+                    
+                    if let gifData = data {
                         
                         let messageVC = MFMessageComposeViewController()
                         messageVC.messageComposeDelegate = self
                         messageVC.addAttachmentData(gifData, typeIdentifier: kUTTypeGIF as String, filename: "not.gif")
                         DispatchQueue.main.async {
                             self.present(messageVC, animated: true, completion: nil)
+                            MBProgressHUD.hide(for: self.view, animated: true)
                         }
+                        
+                    } else {
+                        MBProgressHUD.hide(for: self.view, animated: true)
+                        StatusBarToast.shared.show(info: .once(message: "unavailable data, try again", succeed: false))
                     }
-                })
+                }
             }
         }
     }

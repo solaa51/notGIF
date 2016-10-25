@@ -8,6 +8,7 @@
 
 import UIKit
 import Photos
+import MBProgressHUD
 
 private let cellID = "GIFListViewCell"
 
@@ -18,7 +19,7 @@ protocol GIFListViewControllerDelegate: class {
 class GIFListViewController: UIViewController {
     weak var delegate: GIFListViewControllerDelegate?
     
-    fileprivate var gifLibrary: NotGIFLibrary!
+    fileprivate let gifLibrary = NotGIFLibrary.shared
     fileprivate var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -26,9 +27,6 @@ class GIFListViewController: UIViewController {
         
         view.backgroundColor = .bgColor
         
-        gifLibrary = NotGIFLibrary.shared.getGIFLibrary()
-        gifLibrary.observer = self
-            
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: GIFListLayout(delegate: self))
         collectionView.register(GIFListViewCell.self, forCellWithReuseIdentifier: cellID)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -39,6 +37,16 @@ class GIFListViewController: UIViewController {
         collectionView.snp.makeConstraints { make in
             make.edges.equalTo(view)
         }
+        
+        gifLibrary.observer = self
+        
+        MBProgressHUD.showAdded(to: view, with: "fetching GIFs...",  progressHandler: {
+            self.gifLibrary.prepare()
+        }, completion: {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        })
     }
     
     deinit {

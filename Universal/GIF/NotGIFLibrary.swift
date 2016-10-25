@@ -6,9 +6,9 @@
 //  Copyright © 2016 xyz. All rights reserved.
 //
 
-import Foundation
-import ImageIO
 import Photos
+import ImageIO
+import Foundation
 import MobileCoreServices
 
 //typealias NotGIFLibraryChangeResult = (removed: IndexSet, inserted: IndexSet)
@@ -36,22 +36,25 @@ class NotGIFLibrary: NSObject {
         }
     }
     
+    fileprivate var hasFetched = false
     fileprivate var gifPool = [String: NotGIFImage]()
     fileprivate var fetchResult: PHFetchResult<PHAsset>!
     
-    func getGIFLibrary() -> NotGIFLibrary {
-        let fetchOptions = PHFetchOptions()
-        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-        fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
-        
-        fetchResult.enumerateObjects(options: .concurrent) { [weak self] asset, index, shouldStop in
-            guard let sSelf = self else { return }
-            if asset.isGIF {
-                sSelf.gifAssets.append(asset)
+    func prepare() {
+        if !hasFetched {
+            let fetchOptions = PHFetchOptions()
+            fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+            fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+            
+            fetchResult.enumerateObjects(options: .concurrent) { [weak self] asset, index, shouldStop in
+                guard let sSelf = self else { return }
+                if asset.isGIF {
+                    sSelf.gifAssets.append(asset)
+                }
             }
+            
+            hasFetched = true
         }
-        
-        return self
     }
     
     func getDataInfo(at index: Int) -> GIFDataInfo? {
@@ -64,13 +67,10 @@ class NotGIFLibrary: NSObject {
         }
     }
     
-    func requestGIFData(at index: Int, doneHandler: @escaping (Data?, String?) -> Void) {
-        let requestOptions = PHImageRequestOptions()
-        requestOptions.isSynchronous = false
-        requestOptions.version = .original
-        
-        PHImageManager.default().requestImageData(for: gifAssets[index], options: requestOptions) { (data, UTI, orientation, info) in
-            doneHandler(data, UTI)
+    func requestGIFData(at index: Int, resultHandler: @escaping (Data?) -> Void) {
+        let gifAsset = gifAssets[index]
+        PHImageManager.requestGIFData(for: gifAsset) { data in
+            resultHandler(data)
         }
     }
     
@@ -156,13 +156,17 @@ extension PHAsset {
 }
 
 extension PHImageManager {
-    class open func requestGIFData(for asset: PHAsset, resultHandler: @escaping (Data?, String?) -> Void) {
+    class open func requestGIFData(for asset: PHAsset, resultHandler: @escaping (Data?) -> Void) {
         let requestOptions = PHImageRequestOptions()
         requestOptions.isSynchronous = false
         requestOptions.version = .original
         
         PHImageManager.default().requestImageData(for: asset, options: requestOptions) { (data, UTI, orientation, info) in
-            resultHandler(data, UTI)
+            if let gifData = data, let uti = UTI, UTTypeConformsTo(uti as CFString , kUTTypeGIF) {
+                resultHandler(gifData)
+            } else {
+                resultHandler(data)
+            }
         }
     }
 }

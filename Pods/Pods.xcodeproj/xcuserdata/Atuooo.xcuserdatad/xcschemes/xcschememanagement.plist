@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-notGIF.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>16C901065FD6FEEFD5750667F72EBF98</key>
+		<key>10BD90E0185867DE5F346D443C31D0D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>69033CF38ED298C16295E7AAC0E40780</key>
+		<key>2C3A102EA08FE1E0658F274F6FBE870C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BD12977EF8CFF69DEF137DDD4B6DEA73</key>
+		<key>64948BECD3E9975DFF140880014EA44B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C306EFB6514D494B0BD0AD6D3436F677</key>
+		<key>8D9DED6B90765824D226DFD4BD6D73C1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DBA6001481CEA0EBA031CC5C94508FAA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

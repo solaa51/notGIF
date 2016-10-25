@@ -5,6 +5,7 @@ use_frameworks!
 def pods
     pod 'SnapKit'
     pod 'ReachabilitySwift'
+    pod 'MBProgressHUD'
 end
 
 target ‘notGIF’ do
@@ -15,7 +16,7 @@ end
 
 target 'notGIFMessage' do
     
-    pod 'SnapKit'
+    pods
     
 end
 

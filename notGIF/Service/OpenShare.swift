@@ -37,10 +37,9 @@ final class OpenShare {
     
     class func shareGIF(to platform: Platform, with gifInfo: GIFDataInfo) {
         
-        PHImageManager.requestGIFData(for: gifInfo.asset) { (data, UTI) in
+        PHImageManager.requestGIFData(for: gifInfo.asset) { data in
             
-            if let gifData = data, let uti = UTI, UTTypeConformsTo(uti as CFString, kUTTypeGIF),
-                let thumbData = gifInfo.thumbnail.monkeyking_compressedImageData {
+            if let gifData = data, let thumbData = gifInfo.thumbnail.monkeyking_compressedImageData {
 
                 switch platform {
                     

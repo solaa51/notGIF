@@ -52,6 +52,8 @@
 		C9F861A11DBD0D22006B1221 /* GIFListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F8619F1DBD0D22006B1221 /* GIFListLayout.swift */; };
 		C9F861A91DBD1046006B1221 /* GIFLisViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861A81DBD1046006B1221 /* GIFLisViewCell.swift */; };
 		C9F861AB1DBD104F006B1221 /* GIFListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861AA1DBD104F006B1221 /* GIFListViewController.swift */; };
+		C9F861AF1DBF98F2006B1221 /* MBHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861AE1DBF98F2006B1221 /* MBHUD.swift */; };
+		C9F861B01DBF98F2006B1221 /* MBHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861AE1DBF98F2006B1221 /* MBHUD.swift */; };
 		D0059755BF0A4A8ED99FB80E /* Pods_notGIFMessage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77787802832EB1AFAF109C0C /* Pods_notGIFMessage.framework */; };
 		F6489894CDB7CC2C39F1B825 /* Pods_notGIF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7989C9163A7614ED2EDFD44 /* Pods_notGIF.framework */; };
 /* End PBXBuildFile section */
@@ -124,6 +126,7 @@
 		C9F8619F1DBD0D22006B1221 /* GIFListLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFListLayout.swift; sourceTree = "<group>"; };
 		C9F861A81DBD1046006B1221 /* GIFLisViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GIFLisViewCell.swift; path = View/GIFLisViewCell.swift; sourceTree = "<group>"; };
 		C9F861AA1DBD104F006B1221 /* GIFListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GIFListViewController.swift; path = ViewController/GIFListViewController.swift; sourceTree = "<group>"; };
+		C9F861AE1DBF98F2006B1221 /* MBHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBHUD.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,9 +217,9 @@
 		C9F8614E1DBD0ABC006B1221 /* Supporthings */ = {
 			isa = PBXGroup;
 			children = (
-				C9F860911DBD027E006B1221 /* Info.plist */,
-				C9F8608F1DBD027E006B1221 /* Assets.xcassets */,
 				C9F8608C1DBD027E006B1221 /* MainInterface.storyboard */,
+				C9F8608F1DBD027E006B1221 /* Assets.xcassets */,
+				C9F860911DBD027E006B1221 /* Info.plist */,
 			);
 			name = Supporthings;
 			sourceTree = "<group>";
@@ -245,9 +248,9 @@
 		C9F861541DBD0B1C006B1221 /* GIF */ = {
 			isa = PBXGroup;
 			children = (
+				C9F861571DBD0B1C006B1221 /* NotGIFLibrary.swift */,
 				C9F861551DBD0B1C006B1221 /* NotGIFImage.swift */,
 				C9F861561DBD0B1C006B1221 /* NotGIFImageView.swift */,
-				C9F861571DBD0B1C006B1221 /* NotGIFLibrary.swift */,
 			);
 			path = GIF;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 		C9F861581DBD0B1C006B1221 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				C9F861AE1DBF98F2006B1221 /* MBHUD.swift */,
 				C9F861711DBD0BBA006B1221 /* ATAlert.swift */,
 				C9F8615A1DBD0B1C006B1221 /* ATUtility.swift */,
 				C9F8615B1DBD0B1C006B1221 /* DebugLog.swift */,
@@ -554,6 +558,7 @@
 				C9F861941DBD0BD6006B1221 /* StatusBarLoadingLayer.swift in Sources */,
 				C9F8618F1DBD0BD6006B1221 /* GIFDetailViewCell.swift in Sources */,
 				C9F861751DBD0BBA006B1221 /* FontAwesome.swift in Sources */,
+				C9F861AF1DBF98F2006B1221 /* MBHUD.swift in Sources */,
 				C9F8618D1DBD0BD6006B1221 /* SLRequestManger.swift in Sources */,
 				C9F861891DBD0BD6006B1221 /* ComposeViewController.swift in Sources */,
 				C9F8618B1DBD0BD6006B1221 /* GIFListViewController.swift in Sources */,
@@ -578,6 +583,7 @@
 				C9F8608B1DBD027E006B1221 /* MessagesViewController.swift in Sources */,
 				C9F8616E1DBD0B1C006B1221 /* DebugLog.swift in Sources */,
 				C9F861A11DBD0D22006B1221 /* GIFListLayout.swift in Sources */,
+				C9F861B01DBF98F2006B1221 /* MBHUD.swift in Sources */,
 				C9F861761DBD0BBA006B1221 /* FontAwesome.swift in Sources */,
 				C9F861681DBD0B1C006B1221 /* NotGIFLibrary.swift in Sources */,
 				C9F861661DBD0B1C006B1221 /* NotGIFImageView.swift in Sources */,

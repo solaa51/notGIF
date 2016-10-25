@@ -39,9 +39,7 @@ extension MessagesViewController: GIFListViewControllerDelegate {
 
     func sendGIF(with url: URL) {
         guard let conversation = activeConversation else { return }
-        
-        conversation.insertAttachment(url, withAlternateFilename: nil) { error in
-            
+            conversation.insertAttachment(url, withAlternateFilename: nil) { error in
         }
     }
 }
