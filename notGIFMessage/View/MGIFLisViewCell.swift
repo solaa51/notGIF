@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class GIFListViewCell: UICollectionViewCell {
+class MGIFListViewCell: UICollectionViewCell {
     var imageView: NotGIFImageView!
     
     override init(frame: CGRect) {

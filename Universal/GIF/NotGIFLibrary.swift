@@ -28,6 +28,14 @@ class NotGIFLibrary: NSObject {
         return gifAssets.count
     }
     
+    var isEmpty: Bool {
+        return gifAssets.isEmpty
+    }
+    
+    var authorizationStatus: PHAuthorizationStatus {
+        return PHPhotoLibrary.authorizationStatus()
+    }
+    
     subscript(index: Int) -> NotGIFImage? {
         if index >= count {
             return nil
@@ -41,16 +49,20 @@ class NotGIFLibrary: NSObject {
     fileprivate var fetchResult: PHFetchResult<PHAsset>!
     
     func prepare() {
+
         if !hasFetched {
-            let fetchOptions = PHFetchOptions()
-            fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-            fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
             
-            fetchResult.enumerateObjects(options: .concurrent) { [weak self] asset, index, shouldStop in
-                guard let sSelf = self else { return }
-                if asset.isGIF {
-                    sSelf.gifAssets.append(asset)
-                }
+            if authorizationStatus == .authorized {
+                let fetchOptions = PHFetchOptions()
+                fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+                fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+                
+                fetchResult.enumerateObjects({ [weak self] asset, index, shouldStop in
+                    guard let sSelf = self else { return }
+                    if asset.isGIF {
+                        sSelf.gifAssets.append(asset)
+                    }
+                })
             }
             
             hasFetched = true
@@ -109,6 +121,8 @@ extension NotGIFLibrary: PHPhotoLibraryChangeObserver {
     
     func photoLibraryDidChange(_ changeInstance: PHChange) {
         
+        guard fetchResult == nil else { return }
+
         guard let changes = changeInstance.changeDetails(for: fetchResult)
             else { return }
         
@@ -117,14 +131,14 @@ extension NotGIFLibrary: PHPhotoLibraryChangeObserver {
             fetchResult = changes.fetchResultAfterChanges
             let removedGIF = changes.removedObjects.filter { $0.isGIF }
             let insertedGIF = changes.insertedObjects.filter { $0.isGIF }
-
+            
             if !removedGIF.isEmpty || !insertedGIF.isEmpty {    // curt
                 
                 removedGIF.forEach({
                     gifAssets.remove(object: $0)
                     gifPool.removeValue(forKey: $0.localIdentifier)
                 })
-                    
+                
                 insertedGIF.forEach {
                     gifAssets.append($0)
                 }

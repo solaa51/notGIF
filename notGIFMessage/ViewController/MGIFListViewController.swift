@@ -12,12 +12,18 @@ import MBProgressHUD
 
 private let cellID = "GIFListViewCell"
 
-protocol GIFListViewControllerDelegate: class {
+protocol MGIFListViewControllerDelegate: class {
     func sendGIF(with url: URL)
 }
 
-class GIFListViewController: UIViewController {
-    weak var delegate: GIFListViewControllerDelegate?
+class MGIFListViewController: UIViewController {
+    weak var delegate: MGIFListViewControllerDelegate?
+    
+    fileprivate var indicatorView: IndicatorView? {
+        willSet {
+            indicatorView?.removeFromSuperview()
+        }
+    }
     
     fileprivate let gifLibrary = NotGIFLibrary.shared
     fileprivate var collectionView: UICollectionView!
@@ -25,10 +31,9 @@ class GIFListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .bgColor
-        
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: GIFListLayout(delegate: self))
-        collectionView.register(GIFListViewCell.self, forCellWithReuseIdentifier: cellID)
+        collectionView.backgroundColor = .bgColor
+        collectionView.register(MGIFListViewCell.self, forCellWithReuseIdentifier: cellID)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -44,31 +49,51 @@ class GIFListViewController: UIViewController {
             self.gifLibrary.prepare()
         }, completion: {
             DispatchQueue.main.async {
-                self.collectionView.reloadData()
+                self.updateUI()
             }
         })
     }
     
+    func updateUI() {
+        if gifLibrary.authorizationStatus == .authorized {
+            
+            defer {
+                collectionView.reloadData()
+            }
+            
+            if gifLibrary.isEmpty {
+                indicatorView = IndicatorView(for: view, type: .noGIF, isHostApp: false)
+                
+            } else {
+                indicatorView = nil
+            }
+            
+        } else {
+            
+            indicatorView = IndicatorView(for: view, type: .denied, isHostApp: false)
+        }
+    }
+
     deinit {
         gifLibrary.observer = nil
     }
 }
 
 // MARK: - Collection Delegate
-extension GIFListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension MGIFListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return gifLibrary.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! GIFListViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! MGIFListViewCell
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
-        guard let cell = cell as? GIFListViewCell else { return }
+        guard let cell = cell as? MGIFListViewCell else { return }
 
         gifLibrary.getGIFImage(at: indexPath.item) { gif in
             DispatchQueue.main.async {
@@ -89,7 +114,7 @@ extension GIFListViewController: UICollectionViewDelegate, UICollectionViewDataS
 }
 
 // MARK: - GIFLibraryChange Observer
-extension GIFListViewController: NotGIFLibraryChangeObserver {
+extension MGIFListViewController: NotGIFLibraryChangeObserver {
     func gifLibraryDidChange() {
         DispatchQueue.main.async {
             guard let collectionView = self.collectionView else { return }
@@ -99,7 +124,7 @@ extension GIFListViewController: NotGIFLibraryChangeObserver {
 }
 
 // MARK: - GIFListLayout Delegate
-extension GIFListViewController: GIFListLayoutDelegate {
+extension MGIFListViewController: GIFListLayoutDelegate {
     func ratioForImageAtIndexPath(indexPath: IndexPath) -> CGFloat {
         return gifLibrary.gifAssets[indexPath.item].ratio
     }
