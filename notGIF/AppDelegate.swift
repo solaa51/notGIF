@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         let naviationVC = UINavigationController(rootViewController: GIFListViewController())
-        naviationVC.navigationBar.barTintColor = .bgColor
+        naviationVC.navigationBar.barTintColor = .tintBar
         naviationVC.navigationBar.tintColor = .tintColor
         
         window = UIWindow(frame: UIScreen.main.bounds)

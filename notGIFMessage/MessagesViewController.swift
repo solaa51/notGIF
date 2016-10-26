@@ -10,7 +10,7 @@ import UIKit
 import Messages
 
 class MessagesViewController: MSMessagesAppViewController {
-    fileprivate var gifViewControler = GIFListViewController()
+    fileprivate var gifViewControler = MGIFListViewController()
     
     // MARK: - Conversation Handling
     
@@ -35,7 +35,7 @@ class MessagesViewController: MSMessagesAppViewController {
     }
 }
 
-extension MessagesViewController: GIFListViewControllerDelegate {
+extension MessagesViewController: MGIFListViewControllerDelegate {
 
     func sendGIF(with url: URL) {
         guard let conversation = activeConversation else { return }

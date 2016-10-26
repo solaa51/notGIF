@@ -48,12 +48,15 @@
 		C9F861931DBD0BD6006B1221 /* GIFShareBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861851DBD0BD6006B1221 /* GIFShareBar.swift */; };
 		C9F861941DBD0BD6006B1221 /* StatusBarLoadingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861861DBD0BD6006B1221 /* StatusBarLoadingLayer.swift */; };
 		C9F861951DBD0BD6006B1221 /* StatusBarToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861871DBD0BD6006B1221 /* StatusBarToast.swift */; };
-		C9F861A01DBD0D22006B1221 /* GIFListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F8619F1DBD0D22006B1221 /* GIFListLayout.swift */; };
-		C9F861A11DBD0D22006B1221 /* GIFListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F8619F1DBD0D22006B1221 /* GIFListLayout.swift */; };
-		C9F861A91DBD1046006B1221 /* GIFLisViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861A81DBD1046006B1221 /* GIFLisViewCell.swift */; };
-		C9F861AB1DBD104F006B1221 /* GIFListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861AA1DBD104F006B1221 /* GIFListViewController.swift */; };
+		C9F861A91DBD1046006B1221 /* MGIFLisViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861A81DBD1046006B1221 /* MGIFLisViewCell.swift */; };
+		C9F861AB1DBD104F006B1221 /* MGIFListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861AA1DBD104F006B1221 /* MGIFListViewController.swift */; };
 		C9F861AF1DBF98F2006B1221 /* MBHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861AE1DBF98F2006B1221 /* MBHUD.swift */; };
 		C9F861B01DBF98F2006B1221 /* MBHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861AE1DBF98F2006B1221 /* MBHUD.swift */; };
+		C9F861B31DC09503006B1221 /* GIFListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861B21DC09503006B1221 /* GIFListLayout.swift */; };
+		C9F861B41DC09503006B1221 /* GIFListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861B21DC09503006B1221 /* GIFListLayout.swift */; };
+		C9F861B81DC0A0C9006B1221 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C947E0961DAA279900625B72 /* Assets.xcassets */; };
+		C9F861BC1DC0C22B006B1221 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861BB1DC0C22B006B1221 /* IndicatorView.swift */; };
+		C9F861BD1DC0C22B006B1221 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F861BB1DC0C22B006B1221 /* IndicatorView.swift */; };
 		D0059755BF0A4A8ED99FB80E /* Pods_notGIFMessage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77787802832EB1AFAF109C0C /* Pods_notGIFMessage.framework */; };
 		F6489894CDB7CC2C39F1B825 /* Pods_notGIF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7989C9163A7614ED2EDFD44 /* Pods_notGIF.framework */; };
 /* End PBXBuildFile section */
@@ -123,10 +126,11 @@
 		C9F861851DBD0BD6006B1221 /* GIFShareBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFShareBar.swift; sourceTree = "<group>"; };
 		C9F861861DBD0BD6006B1221 /* StatusBarLoadingLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarLoadingLayer.swift; sourceTree = "<group>"; };
 		C9F861871DBD0BD6006B1221 /* StatusBarToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarToast.swift; sourceTree = "<group>"; };
-		C9F8619F1DBD0D22006B1221 /* GIFListLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFListLayout.swift; sourceTree = "<group>"; };
-		C9F861A81DBD1046006B1221 /* GIFLisViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GIFLisViewCell.swift; path = View/GIFLisViewCell.swift; sourceTree = "<group>"; };
-		C9F861AA1DBD104F006B1221 /* GIFListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GIFListViewController.swift; path = ViewController/GIFListViewController.swift; sourceTree = "<group>"; };
+		C9F861A81DBD1046006B1221 /* MGIFLisViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MGIFLisViewCell.swift; path = View/MGIFLisViewCell.swift; sourceTree = "<group>"; };
+		C9F861AA1DBD104F006B1221 /* MGIFListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MGIFListViewController.swift; path = ViewController/MGIFListViewController.swift; sourceTree = "<group>"; };
 		C9F861AE1DBF98F2006B1221 /* MBHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBHUD.swift; sourceTree = "<group>"; };
+		C9F861B21DC09503006B1221 /* GIFListLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFListLayout.swift; sourceTree = "<group>"; };
+		C9F861BB1DC0C22B006B1221 /* IndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,8 +211,8 @@
 			isa = PBXGroup;
 			children = (
 				C9F8608A1DBD027E006B1221 /* MessagesViewController.swift */,
-				C9F861AA1DBD104F006B1221 /* GIFListViewController.swift */,
-				C9F861A81DBD1046006B1221 /* GIFLisViewCell.swift */,
+				C9F861AA1DBD104F006B1221 /* MGIFListViewController.swift */,
+				C9F861A81DBD1046006B1221 /* MGIFLisViewCell.swift */,
 				C9F8614E1DBD0ABC006B1221 /* Supporthings */,
 			);
 			path = notGIFMessage;
@@ -229,7 +233,7 @@
 			children = (
 				C9F861541DBD0B1C006B1221 /* GIF */,
 				C9F861581DBD0B1C006B1221 /* Util */,
-				C9F8619E1DBD0D22006B1221 /* Layout */,
+				C9F861B11DC09503006B1221 /* View */,
 				C9F861501DBD0B1C006B1221 /* Fonts */,
 			);
 			path = Universal;
@@ -333,12 +337,13 @@
 			name = Toast;
 			sourceTree = "<group>";
 		};
-		C9F8619E1DBD0D22006B1221 /* Layout */ = {
+		C9F861B11DC09503006B1221 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C9F8619F1DBD0D22006B1221 /* GIFListLayout.swift */,
+				C9F861B21DC09503006B1221 /* GIFListLayout.swift */,
+				C9F861BB1DC0C22B006B1221 /* IndicatorView.swift */,
 			);
-			path = Layout;
+			path = View;
 			sourceTree = "<group>";
 		};
 		E3EA69F66433BE76AC6DA675 /* Pods */ = {
@@ -458,6 +463,7 @@
 				C9F860901DBD027E006B1221 /* Assets.xcassets in Resources */,
 				C9F8608E1DBD027E006B1221 /* MainInterface.storyboard in Resources */,
 				C9F8615E1DBD0B1C006B1221 /* FontAwesome.otf in Resources */,
+				C9F861B81DC0A0C9006B1221 /* Assets.xcassets in Resources */,
 				C9F861621DBD0B1C006B1221 /* Shojumaru-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -549,7 +555,6 @@
 			files = (
 				C9F861731DBD0BBA006B1221 /* ATAlert.swift in Sources */,
 				C9F861631DBD0B1C006B1221 /* NotGIFImage.swift in Sources */,
-				C9F861A01DBD0D22006B1221 /* GIFListLayout.swift in Sources */,
 				C9F861931DBD0BD6006B1221 /* GIFShareBar.swift in Sources */,
 				C9F8618A1DBD0BD6006B1221 /* GIFDetailViewController.swift in Sources */,
 				C947E0901DAA279900625B72 /* AppDelegate.swift in Sources */,
@@ -569,6 +574,8 @@
 				C9F8618C1DBD0BD6006B1221 /* OpenShare.swift in Sources */,
 				C9F8616B1DBD0B1C006B1221 /* ATUtility.swift in Sources */,
 				C9F861881DBD0BD6006B1221 /* AccountTableViewController.swift in Sources */,
+				C9F861B31DC09503006B1221 /* GIFListLayout.swift in Sources */,
+				C9F861BC1DC0C22B006B1221 /* IndicatorView.swift in Sources */,
 				C9F861951DBD0BD6006B1221 /* StatusBarToast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -577,17 +584,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9F861A91DBD1046006B1221 /* GIFLisViewCell.swift in Sources */,
+				C9F861A91DBD1046006B1221 /* MGIFLisViewCell.swift in Sources */,
 				C9F861741DBD0BBA006B1221 /* ATAlert.swift in Sources */,
 				C9F861641DBD0B1C006B1221 /* NotGIFImage.swift in Sources */,
+				C9F861BD1DC0C22B006B1221 /* IndicatorView.swift in Sources */,
 				C9F8608B1DBD027E006B1221 /* MessagesViewController.swift in Sources */,
 				C9F8616E1DBD0B1C006B1221 /* DebugLog.swift in Sources */,
-				C9F861A11DBD0D22006B1221 /* GIFListLayout.swift in Sources */,
 				C9F861B01DBF98F2006B1221 /* MBHUD.swift in Sources */,
 				C9F861761DBD0BBA006B1221 /* FontAwesome.swift in Sources */,
 				C9F861681DBD0B1C006B1221 /* NotGIFLibrary.swift in Sources */,
+				C9F861B41DC09503006B1221 /* GIFListLayout.swift in Sources */,
 				C9F861661DBD0B1C006B1221 /* NotGIFImageView.swift in Sources */,
-				C9F861AB1DBD104F006B1221 /* GIFListViewController.swift in Sources */,
+				C9F861AB1DBD104F006B1221 /* MGIFListViewController.swift in Sources */,
 				C9F8616C1DBD0B1C006B1221 /* ATUtility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -718,11 +726,17 @@
 			baseConfigurationReference = 99390F0FC548DA7E562C6B7B /* Pods-notGIF.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_SUSPICIOUS_MOVES = NO;
 				DEVELOPMENT_TEAM = HBGHZ85ABK;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					TARGET_IS_HOSTAPP,
+					"COCOAPODS=1",
+				);
 				INFOPLIST_FILE = notGIF/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = atuo.notGIF;
@@ -736,10 +750,16 @@
 			baseConfigurationReference = 5E83B6C1B2758C67408FBD2A /* Pods-notGIF.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = HBGHZ85ABK;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					TARGET_IS_HOSTAPP,
+					"COCOAPODS=1",
+				);
 				INFOPLIST_FILE = notGIF/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = atuo.notGIF;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -751,10 +771,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 117F574B007756B6F4EC37EA /* Pods-notGIFMessage.debug.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				DEVELOPMENT_TEAM = HBGHZ85ABK;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					TARGET_IS_EXTENSION,
+				);
 				INFOPLIST_FILE = notGIFMessage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = atuo.notGIF.notGIFMessage;
@@ -768,9 +795,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 25FEBD5B3FC0320DFA349F80 /* Pods-notGIFMessage.release.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				DEVELOPMENT_TEAM = HBGHZ85ABK;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					TARGET_IS_EXTENSION,
+				);
 				INFOPLIST_FILE = notGIFMessage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = atuo.notGIF.notGIFMessage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
