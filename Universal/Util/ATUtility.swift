@@ -33,7 +33,7 @@ extension UIColor {
     @nonobjc static let tintRed   = UIColor.hex(0xF4511E)
     @nonobjc static let tintBlue  = UIColor.hex(0x039BE5)
     @nonobjc static let tintBar   = UIColor.hex(0x1C1C1C, alpha: 0.5)
-    @nonobjc static let bgColor   = UIColor.hex(0x444444, alpha: 0.5)
+    @nonobjc static let bgColor   = UIColor.hex(0x222222)
     @nonobjc static let tintColor = UIColor.hex(0xFBFBFB, alpha: 0.95)
 
     

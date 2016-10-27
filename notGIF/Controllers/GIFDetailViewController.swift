@@ -65,6 +65,7 @@ class GIFDetailViewController: UIViewController {
         layout.minimumInteritemSpacing = 0
         
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .bgColor
         collectionView.register(GIFDetailViewCell.self, forCellWithReuseIdentifier: cellID)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.isPagingEnabled = true

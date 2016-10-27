@@ -121,7 +121,7 @@ extension NotGIFLibrary: PHPhotoLibraryChangeObserver {
     
     func photoLibraryDidChange(_ changeInstance: PHChange) {
         
-        guard fetchResult == nil else { return }
+        guard fetchResult != nil else { return }
 
         guard let changes = changeInstance.changeDetails(for: fetchResult)
             else { return }
